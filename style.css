@@ -311,7 +311,7 @@ h3 {
 
 .services .section-heading h2 {
     max-width: 850px;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .services .eyebrow {
