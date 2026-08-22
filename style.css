@@ -310,12 +310,21 @@ h3 {
 }
 
 .services .section-heading h2 {
+    border-left: 5px solid #155c9a;
+    padding-left: 22px;
     max-width: 850px;
     color: #ffffff !important;
 }
 
 .services .eyebrow {
-    color: #ffffff;
+    display: inline-block;
+    background: #155c9a;
+    color: #ffffff !important;
+    padding: 8px 14px;
+    margin-bottom: 25px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
 }
 
 .services-grid {
