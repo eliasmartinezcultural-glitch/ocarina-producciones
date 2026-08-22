@@ -1,4 +1,11 @@
-* {
+:root {
+    --negro: #111111;
+    --azul-ocarina: #155c9a;
+    --tierra: #b8ad9b;
+    --beige: #f2efe8;
+    --blanco: #ffffff;
+    --gris: #6f6b63;
+}* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,8 +17,8 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f2efe8;
-    color: #171717;
+    background: var(--beige);
+    color: var(--negro);
     line-height: 1.6;
 }
 
@@ -151,10 +158,9 @@ h3 {
 }
 
 .button-primary {
-    background: #171717;
-    color: white;
+    background: var(--azul-ocarina);
+    color: var(--blanco);
 }
-
 .hero .button-primary {
     background: white;
     color: #171717;
@@ -257,6 +263,7 @@ h3 {
     letter-spacing: 3px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: var(--azul-ocarina);
 }
 
 .production-info p {
@@ -272,6 +279,11 @@ h3 {
 }
 
 .tags span {
+    border: 1px solid var(--azul-ocarina);
+    color: var(--azul-ocarina);
+    padding: 6px 10px;
+    font-size: 11px;
+}
     border: 1px solid #aaa59b;
     padding: 6px 10px;
     font-size: 11px;
@@ -284,7 +296,7 @@ h3 {
 ========================= */
 
 .services {
-    background: #171717;
+    background: var(--negro);
     color: white;
 }
 
@@ -325,7 +337,7 @@ h3 {
 ========================= */
 
 .stories {
-    background: #b8b0a1;
+    background: var(--tierra);
 }
 
 .story-lead {
