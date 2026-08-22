@@ -297,7 +297,8 @@ h3 {
 
 .services {
     background: var(--negro);
-    color: white;
+    color: var(--blanco);
+    width: 100%;
 }
 
 .services-grid {
