@@ -295,41 +295,63 @@ h3 {
    SERVICIOS
 ========================= */
 
+/* =========================
+   SERVICIOS
+========================= */
+
 .services {
-    background: var(--negro);
-    color: var(--blanco);
+    background: #111111;
+    color: #ffffff;
     width: 100%;
+}
+
+.services .section-heading {
+    margin-bottom: 70px;
+}
+
+.services .section-heading h2 {
+    max-width: 850px;
+    color: #ffffff;
+}
+
+.services .eyebrow {
+    color: #ffffff;
 }
 
 .services-grid {
     margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid #555;
-    border-left: 1px solid #555;
+    border-top: 1px solid #444444;
+    border-left: 1px solid #444444;
 }
 
 .service-card {
     min-height: 280px;
     padding: 40px;
-    border-right: 1px solid #555;
-    border-bottom: 1px solid #555;
-    background: var(--negro);
+    background: #111111;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
 }
 
 .service-number {
+    display: block;
     font-size: 12px;
     letter-spacing: 3px;
+    font-weight: 700;
+    color: #155c9a;
 }
 
 .service-card h3 {
     margin-top: 55px;
+    color: #ffffff;
 }
 
 .service-card p {
     margin-top: 18px;
     max-width: 420px;
-    color: #bbb;
+    color: #bbbbbb;
+    font-size: 16px;
 }
 
 
