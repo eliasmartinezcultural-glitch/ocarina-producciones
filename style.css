@@ -1,29 +1,38 @@
 /* =========================================================
-   OCARINA PRODUCCIONES — SISTEMA VISUAL 2.0
-   Dirección: Cinematográfica + Territorial + Editorial
-   ========================================================= */
+   OCARINA PRODUCCIONES
+   SISTEMA VISUAL 2.0
+   Cinematográfico + Territorial + Editorial
+========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 :root {
+
     --negro: #11110f;
     --negro-suave: #191916;
+
     --tierra: #766653;
     --arena: #b8a991;
+
     --marfil: #eee9df;
     --blanco: #f8f6f1;
+
     --verde: #596457;
     --acento: #b77b4b;
 
     --max-width: 1200px;
-    --radio: 2px;
 
-    --transicion: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    --transicion:
+        0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* -------------------------
+
+/* =========================================================
    RESET
-------------------------- */
+========================================================= */
 
 * {
     margin: 0;
@@ -31,100 +40,199 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+
     background: var(--negro);
+
     color: var(--marfil);
-    font-family: "DM Sans", sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     font-weight: 300;
+
     line-height: 1.6;
+
     overflow-x: hidden;
 }
 
+
 img,
 video {
+
     max-width: 100%;
+
     display: block;
 }
 
+
 a {
+
     color: inherit;
+
     text-decoration: none;
 }
 
+
 button {
+
     font: inherit;
 }
 
-/* -------------------------
-   SELECCIÓN
-------------------------- */
 
 ::selection {
+
     background: var(--arena);
+
     color: var(--negro);
 }
 
-/* -------------------------
+
+/* =========================================================
    CONTENEDOR
-------------------------- */
+========================================================= */
 
 .container {
-    width: min(90%, var(--max-width));
+
+    width: 90%;
+
+    max-width: var(--max-width);
+
     margin: 0 auto;
 }
 
-/* -------------------------
+
+/* =========================================================
    TIPOGRAFÍA
-------------------------- */
+========================================================= */
 
 h1,
 h2,
 h3 {
-    font-family: "Playfair Display", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-weight: 400;
+
     line-height: 1.1;
 }
 
+
 h1 {
-    font-size: clamp(3rem, 8vw, 7rem);
+
+    font-size:
+        clamp(
+            3rem,
+            8vw,
+            7rem
+        );
 }
+
 
 h2 {
-    font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+    font-size:
+        clamp(
+            2.4rem,
+            5vw,
+            4.5rem
+        );
 }
+
 
 h3 {
-    font-size: clamp(1.5rem, 3vw, 2.4rem);
+
+    font-size:
+        clamp(
+            1.5rem,
+            3vw,
+            2.4rem
+        );
 }
 
+
 p {
+
     max-width: 680px;
 }
 
-/* -------------------------
-   BOTONES
-------------------------- */
 
-.btn {
+/* =========================================================
+   SECCIONES GENERALES
+========================================================= */
+
+.section {
+
+    position: relative;
+
+    padding: 120px 0;
+}
+
+
+.eyebrow {
+
+    margin-bottom: 25px;
+
+    color: var(--arena);
+
+    font-size: 10px;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+}
+
+
+.section-heading {
+
+    margin-bottom: 90px;
+}
+
+
+.section-heading h2 {
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.button {
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
-    gap: 12px;
 
     padding: 13px 22px;
 
-    border: 1px solid rgba(238, 233, 223, 0.35);
+    border: 1px solid
+        rgba(
+            238,
+            233,
+            223,
+            0.35
+        );
 
-    color: var(--marfil);
-    background: transparent;
+    font-size: 11px;
+
+    letter-spacing: 0.14em;
 
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.72rem;
 
     transition:
         background var(--transicion),
@@ -133,233 +241,122 @@ p {
         transform var(--transicion);
 }
 
-.btn:hover {
+
+.button:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.button-primary {
+
     background: var(--marfil);
+
     color: var(--negro);
+
     border-color: var(--marfil);
-    transform: translateY(-3px);
 }
 
-/* -------------------------
-   SECCIONES
-------------------------- */
 
-section {
-    position: relative;
-    padding: 120px 0;
+.button-primary:hover {
+
+    background: transparent;
+
+    color: var(--marfil);
 }
 
-.section-label {
-    margin-bottom: 25px;
 
-    color: var(--arena);
+.button-outline {
 
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.68rem;
+    background: transparent;
+
+    color: var(--marfil);
 }
 
-/* -------------------------
-   IMÁGENES
-------------------------- */
 
-.image-frame {
-    position: relative;
-    overflow: hidden;
-    background: var(--negro-suave);
+.button-outline:hover {
+
+    background: var(--marfil);
+
+    color: var(--negro);
 }
 
-.image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 
-    filter:
-        saturate(0.75)
-        contrast(1.05);
+.button-outline-dark {
 
-    transition:
-        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 1s ease;
-}
+    background: transparent;
 
-.image-frame:hover img {
-    transform: scale(1.045);
-    filter:
-        saturate(0.95)
-        contrast(1.05);
-}
+    color: var(--negro);
 
-/* -------------------------
-   EFECTO CINEMATOGRÁFICO
-------------------------- */
-
-.cinematic-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(17,17,15,0.05) 0%,
-            rgba(17,17,15,0.15) 50%,
-            rgba(17,17,15,0.75) 100%
+    border-color:
+        rgba(
+            17,
+            17,
+            15,
+            0.35
         );
-
-    pointer-events: none;
 }
 
-/* -------------------------
-   LÍNEAS DECORATIVAS
-------------------------- */
 
-.line {
-    width: 100%;
-    height: 1px;
+.button-outline-dark:hover {
 
-    background: rgba(238, 233, 223, 0.15);
-
-    margin: 50px 0;
-}
-
-/* -------------------------
-   TARJETAS
-------------------------- */
-
-.card {
-    background: var(--negro-suave);
-
-    border: 1px solid rgba(238, 233, 223, 0.08);
-
-    transition:
-        transform var(--transicion),
-        border-color var(--transicion);
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(184, 169, 145, 0.35);
-}
-
-/* -------------------------
-   ANIMACIONES
-------------------------- */
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.aparecer {
-    animation: aparecer 1s var(--transicion) both;
-}
-
-/* -------------------------
-   SCROLLBAR
-------------------------- */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
     background: var(--negro);
+
+    color: var(--marfil);
+
+    border-color: var(--negro);
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--tierra);
-}
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--arena);
-}
-
-/* -------------------------
-   RESPONSIVE
-------------------------- */
-
-@media (max-width: 768px) {
-
-    section {
-        padding: 80px 0;
-    }
-
-    h1 {
-        font-size: clamp(2.8rem, 15vw, 5rem);
-    }
-
-    h2 {
-        font-size: clamp(2.3rem, 11vw, 4rem);
-    }
-
-    .container {
-        width: 88%;
-    }
-
-    .btn {
-        padding: 12px 18px;
-    }
-}
-
-/* -------------------------
-   ACCESIBILIDAD
-------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
 /* =========================================================
-   OCARINA 2.0
-   PORTADA CINEMATOGRÁFICA
+   01 · PORTADA
 ========================================================= */
 
 .ocarina-intro {
+
     position: relative;
+
     width: 100%;
+
     height: 100vh;
+
     min-height: 650px;
+
     overflow: hidden;
 
     display: flex;
+
     align-items: center;
 
     padding: 0;
 
-    background: #11110f;
-    color: #eee9df;
+    background: var(--negro);
+
+    color: var(--blanco);
 }
 
 
-/* =========================================================
-   FOTOGRAFÍA DE FONDO
-========================================================= */
+/* FONDO */
 
 .intro-background {
+
     position: absolute;
+
     inset: 0;
+
     width: 100%;
+
     height: 100%;
 
     overflow: hidden;
 }
 
+
 .intro-background img {
+
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -371,66 +368,64 @@ section {
 
     transform: scale(1.04);
 
-    animation: ocarinaZoom 18s ease-out forwards;
+    animation:
+        ocarinaZoom
+        18s
+        ease-out
+        forwards;
 }
 
 
-/* =========================================================
-   CAPA OSCURA
-========================================================= */
+/* CAPA */
 
 .intro-overlay {
+
     position: absolute;
+
     inset: 0;
 
     background:
         linear-gradient(
             180deg,
-            rgba(17, 17, 15, 0.55) 0%,
-            rgba(17, 17, 15, 0.18) 40%,
-            rgba(17, 17, 15, 0.35) 65%,
-            rgba(17, 17, 15, 0.88) 100%
+            rgba(17,17,15,0.55) 0%,
+            rgba(17,17,15,0.18) 40%,
+            rgba(17,17,15,0.35) 65%,
+            rgba(17,17,15,0.88) 100%
         );
 }
 
 
-/* =========================================================
-   CONTENIDO
-========================================================= */
+/* CONTENIDO */
 
 .intro-content {
-    position: relative;
-    z-index: 2;
 
-    width: 90%;
-    max-width: 1200px;
+    position: relative;
+
+    z-index: 3;
 
     height: 100%;
 
-    margin: 0 auto;
-
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 
-    padding: 38px 0;
+    padding-top: 38px;
+
+    padding-bottom: 38px;
 }
 
 
-/* =========================================================
-   UBICACIÓN
-========================================================= */
+/* UBICACIÓN */
 
 .intro-location {
+
     display: inline-block;
 
-    color: #eee9df;
+    color: var(--marfil);
 
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 400;
+    font-size: 10px;
 
     letter-spacing: 0.25em;
 
@@ -439,34 +434,38 @@ section {
     opacity: 0;
 
     animation:
-        ocarinaAppear 1s ease 0.4s forwards;
+        ocarinaAppear
+        1s
+        ease
+        0.4s
+        forwards;
 }
 
 
-/* =========================================================
-   CENTRO
-========================================================= */
+/* CENTRO */
 
 .intro-center {
+
     max-width: 950px;
 
     opacity: 0;
 
     animation:
-        ocarinaAppear 1.2s ease 0.7s forwards;
+        ocarinaAppear
+        1.2s
+        ease
+        0.7s
+        forwards;
 }
 
 
-/* PEQUEÑO IDENTIFICADOR */
-
 .intro-mark {
+
     margin-bottom: 16px;
 
-    color: #b8a991;
+    color: var(--arena);
 
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 0.45em;
 
@@ -474,18 +473,18 @@ section {
 }
 
 
-/* TÍTULO PRINCIPAL */
-
 .intro-center h1 {
+
     margin: 0;
 
-    color: #f8f6f1;
+    color: var(--blanco);
 
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(58px, 9vw, 145px);
-
-    font-weight: 400;
+    font-size:
+        clamp(
+            58px,
+            9vw,
+            145px
+        );
 
     line-height: 0.92;
 
@@ -493,16 +492,23 @@ section {
 }
 
 
-/* SEGUNDA LÍNEA */
-
 .intro-center h1 span {
+
     display: block;
 
     margin-top: 15px;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    font-size: clamp(22px, 3vw, 42px);
+    font-size:
+        clamp(
+            22px,
+            3vw,
+            42px
+        );
 
     font-weight: 300;
 
@@ -512,28 +518,22 @@ section {
 }
 
 
-/* FRASE */
-
 .intro-center p {
+
     margin-top: 30px;
 
-    color: #eee9df;
-
-    font-family: Arial, sans-serif;
+    color: var(--marfil);
 
     font-size: 16px;
-
-    font-weight: 300;
 
     letter-spacing: 0.04em;
 }
 
 
-/* =========================================================
-   PARTE INFERIOR
-========================================================= */
+/* PARTE INFERIOR */
 
 .intro-bottom {
+
     display: flex;
 
     align-items: center;
@@ -545,16 +545,17 @@ section {
     opacity: 0;
 
     animation:
-        ocarinaAppear 1s ease 1.2s forwards;
+        ocarinaAppear
+        1s
+        ease
+        1.2s
+        forwards;
 }
 
 
-/* TEXTO */
-
 .intro-year {
-    color: #b8a991;
 
-    font-family: Arial, sans-serif;
+    color: var(--arena);
 
     font-size: 10px;
 
@@ -564,20 +565,17 @@ section {
 }
 
 
-/* =========================================================
-   BOTÓN EXPLORAR
-========================================================= */
+/* EXPLORAR */
 
 .intro-scroll {
+
     display: flex;
 
     align-items: center;
 
     gap: 15px;
 
-    color: #f8f6f1;
-
-    font-family: Arial, sans-serif;
+    color: var(--blanco);
 
     font-size: 10px;
 
@@ -590,207 +588,51 @@ section {
         transform 0.4s ease;
 }
 
+
 .intro-scroll:hover {
+
     opacity: 0.7;
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 }
 
 
-/* CÍRCULO */
-
 .scroll-arrow {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     width: 42px;
+
     height: 42px;
 
-    border: 1px solid rgba(
-        238,
-        233,
-        223,
-        0.5
-    );
+    border:
+        1px solid
+        rgba(
+            238,
+            233,
+            223,
+            0.5
+        );
 
     border-radius: 50%;
 
     font-size: 18px;
 
     animation:
-        ocarinaFloat 2s ease-in-out infinite;
+        ocarinaFloat
+        2s
+        ease-in-out
+        infinite;
 }
 
 
 /* =========================================================
-   ANIMACIONES
-========================================================= */
-
-@keyframes ocarinaZoom {
-
-    from {
-        transform: scale(1.04);
-    }
-
-    to {
-        transform: scale(1.12);
-    }
-
-}
-
-
-@keyframes ocarinaAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-@keyframes ocarinaFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(5px);
-    }
-
-}
-
-
-/* =========================================================
-   CELULARES
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .ocarina-intro {
-        min-height: 600px;
-    }
-
-
-    .intro-content {
-        width: 88%;
-
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-
-
-    .intro-location {
-        font-size: 8px;
-
-        letter-spacing: 0.18em;
-    }
-
-
-    .intro-center h1 {
-        font-size:
-            clamp(
-                52px,
-                17vw,
-                85px
-            );
-    }
-
-
-    .intro-center h1 span {
-        margin-top: 10px;
-
-        font-size:
-            clamp(
-                20px,
-                6vw,
-                30px
-            );
-    }
-
-
-    .intro-center p {
-        margin-top: 20px;
-
-        font-size: 13px;
-    }
-
-
-    .intro-year {
-        display: none;
-    }
-
-
-    .intro-scroll {
-        margin-left: auto;
-    }
-
-}
-
-
-/* =========================================================
-   ACCESIBILIDAD
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .intro-background img,
-    .intro-scroll,
-    .scroll-arrow {
-        animation: none;
-    }
-
-}
-.ocarina-intro {
-    height: 100vh !important;
-    width: 100% !important;
-    position: relative !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #111 !important;
-}
-
-.intro-background {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-}
-
-.intro-background img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
-
-.intro-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 2 !important;
-    background: rgba(0,0,0,0.55) !important;
-}
-
-.intro-content {
-    position: relative !important;
-    z-index: 3 !important;
-    color: white !important;
-}
-/* =========================================================
-   OCARINA — DESDE EL TERRITORIO
+   02 · TERRITORIO
 ========================================================= */
 
 .territorio {
@@ -809,15 +651,11 @@ section {
 
     padding: 140px 0;
 
-    background: #191916;
+    background: var(--negro-suave);
 
-    color: #eee9df;
+    color: var(--marfil);
 }
 
-
-/* =========================================================
-   IMAGEN
-========================================================= */
 
 .territorio-image {
 
@@ -826,6 +664,7 @@ section {
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
     overflow: hidden;
@@ -835,6 +674,7 @@ section {
 .territorio-image img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -854,14 +694,10 @@ section {
 .territorio:hover
 .territorio-image img {
 
-    transform: scale(1.08);
-
+    transform:
+        scale(1.08);
 }
 
-
-/* =========================================================
-   OSCURECIMIENTO
-========================================================= */
 
 .territorio-overlay {
 
@@ -870,20 +706,14 @@ section {
     inset: 0;
 
     background:
-
         linear-gradient(
             90deg,
             rgba(17,17,15,0.92) 0%,
             rgba(17,17,15,0.65) 45%,
             rgba(17,17,15,0.35) 100%
         );
-
 }
 
-
-/* =========================================================
-   CONTENIDO
-========================================================= */
 
 .territorio-content {
 
@@ -891,32 +721,19 @@ section {
 
     z-index: 2;
 
-    width: 90%;
-
-    max-width: 1200px;
-
     min-height: 70vh;
-
-    margin: auto;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: space-between;
-
 }
 
 
-/* =========================================================
-   ETIQUETA
-========================================================= */
-
 .territorio-label {
 
-    color: #b8a991;
-
-    font-family: Arial, sans-serif;
+    color: var(--arena);
 
     font-size: 10px;
 
@@ -925,10 +742,6 @@ section {
     text-transform: uppercase;
 }
 
-
-/* =========================================================
-   TEXTO PRINCIPAL
-========================================================= */
 
 .territorio-text {
 
@@ -942,12 +755,7 @@ section {
 
     margin: 0;
 
-    color: #f8f6f1;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    color: var(--blanco);
 
     font-size:
         clamp(
@@ -955,8 +763,6 @@ section {
             7vw,
             105px
         );
-
-    font-weight: 400;
 
     line-height: 0.98;
 
@@ -968,15 +774,11 @@ section {
 
     display: block;
 
-    color: #b8a991;
+    color: var(--arena);
 
     font-weight: 400;
 }
 
-
-/* =========================================================
-   LÍNEA
-========================================================= */
 
 .territorio-line {
 
@@ -986,13 +788,9 @@ section {
 
     margin: 45px 0;
 
-    background: #b8a991;
+    background: var(--arena);
 }
 
-
-/* =========================================================
-   PÁRRAFOS
-========================================================= */
 
 .territorio-text p {
 
@@ -1000,26 +798,20 @@ section {
 
     margin-bottom: 20px;
 
-    color: #eee9df;
-
-    font-family: Arial, sans-serif;
+    color: var(--marfil);
 
     font-size: 17px;
-
-    font-weight: 300;
 
     line-height: 1.7;
 }
 
-
-/* FRASE FINAL */
 
 .territorio-text
 .territorio-final {
 
     margin-top: 55px;
 
-    color: #f8f6f1;
+    color: var(--blanco);
 
     font-family:
         Georgia,
@@ -1032,10 +824,6 @@ section {
 }
 
 
-/* =========================================================
-   CONTINUAR
-========================================================= */
-
 .territorio-scroll {
 
     display: flex;
@@ -1044,9 +832,7 @@ section {
 
     gap: 15px;
 
-    color: #b8a991;
-
-    font-family: Arial, sans-serif;
+    color: var(--arena);
 
     font-size: 9px;
 
@@ -1065,9 +851,11 @@ section {
     justify-content: center;
 
     width: 38px;
+
     height: 38px;
 
-    border: 1px solid
+    border:
+        1px solid
         rgba(
             184,
             169,
@@ -1086,8 +874,611 @@ section {
 
 
 /* =========================================================
-   ANIMACIÓN
+   NAVEGACIÓN
 ========================================================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background:
+        rgba(
+            17,
+            17,
+            15,
+            0.94
+        );
+
+    border-bottom:
+        1px solid
+        rgba(
+            238,
+            233,
+            223,
+            0.08
+        );
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.nav {
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.brand {
+
+    color: var(--blanco);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+.nav-links a {
+
+    color: var(--marfil);
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    opacity: 0.75;
+
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.nav-links a:hover {
+
+    opacity: 1;
+
+    color: var(--arena);
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+========================================================= */
+
+.intro {
+
+    background: var(--marfil);
+
+    color: var(--negro);
+}
+
+
+.intro-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+
+.intro .eyebrow {
+
+    color: var(--tierra);
+}
+
+
+.intro h2 {
+
+    max-width: 650px;
+}
+
+
+.intro-text {
+
+    padding-top: 45px;
+}
+
+
+.intro-text p {
+
+    margin-bottom: 25px;
+
+    color: #44413a;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PRODUCCIONES
+========================================================= */
+
+.productions {
+
+    background: var(--negro);
+
+    color: var(--marfil);
+}
+
+
+.production {
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr 0.7fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    margin-bottom: 150px;
+}
+
+
+.production-reverse {
+
+    grid-template-columns:
+        0.7fr 1.3fr;
+}
+
+
+.production-reverse
+.video-wrapper {
+
+    order: 2;
+}
+
+
+.production-reverse
+.production-info {
+
+    order: 1;
+}
+
+
+.video-wrapper {
+
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #000;
+
+    border:
+        1px solid
+        rgba(
+            238,
+            233,
+            223,
+            0.08
+        );
+}
+
+
+.video-wrapper iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+}
+
+
+.production-number {
+
+    color: var(--arena);
+
+    font-size: 11px;
+
+    letter-spacing: 0.2em;
+}
+
+
+.production-info h3 {
+
+    margin:
+        15px
+        0
+        25px;
+}
+
+
+.production-info p {
+
+    color: #c7c1b7;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+
+.tags span {
+
+    padding:
+        7px
+        10px;
+
+    border:
+        1px solid
+        rgba(
+            184,
+            169,
+            145,
+            0.25
+        );
+
+    color: var(--arena);
+
+    font-size: 9px;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SERVICIOS
+========================================================= */
+
+.services {
+
+    background: #e8e1d6;
+
+    color: var(--negro);
+}
+
+
+.services .eyebrow {
+
+    color: var(--tierra);
+}
+
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 1px;
+
+    background:
+        rgba(
+            17,
+            17,
+            15,
+            0.15
+        );
+
+    border:
+        1px solid
+        rgba(
+            17,
+            17,
+            15,
+            0.15
+        );
+}
+
+
+.service-card {
+
+    min-height: 300px;
+
+    padding: 45px;
+
+    background: #e8e1d6;
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+.service-card:hover {
+
+    background: var(--blanco);
+
+    transform:
+        translateY(-4px);
+}
+
+
+.service-number {
+
+    color: var(--tierra);
+
+    font-size: 10px;
+
+    letter-spacing: 0.2em;
+}
+
+
+.service-card h3 {
+
+    margin:
+        35px
+        0
+        20px;
+}
+
+
+.service-card p {
+
+    color: #504c44;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SOBRE OCARINA
+========================================================= */
+
+.about {
+
+    background: var(--negro-suave);
+
+    color: var(--marfil);
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+}
+
+
+.about .eyebrow {
+
+    color: var(--arena);
+}
+
+
+.about-text {
+
+    padding-top: 45px;
+}
+
+
+.about-text p {
+
+    margin-bottom: 25px;
+
+    color: #c8c2b8;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.contact {
+
+    background: var(--arena);
+
+    color: var(--negro);
+
+    text-align: center;
+}
+
+
+.contact-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.contact .eyebrow {
+
+    color: var(--tierra);
+}
+
+
+.contact h2 {
+
+    margin-bottom: 25px;
+}
+
+
+.contact-content > p {
+
+    color: #4d473f;
+}
+
+
+.contact-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 40px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    padding: 60px 0;
+
+    background: var(--negro);
+
+    color: var(--marfil);
+}
+
+
+.footer-content {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.footer strong {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.footer p {
+
+    margin-top: 10px;
+
+    color: #aaa49a;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes ocarinaZoom {
+
+    from {
+        transform: scale(1.04);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+}
+
+
+@keyframes ocarinaAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes ocarinaFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(5px);
+    }
+}
+
 
 @keyframes territorioFloat {
 
@@ -1096,16 +1487,13 @@ section {
 
         transform:
             translateY(0);
-
     }
 
     50% {
 
         transform:
             translateY(5px);
-
     }
-
 }
 
 
@@ -1114,6 +1502,89 @@ section {
 ========================================================= */
 
 @media (max-width: 768px) {
+
+
+    .container {
+
+        width: 88%;
+    }
+
+
+    .section {
+
+        padding: 80px 0;
+    }
+
+
+    /* PORTADA */
+
+    .ocarina-intro {
+
+        min-height: 600px;
+    }
+
+
+    .intro-content {
+
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+    }
+
+
+    .intro-location {
+
+        font-size: 8px;
+
+        letter-spacing: 0.18em;
+    }
+
+
+    .intro-center h1 {
+
+        font-size:
+            clamp(
+                52px,
+                17vw,
+                85px
+            );
+    }
+
+
+    .intro-center h1 span {
+
+        margin-top: 10px;
+
+        font-size:
+            clamp(
+                20px,
+                6vw,
+                30px
+            );
+    }
+
+
+    .intro-center p {
+
+        margin-top: 20px;
+
+        font-size: 13px;
+    }
+
+
+    .intro-year {
+
+        display: none;
+    }
+
+
+    .intro-scroll {
+
+        margin-left: auto;
+    }
+
+
+    /* TERRITORIO */
 
     .territorio {
 
@@ -1124,8 +1595,6 @@ section {
 
 
     .territorio-content {
-
-        width: 88%;
 
         min-height: 75vh;
     }
@@ -1166,12 +1635,160 @@ section {
     .territorio-overlay {
 
         background:
-
             linear-gradient(
                 180deg,
                 rgba(17,17,15,0.75),
                 rgba(17,17,15,0.9)
             );
+    }
+
+
+    /* NAVEGACIÓN */
+
+    .nav {
+
+        min-height: 60px;
+    }
+
+
+    .brand {
+
+        font-size: 18px;
+    }
+
+
+    .nav-links {
+
+        gap: 12px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 7px;
+
+        letter-spacing: 0.05em;
+    }
+
+
+    /* PRESENTACIÓN */
+
+    .intro-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .intro-text {
+
+        padding-top: 0;
+    }
+
+
+    /* PRODUCCIONES */
+
+    .production,
+    .production-reverse {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-bottom: 90px;
+    }
+
+
+    .production-reverse
+    .video-wrapper {
+
+        order: initial;
+    }
+
+
+    .production-reverse
+    .production-info {
+
+        order: initial;
+    }
+
+
+    /* SERVICIOS */
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .service-card {
+
+        min-height: auto;
+
+        padding: 35px;
+    }
+
+
+    /* SOBRE */
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .about-text {
+
+        padding-top: 0;
+    }
+
+
+    /* CONTACTO */
+
+    .contact-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .contact-buttons .button {
+
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    .footer-content {
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
     }
 
 }
