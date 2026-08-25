@@ -754,3 +754,38 @@ section {
     }
 
 }
+.ocarina-intro {
+    height: 100vh !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #111 !important;
+}
+
+.intro-background {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+}
+
+.intro-background img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.intro-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    background: rgba(0,0,0,0.55) !important;
+}
+
+.intro-content {
+    position: relative !important;
+    z-index: 3 !important;
+    color: white !important;
+}
