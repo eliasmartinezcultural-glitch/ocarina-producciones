@@ -789,3 +789,389 @@ section {
     z-index: 3 !important;
     color: white !important;
 }
+/* =========================================================
+   OCARINA — DESDE EL TERRITORIO
+========================================================= */
+
+.territorio {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 140px 0;
+
+    background: #191916;
+
+    color: #eee9df;
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.territorio-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.territorio-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.48)
+        saturate(0.65)
+        contrast(1.08);
+
+    transform: scale(1.03);
+
+    transition:
+        transform 1.5s ease;
+}
+
+
+.territorio:hover
+.territorio-image img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================================================
+   OSCURECIMIENTO
+========================================================= */
+
+.territorio-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(17,17,15,0.92) 0%,
+            rgba(17,17,15,0.65) 45%,
+            rgba(17,17,15,0.35) 100%
+        );
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.territorio-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    min-height: 70vh;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+
+
+/* =========================================================
+   ETIQUETA
+========================================================= */
+
+.territorio-label {
+
+    color: #b8a991;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TEXTO PRINCIPAL
+========================================================= */
+
+.territorio-text {
+
+    max-width: 760px;
+
+    margin-top: 100px;
+}
+
+
+.territorio-text h2 {
+
+    margin: 0;
+
+    color: #f8f6f1;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            105px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+}
+
+
+.territorio-text h2 em {
+
+    display: block;
+
+    color: #b8a991;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   LÍNEA
+========================================================= */
+
+.territorio-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin: 45px 0;
+
+    background: #b8a991;
+}
+
+
+/* =========================================================
+   PÁRRAFOS
+========================================================= */
+
+.territorio-text p {
+
+    max-width: 580px;
+
+    margin-bottom: 20px;
+
+    color: #eee9df;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 300;
+
+    line-height: 1.7;
+}
+
+
+/* FRASE FINAL */
+
+.territorio-text
+.territorio-final {
+
+    margin-top: 55px;
+
+    color: #f8f6f1;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   CONTINUAR
+========================================================= */
+
+.territorio-scroll {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #b8a991;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+}
+
+
+.territorio-arrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid
+        rgba(
+            184,
+            169,
+            145,
+            0.5
+        );
+
+    border-radius: 50%;
+
+    animation:
+        territorioFloat
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+@keyframes territorioFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(5px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .territorio {
+
+        min-height: 100svh;
+
+        padding: 100px 0;
+    }
+
+
+    .territorio-content {
+
+        width: 88%;
+
+        min-height: 75vh;
+    }
+
+
+    .territorio-text {
+
+        margin-top: 80px;
+    }
+
+
+    .territorio-text h2 {
+
+        font-size:
+            clamp(
+                44px,
+                14vw,
+                70px
+            );
+    }
+
+
+    .territorio-text p {
+
+        font-size: 15px;
+    }
+
+
+    .territorio-text
+    .territorio-final {
+
+        margin-top: 40px;
+
+        font-size: 24px;
+    }
+
+
+    .territorio-overlay {
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(17,17,15,0.75),
+                rgba(17,17,15,0.9)
+            );
+    }
+
+}
