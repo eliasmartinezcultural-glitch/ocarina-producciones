@@ -1,11 +1,31 @@
+/* =========================================================
+   OCARINA PRODUCCIONES — SISTEMA VISUAL 2.0
+   Dirección: Cinematográfica + Territorial + Editorial
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
 :root {
-    --negro: #111111;
-    --azul-ocarina: #155c9a;
-    --tierra: #b8ad9b;
-    --beige: #f2efe8;
-    --blanco: #ffffff;
-    --gris: #6f6b63;
-}* {
+    --negro: #11110f;
+    --negro-suave: #191916;
+    --tierra: #766653;
+    --arena: #b8a991;
+    --marfil: #eee9df;
+    --blanco: #f8f6f1;
+    --verde: #596457;
+    --acento: #b77b4b;
+
+    --max-width: 1200px;
+    --radio: 2px;
+
+    --transicion: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -------------------------
+   RESET
+------------------------- */
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,497 +36,290 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--beige);
-    color: var(--negro);
+    background: var(--negro);
+    color: var(--marfil);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+    display: block;
 }
 
 a {
     color: inherit;
+    text-decoration: none;
 }
 
+button {
+    font: inherit;
+}
+
+/* -------------------------
+   SELECCIÓN
+------------------------- */
+
+::selection {
+    background: var(--arena);
+    color: var(--negro);
+}
+
+/* -------------------------
+   CONTENEDOR
+------------------------- */
+
 .container {
-    width: min(1180px, 92%);
+    width: min(90%, var(--max-width));
     margin: 0 auto;
 }
 
-.section {
-    padding: 120px 0;
-}
-
-.eyebrow {
-    font-size: 11px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    margin-bottom: 22px;
-}
+/* -------------------------
+   TIPOGRAFÍA
+------------------------- */
 
 h1,
 h2,
 h3 {
-    line-height: 1;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 h1 {
-    font-size: clamp(54px, 8vw, 100px);
-    letter-spacing: -4px;
+    font-size: clamp(3rem, 8vw, 7rem);
 }
 
 h2 {
-    font-size: clamp(42px, 6vw, 72px);
-    letter-spacing: -3px;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
 }
 
 h3 {
-    font-size: 30px;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
 }
 
-
-
-/* =========================
-   NAVEGACIÓN
-========================= */
-
-.site-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(242, 239, 232, 0.94);
-    border-bottom: 1px solid #d4d0c7;
-    backdrop-filter: blur(10px);
+p {
+    max-width: 680px;
 }
 
-.nav {
-    height: 76px;
-    display: flex;
+/* -------------------------
+   BOTONES
+------------------------- */
+
+.btn {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 13px 22px;
+
+    border: 1px solid rgba(238, 233, 223, 0.35);
+
+    color: var(--marfil);
+    background: transparent;
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+
+    transition:
+        background var(--transicion),
+        color var(--transicion),
+        border-color var(--transicion),
+        transform var(--transicion);
 }
 
-.brand {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: 5px;
-    text-decoration: none;
+.btn:hover {
+    background: var(--marfil);
+    color: var(--negro);
+    border-color: var(--marfil);
+    transform: translateY(-3px);
 }
 
-.nav-links {
-    display: flex;
-    gap: 28px;
-}
+/* -------------------------
+   SECCIONES
+------------------------- */
 
-.nav-links a {
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
+section {
     position: relative;
-    display: flex;
-    align-items: center;
-    color: white;
+    padding: 120px 0;
+}
+
+.section-label {
+    margin-bottom: 25px;
+
+    color: var(--arena);
+
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.68rem;
+}
+
+/* -------------------------
+   IMÁGENES
+------------------------- */
+
+.image-frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--negro-suave);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter:
+        saturate(0.75)
+        contrast(1.05);
+
+    transition:
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1s ease;
+}
+
+.image-frame:hover img {
+    transform: scale(1.045);
+    filter:
+        saturate(0.95)
+        contrast(1.05);
+}
+
+/* -------------------------
+   EFECTO CINEMATOGRÁFICO
+------------------------- */
+
+.cinematic-overlay {
+    position: absolute;
+    inset: 0;
 
     background:
         linear-gradient(
-            90deg,
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.15)
-        ),
-        #57534c;
+            180deg,
+            rgba(17,17,15,0.05) 0%,
+            rgba(17,17,15,0.15) 50%,
+            rgba(17,17,15,0.75) 100%
+        );
+
+    pointer-events: none;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding-top: 70px;
-}
+/* -------------------------
+   LÍNEAS DECORATIVAS
+------------------------- */
 
-.hero-description {
-    max-width: 650px;
-    font-size: 20px;
-    margin-top: 32px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 38px;
-}
-
-.button {
-    display: inline-block;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    transition: .2s ease;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-}
-
-.button-primary {
-    background: var(--azul-ocarina);
-    color: var(--blanco);
-}
-.hero .button-primary {
-    background: white;
-    color: #171717;
-}
-
-.button-outline {
-    border: 1px solid white;
-    color: white;
-}
-
-.button-outline-dark {
-    border: 1px solid #171717;
-}
-
-
-
-/* =========================
-   INTRO
-========================= */
-
-.intro {
-    background: #f2efe8;
-}
-
-.intro-grid,
-.about-grid,
-.stories-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: start;
-}
-
-.intro-text,
-.about-text {
-    max-width: 580px;
-    font-size: 19px;
-}
-
-.intro-text p,
-.about-text p {
-    margin-bottom: 22px;
-}
-
-
-
-/* =========================
-   PRODUCCIONES
-========================= */
-
-.productions {
-    background: #e5e0d6;
-}
-
-.section-heading {
-    margin-bottom: 70px;
-}
-
-.section-heading > p:last-child {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-.production {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 55px;
-    align-items: center;
-    margin-bottom: 110px;
-}
-
-.production-reverse {
-    grid-template-columns: 1fr 1.4fr;
-}
-
-.production-reverse .video-wrapper {
-    order: 2;
-}
-
-.production-reverse .production-info {
-    order: 1;
-}
-
-.video-wrapper {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: #111;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
+.line {
     width: 100%;
-    height: 100%;
-    border: 0;
+    height: 1px;
+
+    background: rgba(238, 233, 223, 0.15);
+
+    margin: 50px 0;
 }
 
-.production-number {
-    display: block;
-    font-size: 12px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: var(--azul-ocarina);
+/* -------------------------
+   TARJETAS
+------------------------- */
+
+.card {
+    background: var(--negro-suave);
+
+    border: 1px solid rgba(238, 233, 223, 0.08);
+
+    transition:
+        transform var(--transicion),
+        border-color var(--transicion);
 }
 
-.production-info p {
-    margin-top: 22px;
-    font-size: 17px;
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(184, 169, 145, 0.35);
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 25px;
+/* -------------------------
+   ANIMACIONES
+------------------------- */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.tags span {
-    border: 1px solid var(--azul-ocarina);
-    color: var(--azul-ocarina);
-    padding: 6px 10px;
-    font-size: 11px;
-}
-    border: 1px solid #aaa59b;
-    padding: 6px 10px;
-    font-size: 11px;
+.aparecer {
+    animation: aparecer 1s var(--transicion) both;
 }
 
+/* -------------------------
+   SCROLLBAR
+------------------------- */
 
-
-/* =========================
-   SERVICIOS
-========================= */
-
-/* =========================
-   SERVICIOS
-========================= */
-
-.services {
-    background: #111111;
-    color: #ffffff;
-    width: 100%;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.services .section-heading {
-    margin-bottom: 70px;
+::-webkit-scrollbar-track {
+    background: var(--negro);
 }
 
-.services .section-heading h2 {
-    border-left: 5px solid #155c9a;
-    padding-left: 22px;
-    max-width: 850px;
-    color: #155c9a !important;
-}
-
-.services .eyebrow {
-    display: inline-block;
-    background: #155c9a;
-    color: #ffffff !important;
-    padding: 8px 14px;
-    margin-bottom: 25px;
-    font-size: 11px;
-    letter-spacing: 3px;
-    font-weight: 700;
-}
-
-.services-grid {
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid #444444;
-    border-left: 1px solid #444444;
-}
-
-.service-card {
-    min-height: 280px;
-    padding: 40px;
-    background: #111111;
-    border-right: 1px solid #444444;
-    border-bottom: 1px solid #444444;
-}
-
-.service-number {
-    display: block;
-    font-size: 12px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    color: #155c9a;
-}
-
-.service-card h3 {
-    margin-top: 55px;
-    color: #ffffff;
-}
-
-.service-card p {
-    margin-top: 18px;
-    max-width: 420px;
-    color: #bbbbbb;
-    font-size: 16px;
-}
-
-
-
-/* =========================
-   HISTORIAS
-========================= */
-
-.stories {
+::-webkit-scrollbar-thumb {
     background: var(--tierra);
 }
 
-.story-lead {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 25px;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--arena);
 }
 
+/* -------------------------
+   RESPONSIVE
+------------------------- */
 
+@media (max-width: 768px) {
 
-/* =========================
-   SOBRE OCARINA
-========================= */
-
-.about {
-    background: #f2efe8;
-}
-
-
-
-/* =========================
-   CONTACTO
-========================= */
-
-.contact {
-    background: #d7d1c5;
-}
-
-.contact-content {
-    text-align: center;
-}
-
-.contact-content > p:not(.eyebrow) {
-    margin-top: 25px;
-    font-size: 20px;
-}
-
-.contact-buttons {
-    margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    background: #111;
-    color: #aaa;
-    padding: 45px 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.footer strong {
-    color: white;
-    letter-spacing: 4px;
-}
-
-.footer p {
-    margin-top: 8px;
-    font-size: 13px;
-}
-
-
-
-/* =========================
-   CELULARES
-========================= */
-
-@media (max-width: 800px) {
-
-    .nav {
-        height: 68px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .section {
+    section {
         padding: 80px 0;
     }
 
     h1 {
-        font-size: 55px;
-        letter-spacing: -2px;
+        font-size: clamp(2.8rem, 15vw, 5rem);
     }
 
     h2 {
-        font-size: 45px;
-        letter-spacing: -2px;
+        font-size: clamp(2.3rem, 11vw, 4rem);
     }
 
-    .hero-description {
-        font-size: 17px;
+    .container {
+        width: 88%;
     }
 
-    .intro-grid,
-    .about-grid,
-    .stories-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .btn {
+        padding: 12px 18px;
     }
+}
 
-    .production,
-    .production-reverse {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 80px;
+/* -------------------------
+   ACCESIBILIDAD
+------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
-
-    .production-reverse .video-wrapper,
-    .production-reverse .production-info {
-        order: initial;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-card {
-        min-height: 230px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-    }
-
 }
