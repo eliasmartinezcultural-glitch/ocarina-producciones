@@ -1,763 +1,874 @@
-```javascript
 /* =========================================================
-   OCARINA PRODUCCIONES
-   V6 RECONSTRUIDA
-   SCRIPT.JS
-   ========================================================= */
-
-"use strict";
-
+OCARINA PRODUCCIONES
+V16 · SCRIPT.JS
+UNIVERSO OCARINA
+PC + TABLET + CELULAR
+========================================================= */
 
 /* =========================================================
-   INICIO
-   ========================================================= */
+01 · CONFIGURACIÓN
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+/*
+IMPORTANTE:
 
-    initLoader();
+Colocá aquí la URL REAL del streaming de Ocarina Radio.
 
-    initHeader();
+Ejemplo:
 
-    initMobileMenu();
+const RADIO_STREAM_URL =
+"https://servidor.com/stream";
 
-    initScrollReveal();
+Mientras esté vacío, el reproductor mostrará
+correctamente que la señal todavía no está configurada.
+*/
 
-    initRadio();
-
-    initCurrentYear();
-
-});
-
+const RADIO_STREAM_URL = "";
 
 /* =========================================================
-   LOADER
-   ========================================================= */
+02 · ELEMENTOS
+========================================================= */
 
-function initLoader() {
+const body =
+document.body;
 
-    const loader = document.getElementById("loader");
+const siteHeader =
+document.getElementById("siteHeader");
 
-    if (!loader) return;
+const menuToggle =
+document.getElementById("menuToggle");
+
+const navLinks =
+document.getElementById("navLinks");
+
+const radioAudio =
+document.getElementById("radioAudio");
+
+const radioPlay =
+document.getElementById("radioPlay");
+
+const miniPlay =
+document.getElementById("miniPlay");
+
+const radioVolume =
+document.getElementById("radioVolume");
+
+const radioDisc =
+document.getElementById("radioDisc");
+
+const radioStatus =
+document.getElementById("radioStatus");
+
+const radioMessage =
+document.getElementById("radioMessage");
+
+const miniStatus =
+document.getElementById("miniStatus");
+
+const miniPlayer =
+document.getElementById("miniPlayer");
+
+/* =========================================================
+03 · ESTADO
+========================================================= */
+
+let radioConfigured =
+false;
+
+let isPlaying =
+false;
+
+/* =========================================================
+04 · UTILIDADES
+========================================================= */
+
+function setRadioStatus(
+status,
+message
+) {
+
+```
+if (radioStatus) {
+    radioStatus.textContent = status;
+}
+
+if (radioMessage) {
+    radioMessage.textContent = message;
+}
+
+if (miniStatus) {
+    miniStatus.textContent = status;
+}
+```
+
+}
+
+function updatePlayButtons() {
+
+```
+if (radioPlay) {
+
+    radioPlay.textContent =
+        isPlaying ? "❚❚" : "▶";
+
+    radioPlay.setAttribute(
+        "aria-label",
+        isPlaying
+            ? "Pausar Ocarina Radio"
+            : "Reproducir Ocarina Radio"
+    );
+
+}
 
 
-    const hideLoader = () => {
+if (miniPlay) {
 
-        loader.classList.add("is-hidden");
+    miniPlay.textContent =
+        isPlaying ? "❚❚" : "▶";
 
-        document.body.classList.remove("loading");
+    miniPlay.setAttribute(
+        "aria-label",
+        isPlaying
+            ? "Pausar Ocarina Radio"
+            : "Reproducir Ocarina Radio"
+    );
 
-    };
+}
+```
 
+}
 
-    document.body.classList.add("loading");
+function updateRadioVisualState() {
 
+```
+if (radioDisc) {
 
-    if (document.readyState === "complete") {
+    radioDisc.classList.toggle(
+        "playing",
+        isPlaying
+    );
 
-        setTimeout(hideLoader, 500);
+}
+```
 
-    } else {
+}
 
-        window.addEventListener(
-            "load",
-            () => {
-                setTimeout(hideLoader, 500);
-            },
-            {
-                once: true
+/* =========================================================
+05 · HEADER AL HACER SCROLL
+========================================================= */
+
+function handleHeaderScroll() {
+
+```
+if (!siteHeader) {
+    return;
+}
+
+if (window.scrollY > 40) {
+
+    siteHeader.classList.add(
+        "scrolled"
+    );
+
+} else {
+
+    siteHeader.classList.remove(
+        "scrolled"
+    );
+
+}
+```
+
+}
+
+window.addEventListener(
+"scroll",
+handleHeaderScroll,
+{
+passive: true
+}
+);
+
+handleHeaderScroll();
+
+/* =========================================================
+06 · MENÚ MOBILE
+========================================================= */
+
+function openMobileMenu() {
+
+```
+if (!menuToggle || !navLinks) {
+    return;
+}
+
+menuToggle.classList.add(
+    "active"
+);
+
+navLinks.classList.add(
+    "active"
+);
+
+menuToggle.setAttribute(
+    "aria-expanded",
+    "true"
+);
+
+menuToggle.setAttribute(
+    "aria-label",
+    "Cerrar menú"
+);
+
+body.classList.add(
+    "no-scroll"
+);
+```
+
+}
+
+function closeMobileMenu() {
+
+```
+if (!menuToggle || !navLinks) {
+    return;
+}
+
+menuToggle.classList.remove(
+    "active"
+);
+
+navLinks.classList.remove(
+    "active"
+);
+
+menuToggle.setAttribute(
+    "aria-expanded",
+    "false"
+);
+
+menuToggle.setAttribute(
+    "aria-label",
+    "Abrir menú"
+);
+
+body.classList.remove(
+    "no-scroll"
+);
+```
+
+}
+
+function toggleMobileMenu() {
+
+```
+if (!navLinks) {
+    return;
+}
+
+if (
+    navLinks.classList.contains(
+        "active"
+    )
+) {
+
+    closeMobileMenu();
+
+} else {
+
+    openMobileMenu();
+
+}
+```
+
+}
+
+if (menuToggle) {
+
+```
+menuToggle.addEventListener(
+    "click",
+    toggleMobileMenu
+);
+```
+
+}
+
+/* =========================================================
+07 · CERRAR MENÚ AL ELEGIR UNA SECCIÓN
+========================================================= */
+
+if (navLinks) {
+
+```
+const navigationItems =
+    navLinks.querySelectorAll(
+        "a"
+    );
+
+navigationItems.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                closeMobileMenu();
+
             }
         );
 
     }
-
-
-    /*
-     * Seguridad:
-     * si alguna imagen externa tarda demasiado,
-     * la página no queda bloqueada indefinidamente.
-     */
-
-    setTimeout(hideLoader, 3500);
+);
+```
 
 }
 
-
 /* =========================================================
-   HEADER
-   ========================================================= */
+08 · CERRAR MENÚ CON ESCAPE
+========================================================= */
 
-function initHeader() {
+document.addEventListener(
+"keydown",
+function (event) {
 
-    const header =
-        document.querySelector(".site-header");
+```
+    if (
+        event.key === "Escape"
+    ) {
 
-    if (!header) return;
+        closeMobileMenu();
 
-
-    const updateHeader = () => {
-
-        if (window.scrollY > 40) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    };
-
-
-    updateHeader();
-
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        {
-            passive: true
-        }
-    );
+    }
 
 }
+```
 
-
-/* =========================================================
-   MENÚ MOBILE
-   ========================================================= */
-
-function initMobileMenu() {
-
-    const toggle =
-        document.querySelector(".menu-toggle");
-
-    const navigation =
-        document.querySelector(".main-navigation");
-
-
-    if (!toggle || !navigation) return;
-
-
-    const closeMenu = () => {
-
-        toggle.classList.remove("active");
-
-        navigation.classList.remove("open");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
-    };
-
-
-    const openMenu = () => {
-
-        toggle.classList.add("active");
-
-        navigation.classList.add("open");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        document.body.classList.add(
-            "menu-open"
-        );
-
-    };
-
-
-    toggle.addEventListener(
-        "click",
-        () => {
-
-            const isOpen =
-                navigation.classList.contains("open");
-
-
-            if (isOpen) {
-
-                closeMenu();
-
-            } else {
-
-                openMenu();
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Cerrar al tocar un enlace.
-     */
-
-    navigation
-        .querySelectorAll("a")
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                closeMenu
-            );
-
-        });
-
-
-    /*
-     * Cerrar con ESC.
-     */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                navigation.classList.contains("open")
-            ) {
-
-                closeMenu();
-
-                toggle.focus();
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Si pasamos de móvil a escritorio,
-     * limpiamos el estado del menú.
-     */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            if (window.innerWidth > 760) {
-
-                closeMenu();
-
-            }
-
-        }
-    );
-
-}
-
+);
 
 /* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+09 · CERRAR MENÚ AL TOCAR AFUERA
+========================================================= */
 
-function initScrollReveal() {
+document.addEventListener(
+"click",
+function (event) {
 
-    const elements =
-        document.querySelectorAll(
-            ".reveal, .reveal-card"
-        );
-
-
-    if (!elements.length) return;
-
-
-    /*
-     * Fallback para navegadores sin IntersectionObserver.
-     */
-
-    if (!("IntersectionObserver" in window)) {
-
-        elements.forEach(element => {
-
-            element.classList.add("visible");
-
-        });
-
+```
+    if (
+        !navLinks ||
+        !menuToggle
+    ) {
         return;
-
     }
 
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) return;
-
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
-
-            },
-            {
-                threshold: 0.12,
-
-                rootMargin:
-                    "0px 0px -50px 0px"
-
-            }
+    const menuIsOpen =
+        navLinks.classList.contains(
+            "active"
         );
 
 
-    elements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-}
+    if (!menuIsOpen) {
+        return;
+    }
 
 
-/* =========================================================
-   RADIO
-   ========================================================= */
-
-function initRadio() {
-
-    const audio =
-        document.getElementById(
-            "radioAudio"
+    const clickedInsideMenu =
+        navLinks.contains(
+            event.target
         );
 
-    const playButton =
-        document.getElementById(
-            "radioPlay"
-        );
 
-    const volume =
-        document.getElementById(
-            "radioVolume"
-        );
-
-    const disc =
-        document.getElementById(
-            "radioDisc"
-        );
-
-    const status =
-        document.getElementById(
-            "radioStatus"
-        );
-
-    const message =
-        document.getElementById(
-            "radioMessage"
+    const clickedButton =
+        menuToggle.contains(
+            event.target
         );
 
 
     if (
-        !audio ||
-        !playButton ||
-        !volume
+        !clickedInsideMenu &&
+        !clickedButton
     ) {
 
-        return;
+        closeMobileMenu();
 
     }
 
+}
+```
 
-    /*
-     * =====================================================
-     * RADIO
-     * =====================================================
-     *
-     * IMPORTANTE:
-     *
-     * Acá todavía NO inventamos la URL de Zeno FM.
-     *
-     * Cuando me pases nuevamente la URL exacta del
-     * streaming, la colocamos en RADIO_STREAM_URL.
-     *
-     * Ejemplo:
-     *
-     * const RADIO_STREAM_URL = "URL_REAL";
-     *
-     * =====================================================
-     */
+);
 
-    const RADIO_STREAM_URL = "";
+/* =========================================================
+10 · AJUSTE AL CAMBIAR TAMAÑO
+========================================================= */
 
+window.addEventListener(
+"resize",
+function () {
 
-    audio.volume =
-        Number(volume.value);
+```
+    if (
+        window.innerWidth > 950
+    ) {
 
-
-    /*
-     * Preparar stream.
-     */
-
-    if (RADIO_STREAM_URL) {
-
-        audio.src =
-            RADIO_STREAM_URL;
+        closeMobileMenu();
 
     }
 
+}
+```
 
-    /*
-     * Play / Pause.
-     */
+);
 
-    playButton.addEventListener(
-        "click",
-        async () => {
+/* =========================================================
+11 · CONFIGURAR RADIO
+========================================================= */
 
-            if (!RADIO_STREAM_URL) {
+function configureRadio() {
 
-                if (status) {
-
-                    status.textContent =
-                        "RADIO POR CONFIGURAR";
-
-                }
+```
+if (!radioAudio) {
+    return;
+}
 
 
-                if (message) {
+if (
+    !RADIO_STREAM_URL ||
+    RADIO_STREAM_URL.trim() === ""
+) {
 
-                    message.textContent =
-                        "La señal de Zeno FM debe conectarse en el script.";
+    radioConfigured =
+        false;
 
-                }
-
-
-                return;
-
-            }
-
-
-            try {
-
-                if (audio.paused) {
-
-                    await audio.play();
-
-                } else {
-
-                    audio.pause();
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "No se pudo reproducir la radio:",
-                    error
-                );
-
-
-                if (message) {
-
-                    message.textContent =
-                        "No se pudo iniciar la señal. Revisá la conexión.";
-
-                }
-
-            }
-
-        }
+    setRadioStatus(
+        "OCARINA RADIO · PRÓXIMAMENTE",
+        "La señal de streaming todavía no está configurada."
     );
 
-
-    /*
-     * Cuando comienza la reproducción.
-     */
-
-    audio.addEventListener(
-        "playing",
-        () => {
-
-            playButton.textContent =
-                "❚❚";
-
-
-            playButton.setAttribute(
-                "aria-label",
-                "Pausar radio"
-            );
-
-
-            if (disc) {
-
-                disc.classList.add(
-                    "playing"
-                );
-
-            }
-
-
-            if (status) {
-
-                status.textContent =
-                    "● EN VIVO";
-
-            }
-
-
-            if (message) {
-
-                message.textContent =
-                    "Escuchando la señal en vivo.";
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Pausa.
-     */
-
-    audio.addEventListener(
-        "pause",
-        () => {
-
-            playButton.textContent =
-                "▶";
-
-
-            playButton.setAttribute(
-                "aria-label",
-                "Reproducir radio"
-            );
-
-
-            if (disc) {
-
-                disc.classList.remove(
-                    "playing"
-                );
-
-            }
-
-
-            if (status) {
-
-                status.textContent =
-                    "SEÑAL DISPONIBLE";
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Error del streaming.
-     */
-
-    audio.addEventListener(
-        "error",
-        () => {
-
-            if (disc) {
-
-                disc.classList.remove(
-                    "playing"
-                );
-
-            }
-
-
-            if (status) {
-
-                status.textContent =
-                    "SEÑAL NO DISPONIBLE";
-
-            }
-
-
-            if (message) {
-
-                message.textContent =
-                    "No fue posible conectar con la señal de radio.";
-
-            }
-
-
-            playButton.textContent =
-                "▶";
-
-        }
-    );
-
-
-    /*
-     * Control de volumen.
-     */
-
-    volume.addEventListener(
-        "input",
-        () => {
-
-            audio.volume =
-                Number(volume.value);
-
-        }
-    );
+    return;
 
 }
 
 
+radioAudio.src =
+    RADIO_STREAM_URL;
+
+radioAudio.preload =
+    "none";
+
+radioConfigured =
+    true;
+
+setRadioStatus(
+    "OCARINA RADIO · LISTO",
+    "Presioná reproducir para escuchar."
+);
+```
+
+}
+
 /* =========================================================
-   AÑO AUTOMÁTICO
-   ========================================================= */
+12 · REPRODUCIR RADIO
+========================================================= */
 
-function initCurrentYear() {
+async function playRadio() {
 
-    const yearElements =
-        document.querySelectorAll(
-            "[data-current-year]"
+```
+if (!radioAudio) {
+    return;
+}
+
+
+if (!radioConfigured) {
+
+    setRadioStatus(
+        "OCARINA RADIO · PRÓXIMAMENTE",
+        "La señal de streaming todavía no está configurada."
+    );
+
+    return;
+
+}
+
+
+try {
+
+    await radioAudio.play();
+
+} catch (error) {
+
+    console.error(
+        "No se pudo reproducir la radio:",
+        error
+    );
+
+    setRadioStatus(
+        "OCARINA RADIO · ERROR",
+        "No fue posible iniciar la señal."
+    );
+
+}
+```
+
+}
+
+/* =========================================================
+13 · PAUSAR RADIO
+========================================================= */
+
+function pauseRadio() {
+
+```
+if (!radioAudio) {
+    return;
+}
+
+radioAudio.pause();
+```
+
+}
+
+/* =========================================================
+14 · BOTÓN PRINCIPAL
+========================================================= */
+
+if (radioPlay) {
+
+```
+radioPlay.addEventListener(
+    "click",
+    function () {
+
+        if (isPlaying) {
+
+            pauseRadio();
+
+        } else {
+
+            playRadio();
+
+        }
+
+    }
+);
+```
+
+}
+
+/* =========================================================
+15 · MINI REPRODUCTOR
+========================================================= */
+
+if (miniPlay) {
+
+```
+miniPlay.addEventListener(
+    "click",
+    function () {
+
+        if (isPlaying) {
+
+            pauseRadio();
+
+        } else {
+
+            playRadio();
+
+        }
+
+    }
+);
+```
+
+}
+
+/* =========================================================
+16 · EVENTO PLAY
+========================================================= */
+
+if (radioAudio) {
+
+```
+radioAudio.addEventListener(
+    "play",
+    function () {
+
+        isPlaying =
+            true;
+
+        setRadioStatus(
+            "OCARINA RADIO · EN VIVO",
+            "Reproduciendo señal de Ocarina Radio."
         );
 
+        updatePlayButtons();
 
-    const currentYear =
-        new Date().getFullYear();
-
-
-    yearElements.forEach(element => {
-
-        element.textContent =
-            currentYear;
-
-    });
-
-}
-
-
-/* =========================================================
-   NAVEGACIÓN SUAVE
-   ========================================================= */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        const link =
-            event.target.closest(
-                'a[href^="#"]'
-            );
-
-
-        if (!link) return;
-
-
-        const targetId =
-            link.getAttribute("href");
-
-
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
-
-            return;
-
-        }
-
-
-        const target =
-            document.querySelector(
-                targetId
-            );
-
-
-        if (!target) return;
-
-
-        event.preventDefault();
-
-
-        const header =
-            document.querySelector(
-                ".site-header"
-            );
-
-
-        const headerHeight =
-            header
-                ? header.offsetHeight
-                : 0;
-
-
-        const targetPosition =
-            target.getBoundingClientRect().top +
-            window.scrollY -
-            headerHeight;
-
-
-        window.scrollTo({
-
-            top:
-                Math.max(
-                    0,
-                    targetPosition
-                ),
-
-            behavior:
-                "smooth"
-
-        });
+        updateRadioVisualState();
 
     }
 );
+```
 
+}
 
 /* =========================================================
-   CONTROL DE ERRORES DE IMÁGENES
-   ========================================================= */
+17 · EVENTO PAUSE
+========================================================= */
 
-document.addEventListener(
+if (radioAudio) {
+
+```
+radioAudio.addEventListener(
+    "pause",
+    function () {
+
+        isPlaying =
+            false;
+
+        setRadioStatus(
+            "OCARINA RADIO · PAUSADO",
+            "La reproducción está pausada."
+        );
+
+        updatePlayButtons();
+
+        updateRadioVisualState();
+
+    }
+);
+```
+
+}
+
+/* =========================================================
+18 · EVENTO ERROR
+========================================================= */
+
+if (radioAudio) {
+
+```
+radioAudio.addEventListener(
     "error",
-    event => {
+    function () {
 
-        const element =
-            event.target;
+        isPlaying =
+            false;
+
+        updatePlayButtons();
+
+        updateRadioVisualState();
+
+        setRadioStatus(
+            "OCARINA RADIO · ERROR",
+            "No se pudo conectar con la señal."
+        );
+
+    }
+);
+```
+
+}
+
+/* =========================================================
+19 · CAMBIO DE VOLUMEN
+========================================================= */
+
+if (radioVolume && radioAudio) {
+
+```
+const initialVolume =
+    Number(
+        radioVolume.value
+    );
+
+
+radioAudio.volume =
+    Number.isFinite(
+        initialVolume
+    )
+        ? initialVolume
+        : 0.8;
+
+
+radioVolume.addEventListener(
+    "input",
+    function () {
+
+        const volume =
+            Number(
+                radioVolume.value
+            );
 
 
         if (
-            element &&
-            element.tagName === "IMG"
+            Number.isFinite(
+                volume
+            )
         ) {
 
-            element.classList.add(
-                "image-error"
-            );
-
-            console.warn(
-                "Imagen no encontrada:",
-                element.src
-            );
+            radioAudio.volume =
+                Math.min(
+                    1,
+                    Math.max(
+                        0,
+                        volume
+                    )
+                );
 
         }
 
-    },
-    true
+    }
 );
+```
 
+}
 
 /* =========================================================
-   FIN
-   ========================================================= */
+20 · VISIBILIDAD DEL MINI PLAYER
+========================================================= */
+
+function updateMiniPlayer() {
+
 ```
+if (!miniPlayer) {
+    return;
+}
+
+
+/*
+   Lo mantenemos visible porque funciona como
+   acceso permanente a la radio.
+*/
+
+miniPlayer.classList.add(
+    "visible"
+);
+```
+
+}
+
+updateMiniPlayer();
+
+/* =========================================================
+21 · SMOOTH SCROLL MEJORADO
+========================================================= */
+
+document.querySelectorAll(
+'a[href^="#"]'
+).forEach(
+function (link) {
+
+```
+    link.addEventListener(
+        "click",
+        function (event) {
+
+            const targetId =
+                this.getAttribute(
+                    "href"
+                );
+
+
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
+
+
+            const target =
+                document.querySelector(
+                    targetId
+                );
+
+
+            if (!target) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            const headerHeight =
+                siteHeader
+                    ? siteHeader.offsetHeight
+                    : 0;
+
+
+            const targetPosition =
+                target.getBoundingClientRect()
+                    .top
+                +
+                window.scrollY
+                -
+                headerHeight
+                -
+                10;
+
+
+            window.scrollTo({
+
+                top:
+                    Math.max(
+                        0,
+                        targetPosition
+                    ),
+
+                behavior:
+                    window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches
+                        ? "auto"
+                        : "smooth"
+
+            });
+
+        }
+    );
+
+}
+```
+
+);
+
+/* =========================================================
+22 · CERRAR MENÚ SI SE CAMBIA A ESCRITORIO
+========================================================= */
+
+function checkDesktopNavigation() {
+
+```
+if (
+    window.innerWidth > 950
+) {
+
+    closeMobileMenu();
+
+}
+```
+
+}
+
+checkDesktopNavigation();
+
+/* =========================================================
+23 · ESTADO INICIAL
+========================================================= */
+
+configureRadio();
+
+updatePlayButtons();
+
+updateRadioVisualState();
+
+/* =========================================================
+24 · LOG
+========================================================= */
+
+console.log(
+"Ocarina Universo V16 · JavaScript cargado correctamente."
+);
