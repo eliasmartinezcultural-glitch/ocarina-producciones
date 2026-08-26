@@ -1,0 +1,1123 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Ocarina Recuerda | Memoria de San Patricio del Chañar
+    </title>
+
+    <meta
+        name="description"
+        content="Ocarina Recuerda. Historias, memoria, fotografías, testimonios y patrimonio de San Patricio del Chañar."
+    >
+
+    <meta
+        name="author"
+        content="Ocarina Producciones — Elías Martínez"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#11110f"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header
+    class="site-header"
+    id="siteHeader"
+>
+
+    <nav
+        class="nav container"
+        aria-label="Navegación principal"
+    >
+
+        <a
+            href="../"
+            class="brand"
+        >
+            OCARINA
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="../">
+                Inicio
+            </a>
+
+            <a href="./">
+                Recuerda
+            </a>
+
+            <a href="../cultura/">
+                Cultura
+            </a>
+
+            <a href="../descubre/">
+                Descubre
+            </a>
+
+            <a href="../archivos/">
+                Archivo
+            </a>
+
+            <a href="../mapa/">
+                Mapa
+            </a>
+
+            <a href="../#radio">
+                Radio
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-background">
+
+        <div class="hero-background-placeholder"></div>
+
+        <div class="hero-overlay"></div>
+
+    </div>
+
+
+    <div class="hero-content container">
+
+
+        <div class="hero-top">
+
+            <span>
+                UNIVERSO OCARINA
+            </span>
+
+            <span>
+                MEMORIA · IDENTIDAD
+            </span>
+
+        </div>
+
+
+
+        <div class="hero-center">
+
+            <p class="hero-kicker">
+                02 · OCARINA RECUERDA
+            </p>
+
+
+            <div class="hero-logo">
+                RECUERDA
+            </div>
+
+
+            <h1>
+
+                Lo que somos
+                <em>también vive en nuestra memoria.</em>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Historias, personas, lugares,
+                fotografías y testimonios que
+                ayudan a comprender San Patricio
+                del Chañar.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#historias"
+                    class="hero-button"
+                >
+
+                    EXPLORAR
+
+                    <span>
+                        ↓
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="../archivos/"
+                    class="hero-button secondary"
+                >
+
+                    VER ARCHIVO
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-bottom">
+
+            <span>
+                MEMORIA · HISTORIA · COMUNIDAD
+            </span>
+
+            <span>
+                OCARINA PRODUCCIONES
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<main>
+
+
+
+<!-- =====================================================
+     INTRODUCCIÓN
+===================================================== -->
+
+<section
+    class="section intro-section"
+    id="historias"
+>
+
+    <div class="container intro-grid">
+
+
+        <div>
+
+            <p class="eyebrow">
+                OCARINA RECUERDA
+            </p>
+
+
+            <h2>
+
+                Antes de contar
+                una historia,
+                hay que escucharla.
+
+            </h2>
+
+        </div>
+
+
+
+        <div class="intro-copy">
+
+            <p class="intro-lead">
+
+                Este espacio está dedicado
+                a recuperar y poner en valor
+                la memoria de San Patricio
+                del Chañar.
+
+            </p>
+
+
+            <p>
+
+                La historia de una comunidad
+                no está solamente en los libros.
+                También aparece en las fotografías,
+                las conversaciones familiares,
+                los lugares, los objetos y
+                los recuerdos de sus habitantes.
+
+            </p>
+
+
+            <p>
+
+                Ocarina Recuerda busca registrar
+                esas voces y organizar esos
+                materiales para que puedan ser
+                consultados y conocidos por
+                las generaciones presentes
+                y futuras.
+
+            </p>
+
+
+            <div class="signature">
+
+                Ocarina Recuerda
+
+                <span>
+                    Memoria · Identidad · Territorio
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORÍAS DE MEMORIA
+===================================================== -->
+
+<section class="section universe-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                EXPLORAR LA MEMORIA
+            </p>
+
+
+            <h2>
+
+                Diferentes formas
+                de recordar.
+
+            </h2>
+
+
+            <p>
+
+                El proyecto podrá crecer a partir
+                de distintas categorías de contenido.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="universe-grid">
+
+
+            <!-- PERSONAS -->
+
+            <article class="universe-card featured">
+
+                <span>
+                    01
+                </span>
+
+
+                <div>
+
+                    <small>
+                        PROTAGONISTAS
+                    </small>
+
+
+                    <h3>
+                        Personas
+                    </h3>
+
+
+                    <p>
+
+                        Historias y testimonios de
+                        personas que forman o
+                        formaron parte de la comunidad.
+
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    PRÓXIMAMENTE
+                </strong>
+
+            </article>
+
+
+
+            <!-- FOTOGRAFÍAS -->
+
+            <a
+                href="../archivos/"
+                class="universe-card"
+            >
+
+                <span>
+                    02
+                </span>
+
+
+                <div>
+
+                    <small>
+                        IMÁGENES
+                    </small>
+
+
+                    <h3>
+                        Fotografías
+                    </h3>
+
+
+                    <p>
+
+                        Imágenes que permiten observar
+                        cómo cambiaron los lugares,
+                        las personas y la vida cotidiana.
+
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    VER ARCHIVO →
+                </strong>
+
+            </a>
+
+
+
+            <!-- LUGARES -->
+
+            <a
+                href="../mapa/"
+                class="universe-card"
+            >
+
+                <span>
+                    03
+                </span>
+
+
+                <div>
+
+                    <small>
+                        TERRITORIO
+                    </small>
+
+
+                    <h3>
+                        Lugares
+                    </h3>
+
+
+                    <p>
+
+                        Espacios que forman parte
+                        de la memoria y la identidad
+                        territorial.
+
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    VER MAPA →
+                </strong>
+
+            </a>
+
+
+
+            <!-- DOCUMENTOS -->
+
+            <a
+                href="../archivos/"
+                class="universe-card"
+            >
+
+                <span>
+                    04
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FUENTES
+                    </small>
+
+
+                    <h3>
+                        Documentos
+                    </h3>
+
+
+                    <p>
+
+                        Material documental que
+                        permita reconstruir diferentes
+                        momentos de la historia local.
+
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    IR AL ARCHIVO →
+                </strong>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LÍNEA DEL TIEMPO
+===================================================== -->
+
+<section class="section modules">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                LÍNEA DEL TIEMPO
+            </p>
+
+
+            <h2>
+
+                Una historia
+                en construcción.
+
+            </h2>
+
+
+            <p>
+
+                La investigación histórica de Ocarina
+                podrá organizarse cronológicamente
+                a medida que se incorporen fuentes
+                verificadas.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="module-grid">
+
+
+            <article class="module-card">
+
+                <span>
+                    ORÍGENES
+                </span>
+
+
+                <h3>
+                    Antes de 1879
+                </h3>
+
+
+                <p>
+
+                    Territorio, pueblos originarios,
+                    recorridos, lugares y antecedentes
+                    documentados.
+
+                </p>
+
+
+                <strong>
+                    INVESTIGACIÓN
+                </strong>
+
+            </article>
+
+
+
+            <article class="module-card">
+
+                <span>
+                    TRANSFORMACIONES
+                </span>
+
+
+                <h3>
+                    1879 — 1884
+                </h3>
+
+
+                <p>
+
+                    Período de profundas transformaciones
+                    políticas, territoriales y militares
+                    en la región.
+
+                </p>
+
+
+                <strong>
+                    INVESTIGACIÓN
+                </strong>
+
+            </article>
+
+
+
+            <article class="module-card">
+
+                <span>
+                    TERRITORIO
+                </span>
+
+
+                <h3>
+                    1884 — 1950
+                </h3>
+
+
+                <p>
+
+                    Procesos de ocupación, población,
+                    caminos, instituciones y
+                    transformación territorial.
+
+                </p>
+
+
+                <strong>
+                    INVESTIGACIÓN
+                </strong>
+
+            </article>
+
+
+
+            <article class="module-card">
+
+                <span>
+                    CHAÑAR
+                </span>
+
+
+                <h3>
+                    1950 — ACTUALIDAD
+                </h3>
+
+
+                <p>
+
+                    Desarrollo de la comunidad,
+                    producción, instituciones,
+                    cultura y vida cotidiana.
+
+                </p>
+
+
+                <strong>
+                    INVESTIGACIÓN
+                </strong>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAJA DE MEMORIA
+===================================================== -->
+
+<section class="manifesto">
+
+    <div class="container">
+
+
+        <p class="eyebrow-light">
+            MEMORIA COMUNITARIA
+        </p>
+
+
+        <h2>
+
+            Una fotografía
+            puede abrir
+            una historia.
+
+            <em>
+                Una voz puede evitar que se pierda.
+            </em>
+
+        </h2>
+
+
+        <p>
+
+            Por eso este proyecto no busca
+            solamente recopilar información.
+            Busca escuchar, documentar,
+            verificar y conservar.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CÓMO PARTICIPAR
+===================================================== -->
+
+<section class="section participation">
+
+    <div class="container participation-grid">
+
+
+        <div>
+
+            <p class="eyebrow">
+                PARTICIPAR
+            </p>
+
+
+            <h2>
+
+                ¿Tenés un recuerdo
+                del Chañar?
+
+            </h2>
+
+        </div>
+
+
+
+        <div>
+
+            <p>
+
+                Podés aportar una fotografía,
+                un documento, un objeto,
+                una historia familiar,
+                un nombre, una fecha o
+                un testimonio.
+
+            </p>
+
+
+            <p>
+
+                Todo material recibido deberá
+                ser revisado y contextualizado
+                antes de incorporarse al archivo.
+
+            </p>
+
+
+            <a
+                href="https://wa.me/5492996728355?text=Hola%20Ocarina.%20Quiero%20aportar%20material%20para%20Ocarina%20Recuerda."
+                class="button primary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                QUIERO APORTAR
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ARCHIVO
+===================================================== -->
+
+<section class="section universe-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                ARCHIVO OCARINA
+            </p>
+
+
+            <h2>
+
+                De la memoria
+                al documento.
+
+            </h2>
+
+
+            <p>
+
+                Las historias pueden complementarse
+                con fuentes documentales, fotografías,
+                audios y publicaciones.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="module-grid">
+
+
+            <a
+                href="../archivos/"
+                class="module-card"
+            >
+
+                <span>
+                    01
+                </span>
+
+
+                <h3>
+                    Fotografías
+                </h3>
+
+
+                <p>
+                    Registros visuales y
+                    material fotográfico.
+                </p>
+
+
+                <strong>
+                    ARCHIVO →
+                </strong>
+
+            </a>
+
+
+
+            <a
+                href="../archivos/"
+                class="module-card"
+            >
+
+                <span>
+                    02
+                </span>
+
+
+                <h3>
+                    Documentos
+                </h3>
+
+
+                <p>
+                    Fuentes documentales
+                    e investigaciones.
+                </p>
+
+
+                <strong>
+                    ARCHIVO →
+                </strong>
+
+            </a>
+
+
+
+            <a
+                href="../archivos/"
+                class="module-card"
+            >
+
+                <span>
+                    03
+                </span>
+
+
+                <h3>
+                    Audios
+                </h3>
+
+
+                <p>
+                    Testimonios y registros
+                    sonoros.
+                </p>
+
+
+                <strong>
+                    ARCHIVO →
+                </strong>
+
+            </a>
+
+
+
+            <a
+                href="../archivos/"
+                class="module-card"
+            >
+
+                <span>
+                    04
+                </span>
+
+
+                <h3>
+                    Publicaciones
+                </h3>
+
+
+                <p>
+                    Libros y materiales
+                    relacionados.
+                </p>
+
+
+                <strong>
+                    ARCHIVO →
+                </strong>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VOLVER AL UNIVERSO
+===================================================== -->
+
+<section class="section contact">
+
+    <div class="container contact-content">
+
+
+        <p class="eyebrow">
+            UNIVERSO OCARINA
+        </p>
+
+
+        <h2>
+
+            La memoria es
+            solamente una parte
+            de la historia.
+
+        </h2>
+
+
+        <p>
+
+            Seguí explorando cultura,
+            territorio y turismo.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+
+            <a
+                href="../cultura/"
+                class="button outline"
+            >
+                CULTURA
+            </a>
+
+
+            <a
+                href="../descubre/"
+                class="button outline"
+            >
+                DESCUBRE
+            </a>
+
+
+            <a
+                href="../mapa/"
+                class="button outline"
+            >
+                MAPA
+            </a>
+
+
+            <a
+                href="../"
+                class="button primary"
+            >
+                VOLVER A OCARINA
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <strong>
+                OCARINA
+            </strong>
+
+
+            <p>
+                Cultura · Historia · Territorio · Turismo
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Ocarina Recuerda
+            </p>
+
+
+            <p>
+                San Patricio del Chañar
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Ocarina Producciones
+            </p>
+
+
+            <p>
+                © <span data-year></span>
+            </p>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
+```
