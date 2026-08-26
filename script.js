@@ -1,19 +1,31 @@
 ```javascript
 /* =========================================================
    OCARINA PRODUCCIONES
-   V7.3 CINEMATIC
+   V6 RECONSTRUIDA
    SCRIPT.JS
    ========================================================= */
 
+"use strict";
+
+
+/* =========================================================
+   INICIO
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
+
     initLoader();
+
     initHeader();
+
     initMobileMenu();
-    initSmoothNavigation();
+
     initScrollReveal();
+
     initRadio();
+
     initCurrentYear();
-    initImageProtection();
+
 });
 
 
@@ -23,47 +35,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initLoader() {
 
-    const loader = document.querySelector(
-        ".cinematic-loader"
-    );
+    const loader = document.getElementById("loader");
 
     if (!loader) return;
 
+
     const hideLoader = () => {
 
-        window.setTimeout(() => {
+        loader.classList.add("is-hidden");
 
-            loader.classList.add("is-hidden");
-            document.body.classList.add("page-loaded");
+        document.body.classList.remove("loading");
 
-        }, 500);
     };
+
+
+    document.body.classList.add("loading");
+
 
     if (document.readyState === "complete") {
 
-        hideLoader();
+        setTimeout(hideLoader, 500);
 
     } else {
 
         window.addEventListener(
             "load",
-            hideLoader,
-            { once: true }
+            () => {
+                setTimeout(hideLoader, 500);
+            },
+            {
+                once: true
+            }
         );
+
     }
+
 
     /*
      * Seguridad:
-     * nunca dejamos la pantalla bloqueada
-     * indefinidamente por una imagen lenta.
+     * si alguna imagen externa tarda demasiado,
+     * la página no queda bloqueada indefinidamente.
      */
 
-    setTimeout(() => {
+    setTimeout(hideLoader, 3500);
 
-        loader.classList.add("is-hidden");
-        document.body.classList.add("page-loaded");
-
-    }, 3500);
 }
 
 
@@ -73,11 +88,11 @@ function initLoader() {
 
 function initHeader() {
 
-    const header = document.querySelector(
-        ".site-header"
-    );
+    const header =
+        document.querySelector(".site-header");
 
     if (!header) return;
+
 
     const updateHeader = () => {
 
@@ -90,31 +105,36 @@ function initHeader() {
             header.classList.remove("scrolled");
 
         }
+
     };
 
+
     updateHeader();
+
 
     window.addEventListener(
         "scroll",
         updateHeader,
-        { passive: true }
+        {
+            passive: true
+        }
     );
+
 }
 
 
 /* =========================================================
-   MOBILE MENU
+   MENÚ MOBILE
    ========================================================= */
 
 function initMobileMenu() {
 
-    const toggle = document.querySelector(
-        ".menu-toggle"
-    );
+    const toggle =
+        document.querySelector(".menu-toggle");
 
-    const navigation = document.querySelector(
-        ".main-navigation"
-    );
+    const navigation =
+        document.querySelector(".main-navigation");
+
 
     if (!toggle || !navigation) return;
 
@@ -133,6 +153,7 @@ function initMobileMenu() {
         document.body.classList.remove(
             "menu-open"
         );
+
     };
 
 
@@ -150,6 +171,7 @@ function initMobileMenu() {
         document.body.classList.add(
             "menu-open"
         );
+
     };
 
 
@@ -157,11 +179,11 @@ function initMobileMenu() {
         "click",
         () => {
 
-            if (
-                navigation.classList.contains(
-                    "open"
-                )
-            ) {
+            const isOpen =
+                navigation.classList.contains("open");
+
+
+            if (isOpen) {
 
                 closeMenu();
 
@@ -170,9 +192,14 @@ function initMobileMenu() {
                 openMenu();
 
             }
+
         }
     );
 
+
+    /*
+     * Cerrar al tocar un enlace.
+     */
 
     navigation
         .querySelectorAll("a")
@@ -186,25 +213,39 @@ function initMobileMenu() {
         });
 
 
+    /*
+     * Cerrar con ESC.
+     */
+
     document.addEventListener(
         "keydown",
         event => {
 
-            if (event.key === "Escape") {
+            if (
+                event.key === "Escape" &&
+                navigation.classList.contains("open")
+            ) {
 
                 closeMenu();
+
+                toggle.focus();
 
             }
 
         }
     );
 
+
+    /*
+     * Si pasamos de móvil a escritorio,
+     * limpiamos el estado del menú.
+     */
 
     window.addEventListener(
         "resize",
         () => {
 
-            if (window.innerWidth > 700) {
+            if (window.innerWidth > 760) {
 
                 closeMenu();
 
@@ -212,71 +253,7 @@ function initMobileMenu() {
 
         }
     );
-}
 
-
-/* =========================================================
-   NAVEGACIÓN SUAVE
-   ========================================================= */
-
-function initSmoothNavigation() {
-
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                event => {
-
-                    const href =
-                        link.getAttribute(
-                            "href"
-                        );
-
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-                        return;
-                    }
-
-                    const target =
-                        document.querySelector(
-                            href
-                        );
-
-                    if (!target) return;
-
-                    event.preventDefault();
-
-                    const header =
-                        document.querySelector(
-                            ".site-header"
-                        );
-
-                    const headerHeight =
-                        header
-                            ? header.offsetHeight
-                            : 0;
-
-                    const position =
-                        target.getBoundingClientRect()
-                            .top +
-                        window.scrollY -
-                        headerHeight;
-
-                    window.scrollTo({
-                        top: position,
-                        behavior: "smooth"
-                    });
-
-                }
-            );
-
-        });
 }
 
 
@@ -288,25 +265,27 @@ function initScrollReveal() {
 
     const elements =
         document.querySelectorAll(
-            ".reveal, .reveal-card, [data-reveal-section]"
+            ".reveal, .reveal-card"
         );
+
 
     if (!elements.length) return;
 
 
-    if (
-        !("IntersectionObserver" in window)
-    ) {
+    /*
+     * Fallback para navegadores sin IntersectionObserver.
+     */
+
+    if (!("IntersectionObserver" in window)) {
 
         elements.forEach(element => {
 
-            element.classList.add(
-                "visible"
-            );
+            element.classList.add("visible");
 
         });
 
         return;
+
     }
 
 
@@ -316,15 +295,13 @@ function initScrollReveal() {
 
                 entries.forEach(entry => {
 
-                    if (
-                        !entry.isIntersecting
-                    ) {
-                        return;
-                    }
+                    if (!entry.isIntersecting) return;
+
 
                     entry.target.classList.add(
                         "visible"
                     );
+
 
                     observer.unobserve(
                         entry.target
@@ -335,8 +312,10 @@ function initScrollReveal() {
             },
             {
                 threshold: 0.12,
+
                 rootMargin:
                     "0px 0px -50px 0px"
+
             }
         );
 
@@ -346,260 +325,298 @@ function initScrollReveal() {
         observer.observe(element);
 
     });
+
 }
 
 
 /* =========================================================
-   RADIO OCARINA
+   RADIO
    ========================================================= */
 
 function initRadio() {
 
     const audio =
-        document.querySelector(
-            "#radioAudio"
+        document.getElementById(
+            "radioAudio"
         );
 
     const playButton =
-        document.querySelector(
-            "#radioPlay"
+        document.getElementById(
+            "radioPlay"
         );
 
     const volume =
-        document.querySelector(
-            "#radioVolume"
+        document.getElementById(
+            "radioVolume"
         );
 
     const disc =
-        document.querySelector(
-            "#radioDisc"
+        document.getElementById(
+            "radioDisc"
         );
 
     const status =
-        document.querySelector(
-            "#radioStatus"
+        document.getElementById(
+            "radioStatus"
         );
 
     const message =
-        document.querySelector(
-            "#radioMessage"
+        document.getElementById(
+            "radioMessage"
         );
 
 
     if (
         !audio ||
-        !playButton
+        !playButton ||
+        !volume
     ) {
+
         return;
+
     }
 
 
     /*
-     * SEÑAL ZENO FM
+     * =====================================================
+     * RADIO
+     * =====================================================
+     *
+     * IMPORTANTE:
+     *
+     * Acá todavía NO inventamos la URL de Zeno FM.
+     *
+     * Cuando me pases nuevamente la URL exacta del
+     * streaming, la colocamos en RADIO_STREAM_URL.
+     *
+     * Ejemplo:
+     *
+     * const RADIO_STREAM_URL = "URL_REAL";
+     *
+     * =====================================================
      */
 
-    const RADIO_STREAM =
-        "https://stream.zeno.fm/amfjjcz4tlgtv";
+    const RADIO_STREAM_URL = "";
+
+
+    audio.volume =
+        Number(volume.value);
 
 
     /*
-     * Conectamos la señal.
+     * Preparar stream.
      */
 
-    if (!audio.src) {
+    if (RADIO_STREAM_URL) {
 
-        audio.src = RADIO_STREAM;
+        audio.src =
+            RADIO_STREAM_URL;
 
     }
 
 
-    audio.preload = "none";
-
-
-    if (volume) {
-
-        const initialVolume =
-            Number(volume.value);
-
-        audio.volume =
-            Number.isFinite(
-                initialVolume
-            )
-                ? initialVolume
-                : 0.8;
-    }
-
-
-    const setPlayingState =
-        playing => {
-
-            if (disc) {
-
-                disc.classList.toggle(
-                    "playing",
-                    playing
-                );
-            }
-
-
-            if (playing) {
-
-                playButton.textContent =
-                    "Ⅱ";
-
-                playButton.setAttribute(
-                    "aria-label",
-                    "Pausar radio"
-                );
-
-                if (status) {
-
-                    status.textContent =
-                        "EN VIVO · OCARINA RADIO";
-
-                }
-
-            } else {
-
-                playButton.textContent =
-                    "▶";
-
-                playButton.setAttribute(
-                    "aria-label",
-                    "Reproducir radio"
-                );
-
-                if (status) {
-
-                    status.textContent =
-                        "SEÑAL DISPONIBLE";
-
-                }
-            }
-        };
-
+    /*
+     * Play / Pause.
+     */
 
     playButton.addEventListener(
         "click",
         async () => {
 
+            if (!RADIO_STREAM_URL) {
+
+                if (status) {
+
+                    status.textContent =
+                        "RADIO POR CONFIGURAR";
+
+                }
+
+
+                if (message) {
+
+                    message.textContent =
+                        "La señal de Zeno FM debe conectarse en el script.";
+
+                }
+
+
+                return;
+
+            }
+
+
             try {
 
                 if (audio.paused) {
 
-                    if (
-                        !audio.src ||
-                        audio.src ===
-                        window.location.href
-                    ) {
-
-                        audio.src =
-                            RADIO_STREAM;
-                    }
-
-
                     await audio.play();
-
-                    setPlayingState(true);
-
-                    if (message) {
-
-                        message.textContent =
-                            "Transmitiendo en vivo.";
-
-                    }
 
                 } else {
 
                     audio.pause();
 
-                    setPlayingState(false);
-
-                    if (message) {
-
-                        message.textContent =
-                            "Transmisión pausada.";
-
-                    }
                 }
 
             } catch (error) {
 
                 console.error(
-                    "Error de radio:",
+                    "No se pudo reproducir la radio:",
                     error
                 );
 
-                setPlayingState(false);
 
                 if (message) {
 
                     message.textContent =
-                        "No se pudo conectar con la señal en este momento.";
+                        "No se pudo iniciar la señal. Revisá la conexión.";
 
                 }
+
             }
+
         }
     );
 
 
-    if (volume) {
-
-        volume.addEventListener(
-            "input",
-            () => {
-
-                const value =
-                    Number(
-                        volume.value
-                    );
-
-                if (
-                    Number.isFinite(value)
-                ) {
-
-                    audio.volume = value;
-
-                }
-            }
-        );
-    }
-
+    /*
+     * Cuando comienza la reproducción.
+     */
 
     audio.addEventListener(
-        "play",
+        "playing",
         () => {
 
-            setPlayingState(true);
+            playButton.textContent =
+                "❚❚";
+
+
+            playButton.setAttribute(
+                "aria-label",
+                "Pausar radio"
+            );
+
+
+            if (disc) {
+
+                disc.classList.add(
+                    "playing"
+                );
+
+            }
+
+
+            if (status) {
+
+                status.textContent =
+                    "● EN VIVO";
+
+            }
+
+
+            if (message) {
+
+                message.textContent =
+                    "Escuchando la señal en vivo.";
+
+            }
 
         }
     );
 
+
+    /*
+     * Pausa.
+     */
 
     audio.addEventListener(
         "pause",
         () => {
 
-            setPlayingState(false);
+            playButton.textContent =
+                "▶";
+
+
+            playButton.setAttribute(
+                "aria-label",
+                "Reproducir radio"
+            );
+
+
+            if (disc) {
+
+                disc.classList.remove(
+                    "playing"
+                );
+
+            }
+
+
+            if (status) {
+
+                status.textContent =
+                    "SEÑAL DISPONIBLE";
+
+            }
 
         }
     );
 
+
+    /*
+     * Error del streaming.
+     */
 
     audio.addEventListener(
         "error",
         () => {
 
-            setPlayingState(false);
+            if (disc) {
+
+                disc.classList.remove(
+                    "playing"
+                );
+
+            }
+
+
+            if (status) {
+
+                status.textContent =
+                    "SEÑAL NO DISPONIBLE";
+
+            }
+
 
             if (message) {
 
                 message.textContent =
-                    "La señal no está disponible temporalmente.";
+                    "No fue posible conectar con la señal de radio.";
 
             }
+
+
+            playButton.textContent =
+                "▶";
+
         }
     );
+
+
+    /*
+     * Control de volumen.
+     */
+
+    volume.addEventListener(
+        "input",
+        () => {
+
+            audio.volume =
+                Number(volume.value);
+
+        }
+    );
+
 }
 
 
@@ -609,139 +626,138 @@ function initRadio() {
 
 function initCurrentYear() {
 
-    const elements =
+    const yearElements =
         document.querySelectorAll(
             "[data-current-year]"
         );
 
-    const year =
+
+    const currentYear =
         new Date().getFullYear();
 
-    elements.forEach(element => {
 
-        element.textContent = year;
+    yearElements.forEach(element => {
+
+        element.textContent =
+            currentYear;
 
     });
+
 }
 
 
 /* =========================================================
-   IMÁGENES
+   NAVEGACIÓN SUAVE
    ========================================================= */
-
-function initImageProtection() {
-
-    const images =
-        document.querySelectorAll(
-            "img"
-        );
-
-
-    images.forEach(image => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                console.warn(
-                    "Imagen no encontrada:",
-                    image.src
-                );
-
-                image.classList.add(
-                    "image-error"
-                );
-
-            },
-            { once: true }
-        );
-
-    });
-}
-
-
-/* =========================================================
-   PARALLAX CINEMÁTICO
-   ========================================================= */
-
-function initParallax() {
-
-    const image =
-        document.querySelector(
-            ".hero-image"
-        );
-
-    if (!image) return;
-
-
-    /*
-     * En celulares lo desactivamos.
-     * Mejora rendimiento y evita movimientos
-     * extraños.
-     */
-
-    if (
-        window.matchMedia(
-            "(max-width: 700px)"
-        ).matches
-    ) {
-        return;
-    }
-
-
-    let ticking = false;
-
-
-    const update =
-        () => {
-
-            const scroll =
-                window.scrollY;
-
-            if (
-                scroll <=
-                window.innerHeight
-            ) {
-
-                const movement =
-                    scroll * 0.08;
-
-                image.style.transform =
-                    `scale(1.02) translateY(${movement}px)`;
-
-            }
-
-            ticking = false;
-        };
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!ticking) {
-
-                window.requestAnimationFrame(
-                    update
-                );
-
-                ticking = true;
-            }
-
-        },
-        { passive: true }
-    );
-}
-
 
 document.addEventListener(
-    "DOMContentLoaded",
-    initParallax
+    "click",
+    event => {
+
+        const link =
+            event.target.closest(
+                'a[href^="#"]'
+            );
+
+
+        if (!link) return;
+
+
+        const targetId =
+            link.getAttribute("href");
+
+
+        if (
+            !targetId ||
+            targetId === "#"
+        ) {
+
+            return;
+
+        }
+
+
+        const target =
+            document.querySelector(
+                targetId
+            );
+
+
+        if (!target) return;
+
+
+        event.preventDefault();
+
+
+        const header =
+            document.querySelector(
+                ".site-header"
+            );
+
+
+        const headerHeight =
+            header
+                ? header.offsetHeight
+                : 0;
+
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight;
+
+
+        window.scrollTo({
+
+            top:
+                Math.max(
+                    0,
+                    targetPosition
+                ),
+
+            behavior:
+                "smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   CONTROL DE ERRORES DE IMÁGENES
+   ========================================================= */
+
+document.addEventListener(
+    "error",
+    event => {
+
+        const element =
+            event.target;
+
+
+        if (
+            element &&
+            element.tagName === "IMG"
+        ) {
+
+            element.classList.add(
+                "image-error"
+            );
+
+            console.warn(
+                "Imagen no encontrada:",
+                element.src
+            );
+
+        }
+
+    },
+    true
 );
 
 
 /* =========================================================
    FIN
-   OCARINA PRODUCCIONES V7.3
    ========================================================= */
 ```
