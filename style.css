@@ -1,17 +1,19 @@
 ```css
 /* =========================================================
    OCARINA UNIVERSO
-   STYLE.CSS · V17.1
+   STYLE.CSS · V17.2
 
    CULTURA · TURISMO · HISTORIA · TERRITORIO
 
-   V17.1
-   - Experiencia cinematográfica
-   - Paleta territorial
-   - Tipografía editorial
-   - Mejor lectura sobre imágenes
+   V17.2
+   - Composición central corregida
+   - Zona segura para PC estándar
+   - Textos alejados de los límites de pantalla
+   - Jerarquía visual centro → exterior
+   - Títulos grandes más controlados
+   - Hero / Territorio / Descubre alineados
    - Responsive PC / tablet / celular
-   - Mantiene compatibilidad con V17
+   - Mantiene estética cinematográfica V17
    ========================================================= */
 
 
@@ -50,7 +52,11 @@
     --shadow-dark:
         0 25px 80px rgba(0,0,0,.35);
 
-    --max-width: 1200px;
+    /* ZONA SEGURA PRINCIPAL */
+    --max-width: 1160px;
+
+    /* Mínimo aire lateral en PC */
+    --safe-padding: 48px;
 
     --header-height: 76px;
 
@@ -67,16 +73,23 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+
+    box-sizing:
+        border-box;
+
 }
 
 
 html {
 
-    margin: 0;
-    padding: 0;
+    margin:
+        0;
 
-    scroll-behavior: smooth;
+    padding:
+        0;
+
+    scroll-behavior:
+        smooth;
 
     scroll-padding-top:
         var(--header-height);
@@ -89,8 +102,11 @@ html {
 
 body {
 
-    margin: 0;
-    padding: 0;
+    margin:
+        0;
+
+    padding:
+        0;
 
     background:
         var(--cream);
@@ -123,7 +139,10 @@ body {
 
 
 body.no-scroll {
-    overflow: hidden;
+
+    overflow:
+        hidden;
+
 }
 
 
@@ -194,14 +213,31 @@ button {
 
 
 /* =========================================================
-   03 · CONTENEDOR
+   03 · CONTENEDOR CENTRAL
    ========================================================= */
+
+/*
+   REGLA FUNDAMENTAL DE V17.2
+
+   Todo el contenido editorial importante vive
+   dentro de esta zona.
+
+   En una pantalla 1366px:
+   1366 - 1160 = 206px
+   → aproximadamente 103px libres por lado.
+
+   En 1920px:
+   1920 - 1160 = 760px
+   → aproximadamente 380px libres por lado.
+
+   Esto evita textos pegados a los extremos.
+*/
 
 .container {
 
     width:
         min(
-            calc(100% - 48px),
+            calc(100% - (var(--safe-padding) * 2)),
             var(--max-width)
         );
 
@@ -221,7 +257,7 @@ button {
         relative;
 
     padding:
-        clamp(85px, 10vw, 145px) 0;
+        clamp(85px, 9vw, 140px) 0;
 
 }
 
@@ -235,10 +271,10 @@ button {
         2;
 
     max-width:
-        820px;
+        760px;
 
     margin-bottom:
-        clamp(50px, 7vw, 85px);
+        clamp(50px, 6vw, 80px);
 
 }
 
@@ -289,15 +325,20 @@ button {
         0 0 26px;
 
     max-width:
-        850px;
+        760px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
+    /*
+       Antes podía crecer demasiado.
+       Ahora sigue siendo grande pero conserva aire.
+    */
+
     font-size:
-        clamp(2.8rem, 7vw, 6.8rem);
+        clamp(2.8rem, 6vw, 6rem);
 
     line-height:
         .88;
@@ -317,7 +358,7 @@ button {
 .section-heading > p:last-child {
 
     max-width:
-        650px;
+        620px;
 
     margin:
         0;
@@ -700,8 +741,6 @@ button {
 }
 
 
-/* Oscurecimiento cinematográfico */
-
 .hero-overlay {
 
     position:
@@ -728,8 +767,6 @@ button {
 
 }
 
-
-/* textura visual */
 
 .hero::after {
 
@@ -792,6 +829,11 @@ button {
     justify-content:
         space-between;
 
+    /*
+       El contenido ya está dentro del .container.
+       Se agrega aire vertical adicional.
+    */
+
     padding-top:
         calc(var(--header-height) + 38px);
 
@@ -823,7 +865,7 @@ button {
 .hero-bottom span {
 
     max-width:
-        300px;
+        270px;
 
     font-size:
         .56rem;
@@ -855,7 +897,7 @@ button {
 .hero-main {
 
     width:
-        min(100%, 950px);
+        min(100%, 900px);
 
     padding:
         20px 0;
@@ -888,13 +930,21 @@ button {
     margin:
         0;
 
+    /*
+       Más controlado en PC.
+       Sigue siendo protagonista sin tocar los bordes.
+    */
+
+    max-width:
+        850px;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(4.7rem, 16vw, 12rem);
+        clamp(4.5rem, 11vw, 10rem);
 
     line-height:
         .73;
@@ -903,7 +953,7 @@ button {
         400;
 
     letter-spacing:
-        -.095em;
+        -.09em;
 
     text-shadow:
         0 12px 45px rgba(0,0,0,.25);
@@ -914,7 +964,7 @@ button {
 .hero-subtitle {
 
     max-width:
-        650px;
+        610px;
 
     margin:
         30px 0 0;
@@ -925,13 +975,10 @@ button {
         serif;
 
     font-size:
-        clamp(1.05rem, 2.2vw, 1.4rem);
+        clamp(1.05rem, 2vw, 1.35rem);
 
     line-height:
         1.35;
-
-    letter-spacing:
-        .005em;
 
     color:
         rgba(255,255,255,.9);
@@ -942,13 +989,13 @@ button {
 .hero-description {
 
     max-width:
-        560px;
+        520px;
 
     margin:
         18px 0 32px;
 
     font-size:
-        clamp(.88rem, 1.7vw, 1rem);
+        clamp(.88rem, 1.5vw, 1rem);
 
     line-height:
         1.7;
@@ -959,13 +1006,21 @@ button {
 }
 
 
+/*
+   CORRECCIÓN IMPORTANTE:
+
+   El scroll ya no se pega al extremo
+   de la pantalla. Se mantiene dentro
+   de la zona segura del contenido.
+*/
+
 .hero-scroll {
 
     position:
         absolute;
 
     right:
-        clamp(20px, 4vw, 55px);
+        0;
 
     bottom:
         45px;
@@ -1249,7 +1304,7 @@ button {
 .territory-text {
 
     max-width:
-        800px;
+        720px;
 
 }
 
@@ -1259,13 +1314,16 @@ button {
     margin:
         0;
 
+    max-width:
+        720px;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(3rem, 8vw, 7.5rem);
+        clamp(3rem, 7vw, 7rem);
 
     line-height:
         .84;
@@ -1316,7 +1374,7 @@ button {
 .territory-text p {
 
     max-width:
-        600px;
+        560px;
 
     margin:
         0 0 15px;
@@ -1521,7 +1579,7 @@ button {
 .card-content h3 {
 
     max-width:
-        320px;
+        300px;
 
     margin:
         0 0 15px;
@@ -1532,7 +1590,7 @@ button {
         serif;
 
     font-size:
-        clamp(1.65rem, 3vw, 2.45rem);
+        clamp(1.65rem, 2.7vw, 2.35rem);
 
     line-height:
         .95;
@@ -1549,7 +1607,7 @@ button {
 .card-content p {
 
     max-width:
-        350px;
+        330px;
 
     margin:
         0 0 25px;
@@ -1603,7 +1661,7 @@ button {
         center;
 
     gap:
-        clamp(45px, 7vw, 90px);
+        clamp(45px, 6vw, 80px);
 
     padding:
         clamp(50px, 7vw, 85px) 0;
@@ -1697,6 +1755,9 @@ button {
 
 .production-info h3 {
 
+    max-width:
+        520px;
+
     margin:
         18px 0;
 
@@ -1706,7 +1767,7 @@ button {
         serif;
 
     font-size:
-        clamp(2.1rem, 5vw, 4.8rem);
+        clamp(2.1rem, 4.5vw, 4.5rem);
 
     line-height:
         .88;
@@ -1723,7 +1784,7 @@ button {
 .production-info p {
 
     max-width:
-        500px;
+        480px;
 
     margin:
         0;
@@ -1781,7 +1842,7 @@ button {
         relative;
 
     padding:
-        clamp(90px, 12vw, 160px) 0;
+        clamp(90px, 11vw, 150px) 0;
 
     background:
         #11110f;
@@ -1834,7 +1895,7 @@ button {
         1fr 1fr;
 
     gap:
-        clamp(50px, 10vw, 130px);
+        clamp(50px, 8vw, 110px);
 
     align-items:
         center;
@@ -1843,6 +1904,9 @@ button {
 
 
 .remember-grid h2 {
+
+    max-width:
+        520px;
 
     margin:
         0;
@@ -1853,7 +1917,7 @@ button {
         serif;
 
     font-size:
-        clamp(3.2rem, 8vw, 8rem);
+        clamp(3.2rem, 7vw, 7.2rem);
 
     line-height:
         .8;
@@ -1881,7 +1945,7 @@ button {
 .remember-copy {
 
     max-width:
-        570px;
+        540px;
 
 }
 
@@ -1894,7 +1958,7 @@ button {
         serif;
 
     font-size:
-        clamp(1.2rem, 2.5vw, 1.5rem);
+        clamp(1.2rem, 2.2vw, 1.45rem);
 
     color:
         white !important;
@@ -1948,12 +2012,15 @@ button {
         1fr 1fr;
 
     gap:
-        clamp(50px, 10vw, 130px);
+        clamp(50px, 8vw, 110px);
 
 }
 
 
 .culture-grid h2 {
+
+    max-width:
+        540px;
 
     margin:
         0;
@@ -1964,7 +2031,7 @@ button {
         serif;
 
     font-size:
-        clamp(2.8rem, 7vw, 6.4rem);
+        clamp(2.8rem, 6.5vw, 6rem);
 
     line-height:
         .87;
@@ -1981,7 +2048,7 @@ button {
 .culture-copy {
 
     max-width:
-        590px;
+        550px;
 
 }
 
@@ -2002,7 +2069,7 @@ button {
         serif;
 
     font-size:
-        clamp(1.1rem, 2.2vw, 1.4rem);
+        clamp(1.1rem, 2.1vw, 1.35rem);
 
     color:
         var(--black) !important;
@@ -2022,7 +2089,7 @@ button {
         9px;
 
     margin-top:
-        60px;
+        55px;
 
 }
 
@@ -2169,7 +2236,7 @@ button {
 .discover-content h2 {
 
     max-width:
-        900px;
+        780px;
 
     margin:
         15px 0 25px;
@@ -2180,7 +2247,7 @@ button {
         serif;
 
     font-size:
-        clamp(3.2rem, 8vw, 8rem);
+        clamp(3.2rem, 7vw, 7.5rem);
 
     line-height:
         .81;
@@ -2197,7 +2264,7 @@ button {
 .discover-lead {
 
     max-width:
-        610px;
+        570px;
 
     margin:
         0;
@@ -2211,7 +2278,7 @@ button {
 .discover-categories {
 
     max-width:
-        700px;
+        650px;
 
     display:
         flex;
@@ -2569,7 +2636,7 @@ button {
         relative;
 
     padding:
-        clamp(90px, 12vw, 160px) 0;
+        clamp(90px, 11vw, 150px) 0;
 
     background:
         #121210;
@@ -2634,7 +2701,7 @@ button {
         1fr 1fr;
 
     gap:
-        clamp(50px, 10vw, 130px);
+        clamp(50px, 8vw, 110px);
 
     align-items:
         center;
@@ -2645,7 +2712,7 @@ button {
 .radio-intro h2 {
 
     max-width:
-        700px;
+        620px;
 
     margin:
         0 0 25px;
@@ -2656,7 +2723,7 @@ button {
         serif;
 
     font-size:
-        clamp(3rem, 7vw, 7rem);
+        clamp(3rem, 6.5vw, 6.5rem);
 
     line-height:
         .82;
@@ -2673,7 +2740,7 @@ button {
 .radio-intro > p:last-child {
 
     max-width:
-        540px;
+        510px;
 
     color:
         rgba(255,255,255,.65);
@@ -3130,7 +3197,7 @@ button {
 .community {
 
     padding:
-        clamp(90px, 12vw, 150px) 0;
+        clamp(90px, 11vw, 145px) 0;
 
     background:
         #d8cfbd;
@@ -3147,12 +3214,15 @@ button {
         1fr 1fr;
 
     gap:
-        clamp(50px, 10vw, 130px);
+        clamp(50px, 8vw, 110px);
 
 }
 
 
 .community-grid h2 {
+
+    max-width:
+        540px;
 
     margin:
         0;
@@ -3163,7 +3233,7 @@ button {
         serif;
 
     font-size:
-        clamp(2.8rem, 7vw, 6.2rem);
+        clamp(2.8rem, 6.5vw, 6rem);
 
     line-height:
         .87;
@@ -3180,7 +3250,7 @@ button {
 .community-copy {
 
     max-width:
-        580px;
+        550px;
 
 }
 
@@ -3201,7 +3271,7 @@ button {
         serif;
 
     font-size:
-        clamp(1.2rem, 2.5vw, 1.5rem);
+        clamp(1.2rem, 2.2vw, 1.45rem);
 
     color:
         var(--black) !important;
@@ -3240,7 +3310,7 @@ button {
 .contact-content h2 {
 
     max-width:
-        950px;
+        820px;
 
     margin:
         0 auto;
@@ -3251,7 +3321,7 @@ button {
         serif;
 
     font-size:
-        clamp(3.1rem, 8vw, 8rem);
+        clamp(3.1rem, 7vw, 7.2rem);
 
     line-height:
         .81;
@@ -3268,7 +3338,7 @@ button {
 .contact-lead {
 
     max-width:
-        620px;
+        580px;
 
     margin:
         25px auto 0;
@@ -3631,6 +3701,9 @@ button {
         --header-height:
             70px;
 
+        --safe-padding:
+            38px;
+
     }
 
 
@@ -3774,6 +3847,22 @@ button {
 
     }
 
+
+    .hero-main h1 {
+
+        font-size:
+            clamp(4.3rem, 12vw, 8rem);
+
+    }
+
+
+    .hero-scroll {
+
+        right:
+            0;
+
+    }
+
 }
 
 
@@ -3788,16 +3877,16 @@ button {
         --header-height:
             64px;
 
+        --safe-padding:
+            15px;
+
     }
 
 
     .container {
 
         width:
-            min(
-                calc(100% - 30px),
-                var(--max-width)
-            );
+            calc(100% - (var(--safe-padding) * 2));
 
     }
 
@@ -4452,7 +4541,7 @@ button {
 
 
 /* =========================================================
-   27 · PROTECCIÓN EXTRA DE TEXTO
+   27 · PROTECCIÓN EXTRA
    ========================================================= */
 
 h1,
@@ -4475,8 +4564,6 @@ a {
 }
 
 
-/* Evita imágenes o iframes gigantes */
-
 .video-wrapper,
 .hero-media,
 .territory-media,
@@ -4488,8 +4575,6 @@ a {
 }
 
 
-/* Evita scroll horizontal accidental */
-
 html,
 body {
 
@@ -4497,4 +4582,41 @@ body {
         100%;
 
 }
+
+
+/* =========================================================
+   28 · REGLA FINAL DE SEGURIDAD EDITORIAL
+   ========================================================= */
+
+/*
+   Evita que bloques editoriales muy grandes
+   vuelvan a tocar los extremos de una pantalla.
+
+   Esta regla afecta solamente a los elementos
+   que contienen texto, no a fondos ni fotografías.
+*/
+
+.hero-main,
+.hero-top,
+.hero-bottom,
+.territory-text,
+.discover-content,
+.section-heading,
+.production-info,
+.remember-grid,
+.culture-grid,
+.radio-layout,
+.community-grid,
+.contact-content,
+.footer-grid {
+
+    max-width:
+        100%;
+
+}
+
+
+/* =========================================================
+   FIN · OCARINA UNIVERSO V17.2
+   ========================================================= */
 ```
