@@ -1,16 +1,20 @@
 /* =====================================================
    OCARINA PRODUCCIONES
-   V3 · CINEMATIC MULTIMEDIA
+   V4 · CINEMATIC MULTIMEDIA
 ===================================================== */
 
 :root {
 
     --black: #11110f;
     --black-soft: #181815;
+
     --cream: #e9e3d5;
     --cream-dark: #d5cdbd;
+
     --white: #f4f1e9;
+
     --gray: #9d9a92;
+
     --line: rgba(255,255,255,.14);
     --line-dark: rgba(17,17,15,.15);
 
@@ -21,6 +25,10 @@
 
 }
 
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -36,19 +44,16 @@ body {
 
     margin: 0;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
-    color:
-        var(--black);
+    color: var(--black);
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    line-height:
-        1.6;
+    line-height: 1.6;
 
 }
 
@@ -84,6 +89,10 @@ input {
 }
 
 
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .container {
 
     width:
@@ -92,8 +101,7 @@ input {
             var(--max)
         );
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
 }
 
@@ -104,8 +112,7 @@ input {
 
 .site-header {
 
-    position:
-        fixed;
+    position: fixed;
 
     top: 0;
     left: 0;
@@ -200,6 +207,8 @@ input {
 
     padding: 8px;
 
+    cursor: pointer;
+
 }
 
 
@@ -215,6 +224,9 @@ input {
 
     margin: 6px;
 
+    transition:
+        transform var(--transition);
+
 }
 
 
@@ -227,25 +239,20 @@ input {
     position: relative;
 
     min-height: 100vh;
-
     min-height: 100svh;
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
 }
 
 
 .intro-background {
 
-    position:
-        absolute;
+    position: absolute;
 
     inset: 0;
 
@@ -279,17 +286,16 @@ input {
 
 .intro-overlay {
 
-    position:
-        absolute;
+    position: absolute;
 
     inset: 0;
 
     background:
         linear-gradient(
             180deg,
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.25) 40%,
-            rgba(0,0,0,.78)
+            rgba(0,0,0,.5),
+            rgba(0,0,0,.2) 40%,
+            rgba(0,0,0,.82)
         );
 
 }
@@ -297,13 +303,11 @@ input {
 
 .intro-content {
 
-    position:
-        relative;
+    position: relative;
 
     z-index: 2;
 
     min-height: 100vh;
-
     min-height: 100svh;
 
     display: flex;
@@ -348,15 +352,15 @@ input {
 
 .intro-center {
 
-    max-width:
-        780px;
+    max-width: 800px;
 
 }
 
 
 .intro-mark {
 
-    font-size: clamp(3.8rem, 10vw, 9rem);
+    font-size:
+        clamp(3.8rem, 10vw, 9rem);
 
     line-height: .8;
 
@@ -367,10 +371,25 @@ input {
 }
 
 
+.founder-line {
+
+    margin:
+        25px 0 0;
+
+    font-size: .63rem;
+
+    letter-spacing: .18em;
+
+    color:
+        rgba(255,255,255,.55);
+
+}
+
+
 .intro-center h1 {
 
     margin:
-        20px 0;
+        15px 0 20px;
 
     font-size:
         clamp(1.4rem, 3vw, 2.8rem);
@@ -392,12 +411,11 @@ input {
 }
 
 
-.intro-center p {
+.intro-center > p:last-child {
 
     margin: 0;
 
-    font-size:
-        1.05rem;
+    font-size: 1.05rem;
 
     color:
         rgba(255,255,255,.72);
@@ -419,6 +437,14 @@ input {
 
     text-transform: uppercase;
 
+    transition:
+        transform var(--transition);
+
+}
+
+
+.intro-scroll:hover {
+    transform: translateY(4px);
 }
 
 
@@ -432,8 +458,7 @@ input {
 
     min-height: 90vh;
 
-    background:
-        var(--black);
+    background: var(--black);
 
     color: white;
 
@@ -469,9 +494,9 @@ input {
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.82),
-            rgba(0,0,0,.3),
-            rgba(0,0,0,.62)
+            rgba(0,0,0,.84),
+            rgba(0,0,0,.32),
+            rgba(0,0,0,.68)
         );
 
 }
@@ -533,8 +558,7 @@ input {
 
     display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
@@ -641,13 +665,12 @@ input {
 
 
 /* =====================================================
-   UNIVERSE
+   UNIVERSO
 ===================================================== */
 
 .universe {
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
 }
 
@@ -661,8 +684,7 @@ input {
 
     gap: 1px;
 
-    background:
-        var(--line-dark);
+    background: var(--line-dark);
 
 }
 
@@ -673,8 +695,7 @@ input {
 
     padding: 38px;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
     border: 1px solid transparent;
 
@@ -688,11 +709,11 @@ input {
 
 .universe-card:hover {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
+
+    transform: translateY(-3px);
 
 }
 
@@ -752,11 +773,9 @@ input {
 
 .universe-featured {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
@@ -772,8 +791,7 @@ input {
 
 .productions {
 
-    background:
-        #f0ebe0;
+    background: #f0ebe0;
 
 }
 
@@ -824,8 +842,7 @@ input {
 
     overflow: hidden;
 
-    background:
-        #111;
+    background: #111;
 
 }
 
@@ -850,8 +867,7 @@ input {
 
     letter-spacing: .15em;
 
-    color:
-        #88847a;
+    color: #88847a;
 
 }
 
@@ -873,8 +889,7 @@ input {
 
 .production-info p {
 
-    color:
-        #6d6961;
+    color: #6d6961;
 
 }
 
@@ -910,7 +925,7 @@ input {
 
 
 /* =====================================================
-   PROJECT DARK
+   PROJECT
 ===================================================== */
 
 .project-section {
@@ -923,11 +938,9 @@ input {
 
 .project-dark {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
@@ -964,8 +977,7 @@ input {
 
     display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
@@ -1026,26 +1038,29 @@ input {
 
     transition:
         background var(--transition),
-        color var(--transition);
+        color var(--transition),
+        transform var(--transition);
 
+}
+
+
+.button:hover {
+    transform: translateY(-2px);
 }
 
 
 .button-primary {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
 
 .button-primary:hover {
 
-    background:
-        #34332e;
+    background: #34332e;
 
 }
 
@@ -1060,11 +1075,9 @@ input {
 
 .button-outline-dark:hover {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
@@ -1074,19 +1087,16 @@ input {
     border-color:
         rgba(255,255,255,.4);
 
-    color:
-        white;
+    color: white;
 
 }
 
 
 .button-light:hover {
 
-    background:
-        white;
+    background: white;
 
-    color:
-        var(--black);
+    color: var(--black);
 
 }
 
@@ -1097,11 +1107,9 @@ input {
 
 .radio-section {
 
-    background:
-        #171714;
+    background: #171714;
 
-    color:
-        white;
+    color: white;
 
 }
 
@@ -1138,8 +1146,7 @@ input {
 
     display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
@@ -1165,11 +1172,13 @@ input {
 
     padding: 35px;
 
-    background:
-        #24231f;
+    background: #24231f;
 
     border:
         1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.25);
 
 }
 
@@ -1193,15 +1202,30 @@ input {
 .mini-live {
 
     width: 8px;
-
     height: 8px;
+
+    flex: 0 0 auto;
 
     display: inline-block;
 
     border-radius: 50%;
 
-    background:
-        #a34b42;
+    background: #666;
+
+    transition:
+        background var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.radio-player-card.is-playing .live-dot,
+.mini-player.is-playing .mini-live {
+
+    background: #a34b42;
+
+    box-shadow:
+        0 0 0 5px rgba(163,75,66,.12);
 
 }
 
@@ -1209,7 +1233,6 @@ input {
 .radio-disc {
 
     width: 180px;
-
     height: 180px;
 
     margin:
@@ -1264,11 +1287,9 @@ input {
 
     place-items: center;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
-    color:
-        var(--black);
+    color: var(--black);
 
     font-weight: 700;
 
@@ -1297,8 +1318,7 @@ input {
 
 .radio-track span {
 
-    color:
-        #9d9a92;
+    color: #9d9a92;
 
     font-size: .8rem;
 
@@ -1325,29 +1345,27 @@ input {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,.3);
+    border:
+        1px solid rgba(255,255,255,.3);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        white;
+    color: white;
 
     cursor: pointer;
 
     transition:
-        background var(--transition);
+        background var(--transition),
+        color var(--transition);
 
 }
 
 
 .radio-play:hover {
 
-    background:
-        white;
+    background: white;
 
-    color:
-        var(--black);
+    color: var(--black);
 
 }
 
@@ -1387,8 +1405,7 @@ input {
 
 .archive {
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
 }
 
@@ -1402,8 +1419,7 @@ input {
 
     gap: 1px;
 
-    background:
-        var(--line-dark);
+    background: var(--line-dark);
 
 }
 
@@ -1414,11 +1430,23 @@ input {
 
     padding: 30px;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
     border:
         1px solid var(--line-dark);
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+
+}
+
+
+.archive-card:hover {
+
+    transform: translateY(-4px);
+
+    background: #e3dccd;
 
 }
 
@@ -1447,8 +1475,7 @@ input {
 
 .archive-card p {
 
-    color:
-        #706d65;
+    color: #706d65;
 
 }
 
@@ -1466,14 +1493,36 @@ input {
 }
 
 
+.archive-note {
+
+    max-width: 650px;
+
+    margin-top: 50px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid var(--line-dark);
+
+}
+
+
+.archive-note p {
+
+    color: #706d65;
+
+    font-size: .85rem;
+
+}
+
+
 /* =====================================================
    CULTURA
 ===================================================== */
 
 .culture-section {
 
-    background:
-        #ded7c9;
+    background: #ded7c9;
 
 }
 
@@ -1506,8 +1555,7 @@ input {
 
 .culture-grid p {
 
-    color:
-        #66635c;
+    color: #66635c;
 
 }
 
@@ -1550,11 +1598,9 @@ input {
 
     min-height: 85vh;
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
     overflow: hidden;
 
@@ -1588,9 +1634,9 @@ input {
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.8),
+            rgba(0,0,0,.82),
             rgba(0,0,0,.3),
-            rgba(0,0,0,.7)
+            rgba(0,0,0,.72)
         );
 
 }
@@ -1631,8 +1677,7 @@ input {
 
     display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
@@ -1681,8 +1726,7 @@ input {
 
 .services {
 
-    background:
-        #ece6da;
+    background: #ece6da;
 
 }
 
@@ -1696,8 +1740,7 @@ input {
 
     gap: 1px;
 
-    background:
-        var(--line-dark);
+    background: var(--line-dark);
 
 }
 
@@ -1708,9 +1751,16 @@ input {
 
     padding: 30px;
 
-    background:
-        #ece6da;
+    background: #ece6da;
 
+    transition:
+        transform var(--transition);
+
+}
+
+
+.service-card:hover {
+    transform: translateY(-4px);
 }
 
 
@@ -1739,8 +1789,7 @@ input {
 
 .service-card p {
 
-    color:
-        #6e6a62;
+    color: #6e6a62;
 
 }
 
@@ -1751,11 +1800,9 @@ input {
 
 .trajectory {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
@@ -1790,6 +1837,13 @@ input {
 
     color:
         rgba(255,255,255,.68);
+
+}
+
+
+.trajectory-grid strong {
+
+    color: white;
 
 }
 
@@ -1840,8 +1894,7 @@ input {
 
 .contact {
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
 }
 
@@ -1869,8 +1922,7 @@ input {
 
 .contact-content > p:not(.eyebrow) {
 
-    color:
-        #77736b;
+    color: #77736b;
 
 }
 
@@ -1896,11 +1948,9 @@ input {
 
 .footer {
 
-    background:
-        #0d0d0b;
+    background: #0d0d0b;
 
-    color:
-        white;
+    color: white;
 
     padding:
         45px 0;
@@ -1928,8 +1978,7 @@ input {
 
 .footer p {
 
-    color:
-        #77746d;
+    color: #77746d;
 
     font-size: .75rem;
 
@@ -1942,13 +1991,10 @@ input {
 
 .mini-player {
 
-    position:
-        fixed;
+    position: fixed;
 
     left: 20px;
-
     right: 20px;
-
     bottom: 20px;
 
     z-index: 1200;
@@ -1971,8 +2017,7 @@ input {
     background:
         rgba(18,18,16,.94);
 
-    color:
-        white;
+    color: white;
 
     border:
         1px solid rgba(255,255,255,.12);
@@ -2031,11 +2076,9 @@ input {
     border:
         1px solid rgba(255,255,255,.25);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        white;
+    color: white;
 
     cursor: pointer;
 
@@ -2050,20 +2093,16 @@ input {
 
     .nav-links {
 
-        position:
-            fixed;
+        position: fixed;
 
         inset:
             76px 0 auto 0;
 
-        display:
-            none;
+        display: none;
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            flex-start;
+        align-items: flex-start;
 
         gap: 0;
 
@@ -2078,8 +2117,7 @@ input {
 
     .nav-links.active {
 
-        display:
-            flex;
+        display: flex;
 
     }
 
@@ -2099,8 +2137,7 @@ input {
 
     .menu-toggle {
 
-        display:
-            block;
+        display: block;
 
     }
 
@@ -2122,8 +2159,7 @@ input {
     .culture-grid,
     .trajectory-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 45px;
 
@@ -2134,13 +2170,6 @@ input {
     .production-reverse .production-info {
 
         order: initial;
-
-    }
-
-
-    .radio-layout {
-
-        gap: 60px;
 
     }
 
@@ -2185,8 +2214,7 @@ input {
 
     .intro-bottom {
 
-        align-items:
-            flex-end;
+        align-items: flex-end;
 
         gap: 20px;
 
@@ -2211,16 +2239,14 @@ input {
     .archive-grid,
     .services-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 
 
     .universe-card {
 
-        min-height:
-            280px;
+        min-height: 280px;
 
     }
 
@@ -2251,8 +2277,7 @@ input {
 
     .footer-content {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
     }
 
@@ -2262,6 +2287,42 @@ input {
         left: 10px;
         right: 10px;
         bottom: 10px;
+
+    }
+
+}
+
+
+/* =====================================================
+   ACCESIBILIDAD
+===================================================== */
+
+:focus-visible {
+
+    outline:
+        2px solid currentColor;
+
+    outline-offset:
+        4px;
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
 
     }
 
