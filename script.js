@@ -1,36 +1,31 @@
 ```javascript
 /* =========================================================
    OCARINA PRODUCCIONES
-   V7.2 CINEMATIC
+   V7.3 CINEMATIC
    SCRIPT.JS
    ========================================================= */
 
-
-/* =========================================================
-   01. DOM READY
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
     initLoader();
     initHeader();
     initMobileMenu();
-    initScrollReveal();
-    initCurrentYear();
-    initRadio();
     initSmoothNavigation();
-    initImageFallbacks();
-
+    initScrollReveal();
+    initRadio();
+    initCurrentYear();
+    initImageProtection();
 });
 
 
 /* =========================================================
-   02. LOADER
+   LOADER
    ========================================================= */
 
 function initLoader() {
 
-    const loader = document.getElementById("cinematicLoader");
+    const loader = document.querySelector(
+        ".cinematic-loader"
+    );
 
     if (!loader) return;
 
@@ -39,13 +34,10 @@ function initLoader() {
         window.setTimeout(() => {
 
             loader.classList.add("is-hidden");
-
             document.body.classList.add("page-loaded");
 
-        }, 650);
-
+        }, 500);
     };
-
 
     if (document.readyState === "complete") {
 
@@ -58,41 +50,38 @@ function initLoader() {
             hideLoader,
             { once: true }
         );
-
     }
-
 
     /*
      * Seguridad:
-     * si alguna imagen externa tarda demasiado,
-     * la página no queda bloqueada eternamente.
+     * nunca dejamos la pantalla bloqueada
+     * indefinidamente por una imagen lenta.
      */
 
-    window.setTimeout(() => {
+    setTimeout(() => {
 
         loader.classList.add("is-hidden");
-
         document.body.classList.add("page-loaded");
 
     }, 3500);
-
 }
 
 
 /* =========================================================
-   03. HEADER
+   HEADER
    ========================================================= */
 
 function initHeader() {
 
-    const header = document.getElementById("siteHeader");
+    const header = document.querySelector(
+        ".site-header"
+    );
 
     if (!header) return;
 
-
     const updateHeader = () => {
 
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
 
             header.classList.add("scrolled");
 
@@ -101,31 +90,31 @@ function initHeader() {
             header.classList.remove("scrolled");
 
         }
-
     };
 
-
     updateHeader();
-
 
     window.addEventListener(
         "scroll",
         updateHeader,
         { passive: true }
     );
-
 }
 
 
 /* =========================================================
-   04. MOBILE MENU
+   MOBILE MENU
    ========================================================= */
 
 function initMobileMenu() {
 
-    const toggle = document.getElementById("menuToggle");
+    const toggle = document.querySelector(
+        ".menu-toggle"
+    );
 
-    const navigation = document.getElementById("mainNavigation");
+    const navigation = document.querySelector(
+        ".main-navigation"
+    );
 
     if (!toggle || !navigation) return;
 
@@ -141,13 +130,9 @@ function initMobileMenu() {
             "false"
         );
 
-        toggle.setAttribute(
-            "aria-label",
-            "Abrir menú"
+        document.body.classList.remove(
+            "menu-open"
         );
-
-        document.body.classList.remove("menu-open");
-
     };
 
 
@@ -162,33 +147,31 @@ function initMobileMenu() {
             "true"
         );
 
-        toggle.setAttribute(
-            "aria-label",
-            "Cerrar menú"
+        document.body.classList.add(
+            "menu-open"
         );
-
-        document.body.classList.add("menu-open");
-
     };
 
 
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener(
+        "click",
+        () => {
 
-        const isOpen =
-            navigation.classList.contains("open");
+            if (
+                navigation.classList.contains(
+                    "open"
+                )
+            ) {
 
+                closeMenu();
 
-        if (isOpen) {
+            } else {
 
-            closeMenu();
+                openMenu();
 
-        } else {
-
-            openMenu();
-
+            }
         }
-
-    });
+    );
 
 
     navigation
@@ -229,61 +212,133 @@ function initMobileMenu() {
 
         }
     );
-
 }
 
 
 /* =========================================================
-   05. SCROLL REVEAL
-========================================================= */
+   NAVEGACIÓN SUAVE
+   ========================================================= */
+
+function initSmoothNavigation() {
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const href =
+                        link.getAttribute(
+                            "href"
+                        );
+
+                    if (
+                        !href ||
+                        href === "#"
+                    ) {
+                        return;
+                    }
+
+                    const target =
+                        document.querySelector(
+                            href
+                        );
+
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    const header =
+                        document.querySelector(
+                            ".site-header"
+                        );
+
+                    const headerHeight =
+                        header
+                            ? header.offsetHeight
+                            : 0;
+
+                    const position =
+                        target.getBoundingClientRect()
+                            .top +
+                        window.scrollY -
+                        headerHeight;
+
+                    window.scrollTo({
+                        top: position,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        });
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 
 function initScrollReveal() {
 
-    const elements = document.querySelectorAll(
-        ".reveal, .reveal-card, [data-reveal-section]"
-    );
-
+    const elements =
+        document.querySelectorAll(
+            ".reveal, .reveal-card, [data-reveal-section]"
+        );
 
     if (!elements.length) return;
 
 
-    /*
-     * Si el navegador no soporta IntersectionObserver,
-     * mostramos todo directamente.
-     */
-
-    if (!("IntersectionObserver" in window)) {
+    if (
+        !("IntersectionObserver" in window)
+    ) {
 
         elements.forEach(element => {
 
-            element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
         });
 
         return;
-
     }
 
 
-    const observer = new IntersectionObserver(
-        entries => {
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-            entries.forEach(entry => {
+                entries.forEach(entry => {
 
-                if (!entry.isIntersecting) return;
+                    if (
+                        !entry.isIntersecting
+                    ) {
+                        return;
+                    }
 
-                entry.target.classList.add("visible");
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-                observer.unobserve(entry.target);
+                    observer.unobserve(
+                        entry.target
+                    );
 
-            });
+                });
 
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -50px 0px"
-        }
-    );
+            },
+            {
+                threshold: 0.12,
+                rootMargin:
+                    "0px 0px -50px 0px"
+            }
+        );
 
 
     elements.forEach(element => {
@@ -291,181 +346,166 @@ function initScrollReveal() {
         observer.observe(element);
 
     });
-
 }
 
 
 /* =========================================================
-   06. CURRENT YEAR
-========================================================= */
-
-function initCurrentYear() {
-
-    const yearElements = document.querySelectorAll(
-        "[data-current-year]"
-    );
-
-
-    const year = new Date().getFullYear();
-
-
-    yearElements.forEach(element => {
-
-        element.textContent = year;
-
-    });
-
-}
-
-
-/* =========================================================
-   07. RADIO
-========================================================= */
+   RADIO OCARINA
+   ========================================================= */
 
 function initRadio() {
 
-    const audio = document.getElementById(
-        "radioAudio"
-    );
+    const audio =
+        document.querySelector(
+            "#radioAudio"
+        );
 
-    const playButton = document.getElementById(
-        "radioPlay"
-    );
+    const playButton =
+        document.querySelector(
+            "#radioPlay"
+        );
 
-    const volume = document.getElementById(
-        "radioVolume"
-    );
+    const volume =
+        document.querySelector(
+            "#radioVolume"
+        );
 
-    const disc = document.getElementById(
-        "radioDisc"
-    );
+    const disc =
+        document.querySelector(
+            "#radioDisc"
+        );
 
-    const status = document.getElementById(
-        "radioStatus"
-    );
+    const status =
+        document.querySelector(
+            "#radioStatus"
+        );
 
-    const message = document.getElementById(
-        "radioMessage"
-    );
+    const message =
+        document.querySelector(
+            "#radioMessage"
+        );
 
 
     if (
         !audio ||
-        !playButton ||
-        !volume
+        !playButton
     ) {
-
         return;
-
     }
 
 
     /*
-     * IMPORTANTE
-     *
-     * Colocá acá la URL REAL del streaming
-     * de Radio Oasis cuando la tengas.
-     *
-     * No inventamos una URL porque una dirección
-     * incorrecta haría fallar el reproductor.
+     * SEÑAL ZENO FM
      */
 
-    const RADIO_STREAM_URL = "";
+    const RADIO_STREAM =
+        "https://stream.zeno.fm/amfjjcz4tlgtv";
 
 
-    if (RADIO_STREAM_URL) {
+    /*
+     * Conectamos la señal.
+     */
 
-        audio.src = RADIO_STREAM_URL;
+    if (!audio.src) {
+
+        audio.src = RADIO_STREAM;
 
     }
 
 
-    audio.volume = Number(volume.value);
+    audio.preload = "none";
 
 
-    const updateInterface = playing => {
+    if (volume) {
 
-        if (disc) {
+        const initialVolume =
+            Number(volume.value);
 
-            disc.classList.toggle(
-                "playing",
-                playing
-            );
+        audio.volume =
+            Number.isFinite(
+                initialVolume
+            )
+                ? initialVolume
+                : 0.8;
+    }
 
-        }
 
+    const setPlayingState =
+        playing => {
 
-        if (playing) {
+            if (disc) {
 
-            playButton.textContent = "Ⅱ";
-
-            playButton.setAttribute(
-                "aria-label",
-                "Pausar radio"
-            );
-
-            if (status) {
-
-                status.textContent =
-                    "RADIO OASIS · EN VIVO";
-
+                disc.classList.toggle(
+                    "playing",
+                    playing
+                );
             }
 
-        } else {
 
-            playButton.textContent = "▶";
+            if (playing) {
 
-            playButton.setAttribute(
-                "aria-label",
-                "Reproducir radio"
-            );
+                playButton.textContent =
+                    "Ⅱ";
 
-            if (status) {
+                playButton.setAttribute(
+                    "aria-label",
+                    "Pausar radio"
+                );
 
-                status.textContent =
-                    "RADIO OASIS · LISTA";
+                if (status) {
 
+                    status.textContent =
+                        "EN VIVO · OCARINA RADIO";
+
+                }
+
+            } else {
+
+                playButton.textContent =
+                    "▶";
+
+                playButton.setAttribute(
+                    "aria-label",
+                    "Reproducir radio"
+                );
+
+                if (status) {
+
+                    status.textContent =
+                        "SEÑAL DISPONIBLE";
+
+                }
             }
-
-        }
-
-    };
+        };
 
 
     playButton.addEventListener(
         "click",
         async () => {
 
-            /*
-             * Sin URL real no intentamos reproducir.
-             */
-
-            if (!RADIO_STREAM_URL) {
-
-                if (message) {
-
-                    message.textContent =
-                        "El reproductor está preparado. Falta conectar la señal de streaming de FM Oasis 92.5.";
-
-                }
-
-                return;
-
-            }
-
-
             try {
 
                 if (audio.paused) {
 
+                    if (
+                        !audio.src ||
+                        audio.src ===
+                        window.location.href
+                    ) {
+
+                        audio.src =
+                            RADIO_STREAM;
+                    }
+
+
                     await audio.play();
 
-                    updateInterface(true);
+                    setPlayingState(true);
 
                     if (message) {
 
                         message.textContent =
-                            "Transmisión en vivo.";
+                            "Transmitiendo en vivo.";
 
                     }
 
@@ -473,7 +513,7 @@ function initRadio() {
 
                     audio.pause();
 
-                    updateInterface(false);
+                    setPlayingState(false);
 
                     if (message) {
 
@@ -481,48 +521,56 @@ function initRadio() {
                             "Transmisión pausada.";
 
                     }
-
                 }
 
             } catch (error) {
 
                 console.error(
-                    "No se pudo reproducir la radio:",
+                    "Error de radio:",
                     error
                 );
 
+                setPlayingState(false);
 
                 if (message) {
 
                     message.textContent =
-                        "No se pudo iniciar la transmisión. Revisá la señal de streaming.";
+                        "No se pudo conectar con la señal en este momento.";
 
                 }
-
-                updateInterface(false);
-
             }
-
         }
     );
 
 
-    volume.addEventListener(
-        "input",
-        () => {
+    if (volume) {
 
-            audio.volume =
-                Number(volume.value);
+        volume.addEventListener(
+            "input",
+            () => {
 
-        }
-    );
+                const value =
+                    Number(
+                        volume.value
+                    );
+
+                if (
+                    Number.isFinite(value)
+                ) {
+
+                    audio.volume = value;
+
+                }
+            }
+        );
+    }
 
 
     audio.addEventListener(
         "play",
         () => {
 
-            updateInterface(true);
+            setPlayingState(true);
 
         }
     );
@@ -532,7 +580,7 @@ function initRadio() {
         "pause",
         () => {
 
-            updateInterface(false);
+            setPlayingState(false);
 
         }
     );
@@ -542,105 +590,51 @@ function initRadio() {
         "error",
         () => {
 
-            updateInterface(false);
+            setPlayingState(false);
 
             if (message) {
 
                 message.textContent =
-                    "La señal de radio no está disponible en este momento.";
+                    "La señal no está disponible temporalmente.";
 
             }
-
         }
     );
-
 }
 
 
 /* =========================================================
-   08. SMOOTH NAVIGATION
-========================================================= */
+   AÑO AUTOMÁTICO
+   ========================================================= */
 
-function initSmoothNavigation() {
+function initCurrentYear() {
 
-    const internalLinks =
+    const elements =
         document.querySelectorAll(
-            'a[href^="#"]'
+            "[data-current-year]"
         );
 
+    const year =
+        new Date().getFullYear();
 
-    internalLinks.forEach(link => {
+    elements.forEach(element => {
 
-        link.addEventListener(
-            "click",
-            event => {
-
-                const targetId =
-                    link.getAttribute("href");
-
-
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-
-                    return;
-
-                }
-
-
-                const target =
-                    document.querySelector(targetId);
-
-
-                if (!target) return;
-
-
-                event.preventDefault();
-
-
-                const header =
-                    document.getElementById(
-                        "siteHeader"
-                    );
-
-
-                const headerHeight =
-                    header
-                        ? header.offsetHeight
-                        : 0;
-
-
-                const targetPosition =
-                    target.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerHeight;
-
-
-                window.scrollTo({
-
-                    top: targetPosition,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
+        element.textContent = year;
 
     });
-
 }
 
 
 /* =========================================================
-   09. IMAGE FALLBACKS
-========================================================= */
+   IMÁGENES
+   ========================================================= */
 
-function initImageFallbacks() {
+function initImageProtection() {
 
     const images =
-        document.querySelectorAll("img");
+        document.querySelectorAll(
+            "img"
+        );
 
 
     images.forEach(image => {
@@ -649,24 +643,13 @@ function initImageFallbacks() {
             "error",
             () => {
 
-                /*
-                 * Evitamos que una imagen rota
-                 * destruya visualmente la composición.
-                 */
+                console.warn(
+                    "Imagen no encontrada:",
+                    image.src
+                );
 
                 image.classList.add(
                     "image-error"
-                );
-
-
-                image.removeAttribute(
-                    "src"
-                );
-
-
-                image.setAttribute(
-                    "alt",
-                    "Imagen de Ocarina Producciones"
                 );
 
             },
@@ -674,55 +657,62 @@ function initImageFallbacks() {
         );
 
     });
-
 }
 
 
 /* =========================================================
-   10. PARALLAX SUAVE
-========================================================= */
+   PARALLAX CINEMÁTICO
+   ========================================================= */
 
 function initParallax() {
 
-    const heroImage =
-        document.querySelector(".hero-image");
+    const image =
+        document.querySelector(
+            ".hero-image"
+        );
 
-
-    if (!heroImage) return;
+    if (!image) return;
 
 
     /*
-     * Desactivamos el efecto en dispositivos
-     * pequeños para priorizar rendimiento.
+     * En celulares lo desactivamos.
+     * Mejora rendimiento y evita movimientos
+     * extraños.
      */
 
-    if (window.innerWidth < 800) return;
+    if (
+        window.matchMedia(
+            "(max-width: 700px)"
+        ).matches
+    ) {
+        return;
+    }
 
 
     let ticking = false;
 
 
-    const updateParallax = () => {
+    const update =
+        () => {
 
-        const scroll =
-            window.scrollY;
+            const scroll =
+                window.scrollY;
 
+            if (
+                scroll <=
+                window.innerHeight
+            ) {
 
-        if (scroll < window.innerHeight) {
+                const movement =
+                    scroll * 0.08;
 
-            const movement =
-                scroll * 0.12;
+                image.style.transform =
+                    `scale(1.02) translateY(${movement}px)`;
 
+            }
 
-            heroImage.style.transform =
-                `scale(1.01) translateY(${movement}px)`;
-
-        }
-
-
-        ticking = false;
-
-    };
+            ticking = false;
+        };
 
 
     window.addEventListener(
@@ -732,23 +722,17 @@ function initParallax() {
             if (!ticking) {
 
                 window.requestAnimationFrame(
-                    updateParallax
+                    update
                 );
 
                 ticking = true;
-
             }
 
         },
         { passive: true }
     );
-
 }
 
-
-/* =========================================================
-   11. INITIALIZE PARALLAX
-========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -757,49 +741,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   12. SAFETY: PREVENT ACCIDENTAL HORIZONTAL SCROLL
-========================================================= */
-
-window.addEventListener(
-    "load",
-    () => {
-
-        /*
-         * Detectamos elementos que eventualmente
-         * podrían exceder el viewport.
-         *
-         * No modificamos su contenido:
-         * solamente registramos el problema
-         * para facilitar futuras correcciones.
-         */
-
-        const viewportWidth =
-            document.documentElement.clientWidth;
-
-
-        document
-            .querySelectorAll("*")
-            .forEach(element => {
-
-                if (
-                    element.scrollWidth >
-                    viewportWidth + 2
-                ) {
-
-                    element.classList.add(
-                        "potential-overflow"
-                    );
-
-                }
-
-            });
-
-    }
-);
-
-
-/* =========================================================
-   FIN DEL SCRIPT
-   OCARINA PRODUCCIONES V7.2
+   FIN
+   OCARINA PRODUCCIONES V7.3
    ========================================================= */
 ```
