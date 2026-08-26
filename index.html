@@ -13,7 +13,7 @@
 
     <meta
         name="description"
-        content="Ocarina es un universo cultural y turístico nacido en San Patricio del Chañar. Historia, cultura, territorio, turismo, memoria, producciones audiovisuales y voces locales."
+        content="Ocarina es un universo cultural y territorial nacido en San Patricio del Chañar. Cultura, turismo, historia, memoria, territorio, producciones audiovisuales y radio."
     >
 
     <meta
@@ -28,12 +28,12 @@
 
     <meta
         property="og:title"
-        content="Ocarina | Cultura, Turismo, Historia y Territorio"
+        content="Ocarina | Cultura · Turismo · Historia · Territorio"
     >
 
     <meta
         property="og:description"
-        content="Un universo para conocer, recordar y descubrir San Patricio del Chañar."
+        content="Un universo para conocer, recordar, descubrir y escuchar San Patricio del Chañar."
     >
 
     <meta
@@ -46,9 +46,7 @@
         content="es_AR"
     >
 
-    <title>
-        Ocarina | Cultura · Turismo · Historia · Territorio
-    </title>
+    <title>Ocarina | Cultura · Turismo · Historia · Territorio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -66,7 +64,7 @@
             <a
                 href="#inicio"
                 class="brand"
-                aria-label="Ocarina — inicio"
+                aria-label="Ocarina — volver al inicio"
             >
                 OCARINA
             </a>
@@ -75,7 +73,7 @@
                 class="menu-toggle"
                 id="menuToggle"
                 type="button"
-                aria-label="Abrir menú"
+                aria-label="Abrir menú de navegación"
                 aria-expanded="false"
                 aria-controls="navLinks"
             >
@@ -125,11 +123,16 @@
                     src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85"
                     alt="Paisaje natural de la Patagonia"
                     fetchpriority="high"
+                    decoding="async"
                 >
 
-                <div class="hero-overlay"></div>
+                <div
+                    class="hero-overlay"
+                    aria-hidden="true"
+                ></div>
 
             </div>
+
 
             <div class="container hero-content">
 
@@ -191,16 +194,22 @@
 
             </div>
 
+
             <a
                 href="#territorio"
                 class="hero-scroll"
-                aria-label="Continuar hacia el territorio"
+                aria-label="Continuar hacia la sección territorio"
             >
+
                 <span>
                     DESCUBRIR
                 </span>
 
-                <span class="hero-scroll-line"></span>
+                <span
+                    class="hero-scroll-line"
+                    aria-hidden="true"
+                ></span>
+
             </a>
 
         </section>
@@ -220,11 +229,15 @@
 
                 <img
                     src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85"
-                    alt="Paisaje de la Patagonia"
+                    alt="Paisaje natural de la Patagonia"
                     loading="lazy"
+                    decoding="async"
                 >
 
-                <div class="territory-overlay"></div>
+                <div
+                    class="territory-overlay"
+                    aria-hidden="true"
+                ></div>
 
             </div>
 
@@ -243,7 +256,10 @@
                         <em>Es una historia.</em>
                     </h2>
 
-                    <div class="territory-line"></div>
+                    <div
+                        class="territory-line"
+                        aria-hidden="true"
+                    ></div>
 
                     <p>
                         Ocarina nace en San Patricio del Chañar
@@ -299,10 +315,10 @@
 
                 <div class="universe-grid">
 
-
                     <a
                         href="#producciones"
                         class="universe-card universe-featured"
+                        aria-label="Ir a Ocarina Producciones"
                     >
 
                         <span class="card-number">
@@ -334,6 +350,7 @@
                     <a
                         href="#recuerda"
                         class="universe-card"
+                        aria-label="Ir a Ocarina Recuerda"
                     >
 
                         <span class="card-number">
@@ -365,6 +382,7 @@
                     <a
                         href="#cultura"
                         class="universe-card"
+                        aria-label="Ir a Ocarina Cultura"
                     >
 
                         <span class="card-number">
@@ -396,6 +414,7 @@
                     <a
                         href="#descubre"
                         class="universe-card"
+                        aria-label="Ir a Ocarina Descubre"
                     >
 
                         <span class="card-number">
@@ -427,6 +446,7 @@
                     <a
                         href="#archivo"
                         class="universe-card"
+                        aria-label="Ir al Archivo Ocarina"
                     >
 
                         <span class="card-number">
@@ -458,6 +478,7 @@
                     <a
                         href="#radio"
                         class="universe-card"
+                        aria-label="Ir a Ocarina Radio"
                     >
 
                         <span class="card-number">
@@ -532,6 +553,7 @@
                             title="Resumen 2024 de Ocarina Producciones"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen
                         ></iframe>
 
@@ -554,11 +576,9 @@
                         </p>
 
                         <div class="tags">
-
                             <span>Audiovisual</span>
                             <span>Comunidad</span>
                             <span>Registro</span>
-
                         </div>
 
                     </div>
@@ -575,6 +595,7 @@
                             title="Entrevista a Seiichi Matsui"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen
                         ></iframe>
 
@@ -597,11 +618,9 @@
                         </p>
 
                         <div class="tags">
-
                             <span>Historia</span>
                             <span>Memoria</span>
                             <span>Entrevista</span>
-
                         </div>
 
                     </div>
@@ -618,6 +637,7 @@
                             title="50 años de la Escuela Primaria 273"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen
                         ></iframe>
 
@@ -640,11 +660,9 @@
                         </p>
 
                         <div class="tags">
-
                             <span>Educación</span>
                             <span>Comunidad</span>
                             <span>Memoria</span>
-
                         </div>
 
                     </div>
@@ -661,6 +679,7 @@
                             title="Cosechas Chañarenses"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen
                         ></iframe>
 
@@ -683,11 +702,9 @@
                         </p>
 
                         <div class="tags">
-
                             <span>Ruralidad</span>
                             <span>Producción</span>
                             <span>Territorio</span>
-
                         </div>
 
                     </div>
@@ -839,7 +856,7 @@
 
 
         <!-- =================================================
-             DESCUBRE / TURISMO
+             DESCUBRE
         ================================================== -->
 
         <section
@@ -854,9 +871,13 @@
                     src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85"
                     alt="Paisaje natural"
                     loading="lazy"
+                    decoding="async"
                 >
 
-                <div class="discover-overlay"></div>
+                <div
+                    class="discover-overlay"
+                    aria-hidden="true"
+                ></div>
 
             </div>
 
@@ -946,7 +967,10 @@
 
                     <div class="map-placeholder">
 
-                        <span class="map-icon">
+                        <span
+                            class="map-icon"
+                            aria-hidden="true"
+                        >
                             +
                         </span>
 
@@ -1008,9 +1032,7 @@
 
                     <article class="archive-card">
 
-                        <span class="archive-number">
-                            01
-                        </span>
+                        <span class="archive-number">01</span>
 
                         <h3>
                             Documentos
@@ -1031,9 +1053,7 @@
 
                     <article class="archive-card">
 
-                        <span class="archive-number">
-                            02
-                        </span>
+                        <span class="archive-number">02</span>
 
                         <h3>
                             Fotografías
@@ -1053,9 +1073,7 @@
 
                     <article class="archive-card">
 
-                        <span class="archive-number">
-                            03
-                        </span>
+                        <span class="archive-number">03</span>
 
                         <h3>
                             Audios
@@ -1075,9 +1093,7 @@
 
                     <article class="archive-card">
 
-                        <span class="archive-number">
-                            04
-                        </span>
+                        <span class="archive-number">04</span>
 
                         <h3>
                             Investigaciones
@@ -1126,9 +1142,15 @@
                     </h2>
 
                     <p>
-                        Música, entrevistas, voces,
-                        programas y contenidos sonoros
-                        vinculados con el territorio.
+                        Una dimensión sonora del universo Ocarina:
+                        voces, entrevistas, música, programas,
+                        relatos y contenidos vinculados con
+                        el territorio.
+                    </p>
+
+                    <p>
+                        La radio conecta lo que ocurre en la
+                        comunidad con quienes quieren escucharlo.
                     </p>
 
                 </div>
@@ -1137,11 +1159,16 @@
                 <div
                     class="radio-card"
                     id="radioPlayerCard"
+                    role="region"
+                    aria-label="Reproductor de Ocarina Radio"
                 >
 
                     <div class="radio-status">
 
-                        <span class="live-dot"></span>
+                        <span
+                            class="live-dot"
+                            aria-hidden="true"
+                        ></span>
 
                         <span id="radioStatus">
                             OCARINA RADIO · LISTO
@@ -1153,6 +1180,7 @@
                     <div
                         class="radio-disc"
                         id="radioDisc"
+                        aria-hidden="true"
                     >
 
                         <div class="radio-disc-inner">
@@ -1169,7 +1197,8 @@
                         </strong>
 
                         <span id="radioMessage">
-                            Presioná reproducir para escuchar.
+                            La transmisión estará disponible
+                            cuando el streaming esté conectado.
                         </span>
 
                     </div>
@@ -1178,6 +1207,7 @@
                     <audio
                         id="radioAudio"
                         preload="none"
+                        playsinline
                     ></audio>
 
 
@@ -1188,6 +1218,7 @@
                             class="radio-play"
                             type="button"
                             aria-label="Reproducir Ocarina Radio"
+                            aria-pressed="false"
                         >
                             ▶
                         </button>
@@ -1206,7 +1237,7 @@
                                 max="1"
                                 step="0.01"
                                 value="0.8"
-                                aria-label="Volumen"
+                                aria-label="Volumen de Ocarina Radio"
                             >
 
                         </div>
@@ -1218,7 +1249,10 @@
             </div>
 
 
-            <div class="container radio-categories">
+            <div
+                class="container radio-categories"
+                aria-label="Contenidos de Ocarina Radio"
+            >
 
                 <span>Programas</span>
                 <span>Entrevistas</span>
@@ -1267,9 +1301,7 @@
 
                     <article class="agenda-card">
 
-                        <span class="agenda-number">
-                            01
-                        </span>
+                        <span class="agenda-number">01</span>
 
                         <h3>
                             Cultura
@@ -1290,9 +1322,7 @@
 
                     <article class="agenda-card">
 
-                        <span class="agenda-number">
-                            02
-                        </span>
+                        <span class="agenda-number">02</span>
 
                         <h3>
                             Comunidad
@@ -1313,9 +1343,7 @@
 
                     <article class="agenda-card">
 
-                        <span class="agenda-number">
-                            03
-                        </span>
+                        <span class="agenda-number">03</span>
 
                         <h3>
                             Turismo
@@ -1479,7 +1507,6 @@
 
         <div class="container footer-grid">
 
-
             <div class="footer-brand">
 
                 <strong>
@@ -1547,12 +1574,16 @@
     <div
         class="mini-player"
         id="miniPlayer"
-        aria-label="Reproductor Ocarina Radio"
+        role="region"
+        aria-label="Reproductor compacto de Ocarina Radio"
     >
 
         <div class="mini-player-info">
 
-            <span class="mini-live"></span>
+            <span
+                class="mini-live"
+                aria-hidden="true"
+            ></span>
 
             <div>
 
@@ -1573,6 +1604,7 @@
             id="miniPlay"
             type="button"
             aria-label="Reproducir Ocarina Radio"
+            aria-pressed="false"
         >
             ▶
         </button>
@@ -1584,7 +1616,7 @@
          JAVASCRIPT
     ====================================================== -->
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>
