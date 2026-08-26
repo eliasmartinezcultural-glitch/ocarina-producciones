@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Archivo Ocarina | Historia, Memoria y Territorio
+    </title>
+
+    <meta
+        name="description"
+        content="Archivo Ocarina. Documentos, fotografías, audios, investigaciones y memoria de San Patricio del Chañar y su territorio."
+    >
+
+    <meta
+        name="author"
+        content="Ocarina Producciones · Elías Martínez"
+    >
+
+    <meta
+        name="theme-color"
+        content="#11110f"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           ARCHIVO OCARINA
+           MÓDULO INDEPENDIENTE
+        ===================================================== */
+
+        .archivo-page {
+
+            background: #e9e3d5;
+            color: #11110f;
+            min-height: 100vh;
+
+        }
+
+
+        /* =====================================================
+           CABECERA
+        ===================================================== */
+
+        .archivo-header {
+
+            background: #11110f;
+            color: white;
+            padding: 35px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.12);
+
+        }
+
+
+        .archivo-header-inner {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+        }
+
+
+        .archivo-brand {
+
+            font-size: .75rem;
+            letter-spacing: .18em;
+            font-weight: 700;
+
+        }
+
+
+        .archivo-back {
+
+            font-size: .62rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,.7);
+
+            transition:
+                opacity .3s ease;
+
+        }
+
+
+        .archivo-back:hover {
+
+            opacity: 1;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .archivo-hero {
+
+            background: #11110f;
+            color: white;
+
+            padding:
+                100px 0 120px;
+
+        }
+
+
+        .archivo-eyebrow {
+
+            margin-bottom: 25px;
+
+            font-size: .65rem;
+            letter-spacing: .18em;
+
+            color:
+                rgba(255,255,255,.55);
+
+        }
+
+
+        .archivo-hero h1 {
+
+            max-width: 850px;
+
+            margin: 0;
+
+            font-size:
+                clamp(3.5rem, 9vw, 8rem);
+
+            line-height: .88;
+
+            font-weight: 400;
+
+            letter-spacing: -.055em;
+
+        }
+
+
+        .archivo-hero h1 em {
+
+            display: block;
+
+            color: #d5cdbd;
+
+        }
+
+
+        .archivo-hero p {
+
+            max-width: 620px;
+
+            margin-top: 40px;
+
+            color:
+                rgba(255,255,255,.68);
+
+            font-size: 1rem;
+
+        }
+
+
+        /* =====================================================
+           NAVEGACIÓN DEL ARCHIVO
+        ===================================================== */
+
+        .archivo-tools {
+
+            padding: 35px 0;
+
+            background: #ded7c9;
+
+            border-bottom:
+                1px solid rgba(17,17,15,.12);
+
+        }
+
+
+        .archivo-tools-inner {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .archivo-search {
+
+            flex: 1;
+
+        }
+
+
+        .archivo-search input {
+
+            width: 100%;
+
+            min-height: 50px;
+
+            padding: 0 18px;
+
+            border:
+                1px solid rgba(17,17,15,.25);
+
+            background:
+                rgba(255,255,255,.35);
+
+            color: #11110f;
+
+            outline: none;
+
+        }
+
+
+        .archivo-search input:focus {
+
+            border-color:
+                #11110f;
+
+        }
+
+
+        .archivo-count {
+
+            white-space: nowrap;
+
+            font-size: .65rem;
+
+            letter-spacing: .1em;
+
+            text-transform: uppercase;
+
+            color: #68655e;
+
+        }
+
+
+        /* =====================================================
+           CATEGORÍAS
+        ===================================================== */
+
+        .archivo-categories {
+
+            padding: 35px 0 0;
+
+        }
+
+
+        .archivo-category-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+        }
+
+
+        .archivo-filter {
+
+            border:
+                1px solid rgba(17,17,15,.22);
+
+            background: transparent;
+
+            padding:
+                10px 15px;
+
+            cursor: pointer;
+
+            font-size: .62rem;
+
+            letter-spacing: .11em;
+
+            text-transform: uppercase;
+
+            color: #11110f;
+
+            transition:
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+
+        .archivo-filter:hover,
+        .archivo-filter.active {
+
+            background: #11110f;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           CONTENIDO
+        ===================================================== */
+
+        .archivo-content {
+
+            padding:
+                80px 0 130px;
+
+        }
+
+
+        .archivo-section-title {
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .archivo-section-title span {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: .62rem;
+
+            letter-spacing: .16em;
+
+            color: #77736b;
+
+        }
+
+
+        .archivo-section-title h2 {
+
+            margin: 0;
+
+            font-size:
+                clamp(2.2rem, 5vw, 4.5rem);
+
+            line-height: .95;
+
+            font-weight: 400;
+
+            letter-spacing: -.035em;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .archivo-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        /* =====================================================
+           TARJETA
+        ===================================================== */
+
+        .archivo-card {
+
+            position: relative;
+
+            min-height: 390px;
+
+            padding: 28px;
+
+            background: #f0ebe0;
+
+            border:
+                1px solid rgba(17,17,15,.12);
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition:
+                transform .4s cubic-bezier(.22,1,.36,1),
+                background .4s ease;
+
+        }
+
+
+        .archivo-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            background: #f5f0e7;
+
+        }
+
+
+        .archivo-card.hidden {
+
+            display: none;
+
+        }
+
+
+        .archivo-number {
+
+            font-size: .62rem;
+
+            letter-spacing: .14em;
+
+            color: #77736b;
+
+        }
+
+
+        .archivo-type {
+
+            margin-top: 55px;
+
+            font-size: .58rem;
+
+            letter-spacing: .14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+
+        }
+
+
+        .archivo-card h3 {
+
+            margin:
+                12px 0 15px;
+
+            font-size: 1.65rem;
+
+            line-height: 1;
+
+            font-weight: 400;
+
+        }
+
+
+        .archivo-card p {
+
+            margin: 0;
+
+            color: #6d6961;
+
+            font-size: .88rem;
+
+        }
+
+
+        .archivo-meta {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 4px;
+
+            margin-top: auto;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(17,17,15,.12);
+
+        }
+
+
+        .archivo-meta span {
+
+            font-size: .62rem;
+
+            color: #77736b;
+
+        }
+
+
+        .archivo-actions {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .archivo-button {
+
+            min-height: 42px;
+
+            padding:
+                0 15px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid rgba(17,17,15,.25);
+
+            font-size: .59rem;
+
+            letter-spacing: .1em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            background: transparent;
+
+            color: #11110f;
+
+            transition:
+                background .3s ease,
+                color .3s ease;
+
+        }
+
+
+        .archivo-button:hover {
+
+            background: #11110f;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           ESTADO VACÍO
+        ===================================================== */
+
+        .archivo-empty {
+
+            display: none;
+
+            padding:
+                70px 20px;
+
+            text-align: center;
+
+            border:
+                1px dashed rgba(17,17,15,.25);
+
+            color: #77736b;
+
+        }
+
+
+        .archivo-empty.visible {
+
+            display: block;
+
+        }
+
+
+        .archivo-empty strong {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #11110f;
+
+        }
+
+
+        /* =====================================================
+           APORTE COMUNITARIO
+        ===================================================== */
+
+        .archivo-contribute {
+
+            padding:
+                100px 0;
+
+            background: #11110f;
+
+            color: white;
+
+        }
+
+
+        .archivo-contribute-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 100px;
+
+            align-items: center;
+
+        }
+
+
+        .archivo-contribute h2 {
+
+            margin: 0;
+
+            font-size:
+                clamp(2.8rem, 6vw, 5.5rem);
+
+            line-height: .92;
+
+            font-weight: 400;
+
+        }
+
+
+        .archivo-contribute h2 em {
+
+            display: block;
+
+            color: #d5cdbd;
+
+        }
+
+
+        .archivo-contribute-copy {
+
+            max-width: 520px;
+
+        }
+
+
+        .archivo-contribute-copy p {
+
+            color:
+                rgba(255,255,255,.68);
+
+        }
+
+
+        .archivo-note {
+
+            margin-top: 30px;
+
+            padding:
+                18px;
+
+            border:
+                1px solid rgba(255,255,255,.14);
+
+            font-size: .75rem;
+
+            color:
+                rgba(255,255,255,.55);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .archivo-footer {
+
+            padding: 45px 0;
+
+            background: #0d0d0b;
+
+            color: white;
+
+        }
+
+
+        .archivo-footer-inner {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        .archivo-footer p {
+
+            margin: 5px 0;
+
+            font-size: .7rem;
+
+            color: #77746d;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .archivo-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .archivo-contribute-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .archivo-header-inner,
+            .archivo-tools-inner,
+            .archivo-footer-inner {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .archivo-hero {
+
+                padding:
+                    75px 0 90px;
+
+            }
+
+
+            .archivo-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .archivo-content {
+
+                padding:
+                    65px 0 90px;
+
+            }
+
+
+            .archivo-card {
+
+                min-height: 360px;
+
+            }
+
+
+            .archivo-contribute {
+
+                padding:
+                    75px 0;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="archivo-page">
+
+
+<!-- =====================================================
+     CABECERA
+===================================================== -->
+
+<header class="archivo-header">
+
+    <div class="container archivo-header-inner">
+
+        <div class="archivo-brand">
+
+            OCARINA · ARCHIVO
+
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="archivo-back"
+        >
+
+            ← Volver a Ocarina
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="archivo-hero">
+
+    <div class="container">
+
+        <div class="archivo-eyebrow">
+
+            OCARINA RECUERDA · ARCHIVO DOCUMENTAL
+
+        </div>
+
+
+        <h1>
+
+            Un lugar para
+            <em>conservar.</em>
+
+        </h1>
+
+
+        <p>
+
+            Documentos, fotografías, audios, investigaciones
+            y testimonios vinculados con la historia,
+            la cultura y el territorio de San Patricio del Chañar.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HERRAMIENTAS
+===================================================== -->
+
+<section class="archivo-tools">
+
+    <div class="container archivo-tools-inner">
+
+        <div class="archivo-search">
+
+            <input
+                type="search"
+                id="archivoSearch"
+                placeholder="Buscar dentro del archivo..."
+                aria-label="Buscar dentro del archivo"
+            >
+
+        </div>
+
+
+        <div
+            class="archivo-count"
+            id="archivoCount"
+        >
+
+            0 registros
+
+        </div>
+
+    </div>
+
+
+
+    <div class="container archivo-categories">
+
+        <div class="archivo-category-list">
+
+            <button
+                class="archivo-filter active"
+                data-filter="todos"
+                type="button"
+            >
+                Todo
+            </button>
+
+
+            <button
+                class="archivo-filter"
+                data-filter="documentos"
+                type="button"
+            >
+                Documentos
+            </button>
+
+
+            <button
+                class="archivo-filter"
+                data-filter="fotografias"
+                type="button"
+            >
+                Fotografías
+            </button>
+
+
+            <button
+                class="archivo-filter"
+                data-filter="audios"
+                type="button"
+            >
+                Audios
+            </button>
+
+
+            <button
+                class="archivo-filter"
+                data-filter="investigaciones"
+                type="button"
+            >
+                Investigaciones
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ARCHIVO
+===================================================== -->
+
+<main class="archivo-content">
+
+    <div class="container">
+
+
+        <div class="archivo-section-title">
+
+            <span>
+                COLECCIÓN · 001
+            </span>
+
+            <h2>
+                Memoria del territorio.
+            </h2>
+
+        </div>
+
+
+
+        <div
+            class="archivo-grid"
+            id="archivoGrid"
+        >
+
+
+            <!-- =================================================
+                 DOCUMENTO
+            ================================================== -->
+
+            <article
+                class="archivo-card"
+                data-category="documentos"
+                data-search="documento historia san patricio del chañar territorio"
+            >
+
+                <span class="archivo-number">
+                    001
+                </span>
+
+
+                <span class="archivo-type">
+                    Documento
+                </span>
+
+
+                <h3>
+                    Documento histórico
+                </h3>
+
+
+                <p>
+
+                    Espacio destinado a documentos
+                    históricos vinculados al territorio.
+
+                </p>
+
+
+                <div class="archivo-meta">
+
+                    <span>
+                        TIPO · DOCUMENTO
+                    </span>
+
+                    <span>
+                        ESTADO · PRÓXIMAMENTE
+                    </span>
+
+                </div>
+
+
+                <div class="archivo-actions">
+
+                    <span class="archivo-button">
+                        Consulta
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 FOTOGRAFÍA
+            ================================================== -->
+
+            <article
+                class="archivo-card"
+                data-category="fotografias"
+                data-search="fotografia foto historia chañar paisaje personas memoria"
+            >
+
+                <span class="archivo-number">
+                    002
+                </span>
+
+
+                <span class="archivo-type">
+                    Fotografía
+                </span>
+
+
+                <h3>
+                    Fototeca Ocarina
+                </h3>
+
+
+                <p>
+
+                    Colección de fotografías históricas
+                    y contemporáneas del territorio.
+
+                </p>
+
+
+                <div class="archivo-meta">
+
+                    <span>
+                        TIPO · FOTOGRAFÍA
+                    </span>
+
+                    <span>
+                        ESTADO · EN CONSTRUCCIÓN
+                    </span>
+
+                </div>
+
+
+                <div class="archivo-actions">
+
+                    <span class="archivo-button">
+                        Explorar
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AUDIO
+            ================================================== -->
+
+            <article
+                class="archivo-card"
+                data-category="audios"
+                data-search="audio entrevista testimonio voz memoria radio"
+            >
+
+                <span class="archivo-number">
+                    003
+                </span>
+
+
+                <span class="archivo-type">
+                    Audio
+                </span>
+
+
+                <h3>
+                    Voces del Chañar
+                </h3>
+
+
+                <p>
+
+                    Entrevistas, testimonios y registros
+                    sonoros de la comunidad.
+
+                </p>
+
+
+                <div class="archivo-meta">
+
+                    <span>
+                        TIPO · AUDIO
+                    </span>
+
+                    <span>
+                        ESTADO · EN CONSTRUCCIÓN
+                    </span>
+
+                </div>
+
+
+                <div class="archivo-actions">
+
+                    <span class="archivo-button">
+                        Escuchar
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 INVESTIGACIÓN
+            ================================================== -->
+
+            <article
+                class="archivo-card"
+                data-category="investigaciones"
+                data-search="investigacion historia territorio pueblos memoria archivo"
+            >
+
+                <span class="archivo-number">
+                    004
+                </span>
+
+
+                <span class="archivo-type">
+                    Investigación
+                </span>
+
+
+                <h3>
+                    Investigaciones Ocarina
+                </h3>
+
+
+                <p>
+
+                    Investigaciones sobre historia,
+                    territorio, cultura y memoria.
+
+                </p>
+
+
+                <div class="archivo-meta">
+
+                    <span>
+                        TIPO · INVESTIGACIÓN
+                    </span>
+
+                    <span>
+                        ESTADO · EN DESARROLLO
+                    </span>
+
+                </div>
+
+
+                <div class="archivo-actions">
+
+                    <span class="archivo-button">
+                        Consultar
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SIN RESULTADOS
+        ================================================== -->
+
+        <div
+            class="archivo-empty"
+            id="archivoEmpty"
+        >
+
+            <strong>
+                No encontramos registros.
+            </strong>
+
+            Probá con otra palabra o seleccioná
+            otra categoría.
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     APORTE COMUNITARIO
+===================================================== -->
+
+<section class="archivo-contribute">
+
+    <div class="container archivo-contribute-grid">
+
+
+        <div>
+
+            <p class="archivo-eyebrow">
+                ARCHIVO COMUNITARIO
+            </p>
+
+            <h2>
+
+                ¿Tenés algo que
+                <em>debería conservarse?</em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="archivo-contribute-copy">
+
+            <p>
+
+                Fotografías, documentos, historias,
+                publicaciones o testimonios pueden formar
+                parte de la memoria colectiva.
+
+            </p>
+
+
+            <p>
+
+                Ocarina busca construir un archivo abierto
+                dedicado a preservar y difundir la memoria
+                cultural y territorial.
+
+            </p>
+
+
+            <div class="archivo-note">
+
+                PRÓXIMAMENTE · SISTEMA PARA RECIBIR
+                APORTES DE LA COMUNIDAD
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="archivo-footer">
+
+    <div class="container archivo-footer-inner">
+
+
+        <div>
+
+            <strong>
+                OCARINA
+            </strong>
+
+            <p>
+                Producciones · Cultura · Historia · Territorio
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Archivo Ocarina
+            </p>
+
+            <p>
+                San Patricio del Chañar · Neuquén
+            </p>
+
+            <p>
+                © 2026 Ocarina Producciones
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCRIPT DEL ARCHIVO
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const searchInput =
+            document.getElementById("archivoSearch");
+
+
+        const cards =
+            document.querySelectorAll(".archivo-card");
+
+
+        const filters =
+            document.querySelectorAll(".archivo-filter");
+
+
+        const count =
+            document.getElementById("archivoCount");
+
+
+        const empty =
+            document.getElementById("archivoEmpty");
+
+
+        let currentFilter = "todos";
+
+
+
+        function updateArchive() {
+
+            const search =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+            let visible = 0;
+
+
+            cards.forEach(function (card) {
+
+
+                const category =
+                    card.dataset.category;
+
+
+                const searchable =
+                    card.dataset.search || "";
+
+
+                const matchesCategory =
+                    currentFilter === "todos"
+                    ||
+                    category === currentFilter;
+
+
+                const matchesSearch =
+                    searchable.includes(search);
+
+
+                if (
+                    matchesCategory
+                    &&
+                    matchesSearch
+                ) {
+
+                    card.classList.remove("hidden");
+
+                    visible++;
+
+                }
+
+                else {
+
+                    card.classList.add("hidden");
+
+                }
+
+            });
+
+
+            count.textContent =
+                visible +
+                (
+                    visible === 1
+                    ? " registro"
+                    : " registros"
+                );
+
+
+            if (visible === 0) {
+
+                empty.classList.add("visible");
+
+            }
+
+            else {
+
+                empty.classList.remove("visible");
+
+            }
+
+        }
+
+
+
+        filters.forEach(function (filter) {
+
+            filter.addEventListener(
+                "click",
+                function () {
+
+
+                    filters.forEach(function (button) {
+
+                        button.classList.remove("active");
+
+                    });
+
+
+                    filter.classList.add("active");
+
+
+                    currentFilter =
+                        filter.dataset.filter;
+
+
+                    updateArchive();
+
+                }
+
+            );
+
+        });
+
+
+
+        searchInput.addEventListener(
+            "input",
+            updateArchive
+        );
+
+
+        updateArchive();
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
