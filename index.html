@@ -6,54 +6,24 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        content="width=device-width, initial-scale=1.0"
     >
-
-    <meta name="theme-color" content="#0b0b09">
 
     <meta
         name="description"
-        content="Ocarina Producciones — producción audiovisual, cultura, memoria y territorio desde San Patricio del Chañar, Neuquén."
+        content="Ocarina Producciones — territorio, memoria, cultura y producción audiovisual desde San Patricio del Chañar."
     >
 
     <meta
-        name="keywords"
-        content="Ocarina Producciones, audiovisual, fotografía, cultura, territorio, San Patricio del Chañar, Neuquén, memoria, documental"
+        name="theme-color"
+        content="#11110f"
     >
 
-    <meta name="author" content="Ocarina Producciones">
-
-    <title>
-        Ocarina Producciones | Cultura · Memoria · Territorio
-    </title>
+    <title>Ocarina Producciones</title>
 
     <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
-
-    <meta
-        property="og:title"
-        content="Ocarina Producciones"
-    >
-
-    <meta
-        property="og:description"
-        content="Cultura, memoria, historias y territorio."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:url"
-        content="https://eliasmartinezcultural-glitch.github.io/ocarina-producciones/"
-    >
-
-    <!-- =====================================================
-         PRECONNECT
-    ====================================================== -->
+         TIPOGRAFÍAS
+         ===================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -63,52 +33,47 @@
         crossorigin
     >
 
-    <!-- =====================================================
-         FUENTES
-    ====================================================== -->
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet"
     >
 
     <!-- =====================================================
          ESTILOS
-    ====================================================== -->
+         ===================================================== -->
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body>
 
 <!-- =========================================================
-     LOADING SCREEN
-========================================================= -->
+     LOADER
+     ========================================================= -->
 
 <div
     class="cinematic-loader"
-    id="cinematicLoader"
+    id="loader"
     aria-hidden="true"
 >
 
     <div class="loader-inner">
 
-        <span class="loader-line"></span>
+        <div class="loader-line"></div>
 
-        <span class="loader-brand">
+        <div class="loader-brand">
             OCARINA
-        </span>
+        </div>
 
-        <span class="loader-subtitle">
+        <div class="loader-subtitle">
             PRODUCCIONES
-        </span>
+        </div>
 
-        <span class="loader-line"></span>
+        <div class="loader-line"></div>
 
     </div>
 
@@ -117,19 +82,16 @@
 
 <!-- =========================================================
      HEADER
-========================================================= -->
+     ========================================================= -->
 
-<header
-    class="site-header"
-    id="siteHeader"
->
+<header class="site-header">
 
     <div class="nav-container">
 
         <a
             href="#inicio"
             class="brand"
-            aria-label="Ocarina Producciones - Inicio"
+            aria-label="Ocarina Producciones — inicio"
         >
 
             <span class="brand-main">
@@ -145,11 +107,10 @@
 
         <button
             class="menu-toggle"
-            id="menuToggle"
             type="button"
             aria-label="Abrir menú"
             aria-expanded="false"
-            aria-controls="mainNavigation"
+            aria-controls="main-navigation"
         >
 
             <span></span>
@@ -161,32 +122,40 @@
 
         <nav
             class="main-navigation"
-            id="mainNavigation"
+            id="main-navigation"
             aria-label="Navegación principal"
         >
 
-            <a href="#inicio">
-                Inicio
-            </a>
-
             <a href="#universo">
-                Universo
+                UNIVERSO
             </a>
 
             <a href="#producciones">
-                Producciones
+                PRODUCCIONES
+            </a>
+
+            <a href="#recuerda">
+                RECUERDA
+            </a>
+
+            <a href="#cultura">
+                CULTURA
+            </a>
+
+            <a href="#descubre">
+                DESCUBRE
+            </a>
+
+            <a href="#mapa">
+                MAPA
+            </a>
+
+            <a href="#archivo">
+                ARCHIVO
             </a>
 
             <a href="#radio">
-                Radio
-            </a>
-
-            <a href="#nosotros">
-                Ocarina
-            </a>
-
-            <a href="#contacto">
-                Contacto
+                RADIO
             </a>
 
         </nav>
@@ -197,50 +166,40 @@
 
 
 <!-- =========================================================
-     MAIN
-========================================================= -->
+     HERO / INICIO
+     ========================================================= -->
 
-<main>
+<main id="inicio">
 
-
-<!-- =========================================================
-     01 — HERO / TERRITORIO
-========================================================= -->
-
-<section
-    class="hero cinematic-section"
-    id="inicio"
->
+<section class="hero cinematic-section">
 
     <div class="hero-media">
 
         <img
+            class="hero-image"
             src="assets/img/assets/502379158_24242970528621000_6809775672234068026_n.jpg"
-            alt="Paisaje y territorio registrado por Ocarina Producciones"
-            class="hero-image cinematic-image"
-            fetchpriority="high"
+            alt="Paisaje del territorio de San Patricio del Chañar"
         >
 
         <div class="hero-gradient"></div>
 
         <div class="hero-vignette"></div>
 
+        <div class="hero-grain"></div>
+
     </div>
-
-
-    <div class="hero-grain"></div>
 
 
     <div class="hero-content">
 
-        <div class="hero-meta reveal">
+        <div class="hero-meta">
 
             <span>
-                OCARINA PRODUCCIONES
+                SAN PATRICIO DEL CHAÑAR · NEUQUÉN
             </span>
 
             <span>
-                NEUQUÉN · ARGENTINA
+                TERRITORIO · MEMORIA · CULTURA
             </span>
 
         </div>
@@ -248,57 +207,40 @@
 
         <div class="hero-main">
 
-            <p class="eyebrow reveal">
-                CULTURA · MEMORIA · TERRITORIO
+            <p class="eyebrow">
+                PRODUCCIÓN AUDIOVISUAL
             </p>
 
 
-            <h1 class="hero-title reveal">
+            <h1 class="hero-title">
 
-                Contamos
+                Ocarina
 
                 <span>
-                    lo que somos.
+                    Producciones
                 </span>
 
             </h1>
 
 
-            <p class="hero-description reveal">
+            <p class="hero-description">
 
-                Producción audiovisual,
-                fotografía y comunicación
-                para historias que merecen
-                quedar registradas.
+                Una mirada audiovisual sobre el territorio,
+                las personas, la cultura y las historias que
+                construyen nuestra identidad.
 
             </p>
 
 
-            <div class="hero-actions reveal">
+            <div class="hero-actions">
 
                 <a
-                    href="#universo"
                     class="cinematic-button cinematic-button-light"
+                    href="#universo"
                 >
 
                     <span>
-                        EXPLORAR OCARINA
-                    </span>
-
-                    <strong>
-                        ↓
-                    </strong>
-
-                </a>
-
-
-                <a
-                    href="#producciones"
-                    class="cinematic-button cinematic-button-ghost"
-                >
-
-                    <span>
-                        VER PRODUCCIONES
+                        ENTRAR AL UNIVERSO
                     </span>
 
                     <strong>
@@ -307,19 +249,35 @@
 
                 </a>
 
+
+                <a
+                    class="cinematic-button cinematic-button-ghost"
+                    href="#producciones"
+                >
+
+                    <span>
+                        VER PRODUCCIONES
+                    </span>
+
+                    <strong>
+                        ↓
+                    </strong>
+
+                </a>
+
             </div>
 
         </div>
 
 
-        <div class="hero-bottom reveal">
+        <div class="hero-bottom">
 
             <span>
-                SAN PATRICIO DEL CHAÑAR
+                OCARINA · V6
             </span>
 
             <span class="scroll-indicator">
-                SCROLL ↓
+                DESPLAZAR ↓
             </span>
 
         </div>
@@ -330,80 +288,225 @@
 
 
 <!-- =========================================================
-     02 — INTRODUCCIÓN
-========================================================= -->
-
-<section
-    class="intro cinematic-section dark-section"
-    data-reveal-section
->
-
-    <div class="section-container intro-grid">
-
-        <div class="section-label">
-
-            <span>
-                01
-            </span>
-
-            <small>
-                EL COMIENZO
-            </small>
-
-        </div>
-
-
-        <div class="intro-content">
-
-            <p class="eyebrow">
-                OCARINA
-            </p>
-
-
-            <h2>
-                Una productora
-                nacida desde
-                el territorio.
-            </h2>
-
-
-            <div class="intro-text">
-
-                <p>
-                    Ocarina nace para contar historias
-                    desde una mirada cercana, documental
-                    y profundamente territorial.
-                </p>
-
-                <p>
-                    Registramos personas, lugares,
-                    proyectos, acontecimientos y
-                    expresiones culturales.
-                </p>
-
-                <p>
-                    Porque una imagen puede comunicar.
-                    Pero también puede convertirse
-                    en memoria.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     03 — UNIVERSO OCARINA
-========================================================= -->
+     UNIVERSO OCARINA
+     ========================================================= -->
 
 <section
     class="universe cinematic-section"
     id="universo"
-    data-reveal-section
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                <span>
+                    01
+                </span>
+
+                <small>
+                    UNIVERSO
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <p class="eyebrow">
+                    UNA FORMA DE MIRAR
+                </p>
+
+                <h2>
+                    Un territorio.
+                    Muchas historias.
+                </h2>
+
+                <p class="section-introduction">
+
+                    Ocarina nace para observar, registrar
+                    y contar aquello que sucede alrededor.
+                    Personas, paisajes, memoria, cultura,
+                    trabajo y comunidad.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="universe-grid">
+
+            <article class="universe-card universe-card-large reveal-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        PRODUCCIÓN
+                    </span>
+
+                    <h3>
+                        Crear
+                    </h3>
+
+                    <p>
+                        Producción audiovisual, fotografía,
+                        video, edición y comunicación para
+                        proyectos que necesitan contar algo.
+                    </p>
+
+                </div>
+
+                <span class="card-arrow">
+                    ↗
+                </span>
+
+            </article>
+
+
+            <article class="universe-card reveal-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        TERRITORIO
+                    </span>
+
+                    <h3>
+                        Mirar
+                    </h3>
+
+                    <p>
+                        Paisajes, caminos, pueblos y espacios
+                        que forman parte de nuestra identidad.
+                    </p>
+
+                </div>
+
+                <span class="card-arrow">
+                    ↗
+                </span>
+
+            </article>
+
+
+            <article class="universe-card reveal-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        MEMORIA
+                    </span>
+
+                    <h3>
+                        Recuerda
+                    </h3>
+
+                    <p>
+                        Historias, fotografías, testimonios
+                        y documentos para conservar la memoria
+                        del territorio.
+                    </p>
+
+                </div>
+
+                <span class="card-arrow">
+                    ↗
+                </span>
+
+            </article>
+
+
+            <article class="universe-card reveal-card">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        CULTURA
+                    </span>
+
+                    <h3>
+                        Encontrar
+                    </h3>
+
+                    <p>
+                        Personas, artistas, instituciones,
+                        tradiciones y expresiones culturales
+                        que hacen único al lugar.
+                    </p>
+
+                </div>
+
+                <span class="card-arrow">
+                    ↗
+                </span>
+
+            </article>
+
+
+            <article class="universe-card universe-card-wide reveal-card">
+
+                <span class="card-number">
+                    05
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        EXPLORACIÓN
+                    </span>
+
+                    <h3>
+                        Descubre
+                    </h3>
+
+                    <p>
+                        Una puerta para explorar lugares,
+                        historias y experiencias de San Patricio
+                        del Chañar y su entorno.
+                    </p>
+
+                </div>
+
+                <span class="card-arrow">
+                    ↗
+                </span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCCIONES
+     ========================================================= -->
+
+<section
+    class="productions dark-section cinematic-section"
+    id="producciones"
 >
 
     <div class="section-container">
@@ -417,7 +520,7 @@
                 </span>
 
                 <small>
-                    UNIVERSO OCARINA
+                    PRODUCCIONES
                 </small>
 
             </div>
@@ -426,259 +529,13 @@
             <div>
 
                 <p class="eyebrow">
-                    CINCO DIMENSIONES
-                </p>
-
-                <h2>
-                    Un universo para
-                    descubrir.
-                </h2>
-
-                <p class="section-introduction">
-                    Ocarina no es solamente una productora.
-                    Es también una forma de mirar,
-                    registrar y preservar el territorio.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="universe-grid">
-
-
-            <!-- RECUERDA -->
-
-            <a
-                href="recuerda/"
-                class="universe-card universe-card-large reveal-card"
-            >
-
-                <div class="card-number">
-                    01
-                </div>
-
-                <div class="card-content">
-
-                    <span>
-                        MEMORIA
-                    </span>
-
-                    <h3>
-                        Recuerda
-                    </h3>
-
-                    <p>
-                        Historias, personas,
-                        fotografías y recuerdos
-                        que forman parte de nuestra
-                        memoria colectiva.
-                    </p>
-
-                </div>
-
-                <div class="card-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- CULTURA -->
-
-            <a
-                href="cultura/"
-                class="universe-card reveal-card"
-            >
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <div class="card-content">
-
-                    <span>
-                        IDENTIDAD
-                    </span>
-
-                    <h3>
-                        Cultura
-                    </h3>
-
-                    <p>
-                        Música, artistas,
-                        patrimonio y expresiones
-                        culturales.
-                    </p>
-
-                </div>
-
-                <div class="card-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- DESCUBRE -->
-
-            <a
-                href="descubre/"
-                class="universe-card reveal-card"
-            >
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <div class="card-content">
-
-                    <span>
-                        TERRITORIO
-                    </span>
-
-                    <h3>
-                        Descubre
-                    </h3>
-
-                    <p>
-                        Paisajes, experiencias,
-                        lugares y propuestas
-                        para conocer nuestro entorno.
-                    </p>
-
-                </div>
-
-                <div class="card-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- MAPA -->
-
-            <a
-                href="mapa/"
-                class="universe-card reveal-card"
-            >
-
-                <div class="card-number">
-                    04
-                </div>
-
-                <div class="card-content">
-
-                    <span>
-                        GEOGRAFÍA
-                    </span>
-
-                    <h3>
-                        Mapa
-                    </h3>
-
-                    <p>
-                        Lugares, recorridos,
-                        patrimonio y territorio.
-                    </p>
-
-                </div>
-
-                <div class="card-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- ARCHIVO -->
-
-            <a
-                href="archivos/"
-                class="universe-card universe-card-wide reveal-card"
-            >
-
-                <div class="card-number">
-                    05
-                </div>
-
-                <div class="card-content">
-
-                    <span>
-                        DOCUMENTACIÓN
-                    </span>
-
-                    <h3>
-                        Archivo
-                    </h3>
-
-                    <p>
-                        Fotografías, documentos,
-                        audios y registros para
-                        conservar la historia.
-                    </p>
-
-                </div>
-
-                <div class="card-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     04 — PRODUCCIONES
-========================================================= -->
-
-<section
-    class="productions cinematic-section dark-section"
-    id="producciones"
-    data-reveal-section
->
-
-    <div class="section-container">
-
-        <div class="section-heading productions-heading">
-
-            <div class="section-label">
-
-                <span>
-                    03
-                </span>
-
-                <small>
-                    PRODUCCIÓN
-                </small>
-
-            </div>
-
-
-            <div>
-
-                <p class="eyebrow">
-                    AUDIOVISUAL
+                    TRABAJO AUDIOVISUAL
                 </p>
 
                 <h2>
                     Historias
-                    convertidas
-                    en imágenes.
+                    en movimiento.
                 </h2>
-
-                <p class="section-introduction">
-                    Producción, registro y edición
-                    para proyectos que necesitan
-                    comunicar algo real.
-                </p>
 
             </div>
 
@@ -688,13 +545,15 @@
         <div class="production-gallery">
 
 
-            <article class="production-item production-item-large reveal-card">
+            <article
+                class="production-item production-item-large reveal"
+            >
 
                 <div class="production-image">
 
                     <img
-                        src="assets/img/assets/748552251_1749117496089007_7653069972982181030_n.jpg"
-                        alt="Producción audiovisual de Ocarina"
+                        src="assets/img/assets/502379158_24242970528621000_6809775672234068026_n.jpg"
+                        alt="Territorio de San Patricio del Chañar"
                         loading="lazy"
                     >
 
@@ -704,17 +563,17 @@
                 <div class="production-caption">
 
                     <span>
-                        01 · AUDIOVISUAL
+                        TERRITORIO
                     </span>
 
                     <h3>
-                        Producción
+                        Un día en el territorio
                     </h3>
 
                     <p>
-                        Videos institucionales,
-                        documentales, coberturas
-                        y contenido digital.
+                        Miradas audiovisuales sobre la vida,
+                        el trabajo y los paisajes que forman
+                        parte de nuestra comunidad.
                     </p>
 
                 </div>
@@ -722,13 +581,15 @@
             </article>
 
 
-            <article class="production-item reveal-card">
+            <article
+                class="production-item reveal"
+            >
 
                 <div class="production-image">
 
                     <img
-                        src="assets/img/assets/748931100_855114670788773_2193652729964087500_n.jpg"
-                        alt="Registro fotográfico de Ocarina"
+                        src="assets/img/assets/502379158_24242970528621000_6809775672234068026_n.jpg"
+                        alt="Paisaje territorial"
                         loading="lazy"
                     >
 
@@ -738,16 +599,16 @@
                 <div class="production-caption">
 
                     <span>
-                        02 · FOTOGRAFÍA
+                        DOCUMENTAL
                     </span>
 
                     <h3>
-                        Registro
+                        Historias locales
                     </h3>
 
                     <p>
-                        Personas, espacios,
-                        acontecimientos y proyectos.
+                        Personas y relatos que merecen ser
+                        registrados.
                     </p>
 
                 </div>
@@ -755,13 +616,15 @@
             </article>
 
 
-            <article class="production-item reveal-card">
+            <article
+                class="production-item reveal"
+            >
 
                 <div class="production-image">
 
                     <img
-                        src="assets/img/assets/784197742_122174805062741198_2932456534313366163_n.jpg"
-                        alt="Historia territorial registrada por Ocarina"
+                        src="assets/img/assets/502379158_24242970528621000_6809775672234068026_n.jpg"
+                        alt="Paisaje de Neuquén"
                         loading="lazy"
                     >
 
@@ -771,16 +634,16 @@
                 <div class="production-caption">
 
                     <span>
-                        03 · DOCUMENTAL
+                        FOTOGRAFÍA
                     </span>
 
                     <h3>
-                        Historias
+                        Postales
                     </h3>
 
                     <p>
-                        Relatos con identidad,
-                        territorio y memoria.
+                        El territorio contado a través
+                        de imágenes.
                     </p>
 
                 </div>
@@ -796,154 +659,12 @@
 
 
 <!-- =========================================================
-     05 — RADIO
-========================================================= -->
-
-<section
-    class="radio cinematic-section"
-    id="radio"
-    data-reveal-section
->
-
-    <div class="section-container radio-layout">
-
-        <div class="radio-copy">
-
-            <div class="section-label">
-
-                <span>
-                    04
-                </span>
-
-                <small>
-                    RADIO
-                </small>
-
-            </div>
-
-
-            <p class="eyebrow">
-                RADIO CADENA OASIS
-            </p>
-
-
-            <h2>
-                La voz del
-                territorio.
-            </h2>
-
-
-            <p>
-                FM Oasis 92.5 · San Patricio
-                del Chañar.
-            </p>
-
-
-            <div class="radio-live">
-
-                <span class="live-dot"></span>
-
-                TRANSMISIÓN EN VIVO
-
-            </div>
-
-        </div>
-
-
-        <div class="radio-console">
-
-            <div class="radio-disc" id="radioDisc">
-
-                <div class="radio-disc-inner">
-
-                    <span>
-                        OASIS
-                    </span>
-
-                    <small>
-                        92.5
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="radio-information">
-
-                <span
-                    id="radioStatus"
-                    class="radio-status"
-                >
-                    RADIO OASIS · LISTA
-                </span>
-
-
-                <h3>
-                    FM Oasis 92.5
-                </h3>
-
-
-                <p id="radioMessage">
-                    Presioná reproducir para
-                    comenzar la transmisión.
-                </p>
-
-
-                <div class="radio-controls">
-
-                    <button
-                        type="button"
-                        id="radioPlay"
-                        class="radio-play"
-                        aria-label="Reproducir radio"
-                    >
-                        ▶
-                    </button>
-
-
-                    <div class="volume-control">
-
-                        <label for="radioVolume">
-                            VOLUMEN
-                        </label>
-
-                        <input
-                            type="range"
-                            id="radioVolume"
-                            min="0"
-                            max="1"
-                            step="0.01"
-                            value="0.8"
-                        >
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <audio
-                id="radioAudio"
-                preload="none"
-            ></audio>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     06 — MANIFIESTO
-========================================================= -->
+     RECUERDA
+     ========================================================= -->
 
 <section
     class="manifesto cinematic-section"
-    id="nosotros"
-    data-reveal-section
+    id="recuerda"
 >
 
     <div class="manifesto-background"></div>
@@ -951,14 +672,14 @@
 
     <div class="section-container manifesto-container">
 
-        <div class="section-label manifesto-label">
+        <div class="section-label">
 
             <span>
-                05
+                03
             </span>
 
             <small>
-                NUESTRA MIRADA
+                MEMORIA
             </small>
 
         </div>
@@ -967,18 +688,17 @@
         <div class="manifesto-content">
 
             <p class="eyebrow">
-                OCULAR · ESCUCHAR · REGISTRAR
+                RECUERDA
             </p>
 
 
             <h2>
 
-                No queremos
-                solamente producir
-                contenido.
+                Lo que no
+                registramos,
 
                 <em>
-                    Queremos dejar registro.
+                    puede desaparecer.
                 </em>
 
             </h2>
@@ -986,12 +706,32 @@
 
             <p class="manifesto-text">
 
-                Cada territorio tiene historias.
-                Cada persona tiene algo para contar.
-                Cada imagen puede convertirse
-                en memoria.
+                Recuerda es el espacio de Ocarina dedicado
+                a la memoria. Fotografías, testimonios,
+                documentos y relatos para construir un
+                archivo vivo del territorio.
 
             </p>
+
+
+            <div class="contact-actions">
+
+                <a
+                    href="recuerda/index.html"
+                    class="cinematic-button cinematic-button-dark"
+                >
+
+                    <span>
+                        ENTRAR A RECUERDA
+                    </span>
+
+                    <strong>
+                        →
+                    </strong>
+
+                </a>
+
+            </div>
 
         </div>
 
@@ -1001,13 +741,527 @@
 
 
 <!-- =========================================================
-     07 — CONTACTO
-========================================================= -->
+     CULTURA
+     ========================================================= -->
+
+<section
+    class="universe cinematic-section"
+    id="cultura"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                <span>
+                    04
+                </span>
+
+                <small>
+                    CULTURA
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <p class="eyebrow">
+                    IDENTIDAD
+                </p>
+
+                <h2>
+                    Personas que
+                    hacen territorio.
+                </h2>
+
+                <p class="section-introduction">
+
+                    Artistas, instituciones, trabajadores,
+                    organizaciones y vecinos forman parte
+                    de una historia colectiva.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="universe-grid">
+
+            <article class="universe-card reveal-card">
+
+                <span class="card-number">
+                    A
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        PERSONAS
+                    </span>
+
+                    <h3>
+                        Voces
+                    </h3>
+
+                    <p>
+                        Historias y testimonios de quienes
+                        construyen nuestra comunidad.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="universe-card reveal-card">
+
+                <span class="card-number">
+                    B
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        ARTE
+                    </span>
+
+                    <h3>
+                        Cultura
+                    </h3>
+
+                    <p>
+                        Música, fotografía, literatura,
+                        artes y expresiones locales.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="universe-card universe-card-wide reveal-card">
+
+                <span class="card-number">
+                    C
+                </span>
+
+                <div class="card-content">
+
+                    <span>
+                        COMUNIDAD
+                    </span>
+
+                    <h3>
+                        Participar
+                    </h3>
+
+                    <p>
+                        Un espacio para compartir iniciativas,
+                        actividades y proyectos comunitarios.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESCUBRE
+     ========================================================= -->
+
+<section
+    class="productions dark-section cinematic-section"
+    id="descubre"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                <span>
+                    05
+                </span>
+
+                <small>
+                    DESCUBRE
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <p class="eyebrow">
+                    EXPLORAR
+                </p>
+
+                <h2>
+                    El territorio
+                    también se cuenta.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="production-gallery">
+
+            <article class="production-item production-item-large reveal">
+
+                <div class="production-image">
+
+                    <img
+                        src="assets/img/assets/502379158_24242970528621000_6809775672234068026_n.jpg"
+                        alt="Territorio neuquino"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="production-caption">
+
+                    <span>
+                        TERRITORIO
+                    </span>
+
+                    <h3>
+                        Descubrí Chañar
+                    </h3>
+
+                    <p>
+                        Lugares, paisajes, historias y
+                        experiencias para mirar nuestro
+                        territorio de otra manera.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAPA
+     ========================================================= -->
+
+<section
+    class="universe cinematic-section"
+    id="mapa"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                <span>
+                    06
+                </span>
+
+                <small>
+                    MAPA
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <p class="eyebrow">
+                    CARTOGRAFÍA
+                </p>
+
+                <h2>
+                    Un mapa para
+                    encontrarnos.
+                </h2>
+
+                <p class="section-introduction">
+
+                    El territorio como escenario de historias,
+                    lugares, personas y acontecimientos.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="universe-card universe-card-wide reveal-card">
+
+            <div class="card-content">
+
+                <span>
+                    PRÓXIMAMENTE
+                </span>
+
+                <h3>
+                    Mapa Ocarina
+                </h3>
+
+                <p>
+                    Un espacio para localizar historias,
+                    fotografías, producciones y lugares
+                    significativos del territorio.
+                </p>
+
+            </div>
+
+            <span class="card-arrow">
+                +
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ARCHIVO
+     ========================================================= -->
+
+<section
+    class="manifesto cinematic-section"
+    id="archivo"
+>
+
+    <div class="section-container manifesto-container">
+
+        <div class="section-label">
+
+            <span>
+                07
+            </span>
+
+            <small>
+                ARCHIVO
+            </small>
+
+        </div>
+
+
+        <div class="manifesto-content">
+
+            <p class="eyebrow">
+                ARCHIVO OCARINA
+            </p>
+
+
+            <h2>
+
+                Guardar para
+                volver a mirar.
+
+            </h2>
+
+
+            <p class="manifesto-text">
+
+                Fotografías, documentos, videos, audios
+                y materiales que forman parte de la
+                memoria audiovisual del territorio.
+
+            </p>
+
+
+            <div class="contact-actions">
+
+                <a
+                    href="archivos/index.html"
+                    class="cinematic-button cinematic-button-dark"
+                >
+
+                    <span>
+                        ABRIR ARCHIVO
+                    </span>
+
+                    <strong>
+                        →
+                    </strong>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RADIO
+     ========================================================= -->
+
+<section
+    class="radio dark-section cinematic-section"
+    id="radio"
+>
+
+    <div class="section-container">
+
+        <div class="radio-layout">
+
+
+            <div class="radio-copy">
+
+                <p class="eyebrow">
+                    OCARINA RADIO
+                </p>
+
+
+                <h2>
+                    El territorio
+                    también suena.
+                </h2>
+
+
+                <p>
+                    Radio, música, voces y comunidad.
+                    Escuchá la señal en vivo.
+                </p>
+
+
+                <div class="radio-live">
+
+                    <span class="live-dot"></span>
+
+                    <span>
+                        SEÑAL EN VIVO
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="radio-console">
+
+
+                <div
+                    class="radio-disc"
+                    id="radioDisc"
+                >
+
+                    <div class="radio-disc-inner">
+
+                        <div>
+
+                            <span>
+                                O
+                            </span>
+
+                            <small>
+                                RADIO
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="radio-information">
+
+                    <span
+                        class="radio-status"
+                        id="radioStatus"
+                    >
+                        SEÑAL DISPONIBLE
+                    </span>
+
+
+                    <h3>
+                        Ocarina Radio
+                    </h3>
+
+
+                    <p id="radioMessage">
+                        Presioná reproducir para escuchar
+                        la señal.
+                    </p>
+
+
+                    <div class="radio-controls">
+
+                        <button
+                            class="radio-play"
+                            id="radioPlay"
+                            type="button"
+                            aria-label="Reproducir radio"
+                        >
+                            ▶
+                        </button>
+
+
+                        <div class="volume-control">
+
+                            <label for="radioVolume">
+                                VOLUMEN
+                            </label>
+
+                            <input
+                                type="range"
+                                id="radioVolume"
+                                min="0"
+                                max="1"
+                                step="0.01"
+                                value="0.8"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <audio
+                        id="radioAudio"
+                        preload="none"
+                    ></audio>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACTO
+     ========================================================= -->
 
 <section
     class="contact cinematic-section"
     id="contacto"
-    data-reveal-section
 >
 
     <div class="section-container contact-layout">
@@ -1015,7 +1269,7 @@
         <div class="section-label">
 
             <span>
-                06
+                08
             </span>
 
             <small>
@@ -1028,21 +1282,22 @@
         <div class="contact-main">
 
             <p class="eyebrow">
-                HABLEMOS
+                OCARINA PRODUCCIONES
             </p>
 
 
             <h2>
-                ¿Tenés una historia
-                para contar?
+                Hagamos que
+                una historia
+                quede registrada.
             </h2>
 
 
             <p class="contact-description">
 
-                Si tenés un proyecto, una historia,
-                un evento o una idea, podemos pensar
-                juntos cómo convertirla en contenido.
+                Producción audiovisual, fotografía,
+                comunicación y proyectos vinculados
+                con territorio, cultura y comunidad.
 
             </p>
 
@@ -1050,14 +1305,12 @@
             <div class="contact-actions">
 
                 <a
-                    href="https://wa.me/5492996728355"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:ocarina.producciones@gmail.com"
                     class="cinematic-button cinematic-button-dark"
                 >
 
                     <span>
-                        WHATSAPP
+                        CONTACTAR
                     </span>
 
                     <strong>
@@ -1068,16 +1321,18 @@
 
 
                 <a
-                    href="mailto:ocarina.producciones@gmail.com"
+                    href="https://www.instagram.com/ocarina_producciones.spch/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="cinematic-button cinematic-button-outline"
                 >
 
                     <span>
-                        EMAIL
+                        INSTAGRAM
                     </span>
 
                     <strong>
-                        →
+                        ↗
                     </strong>
 
                 </a>
@@ -1090,17 +1345,17 @@
 
 </section>
 
-
 </main>
 
 
 <!-- =========================================================
      FOOTER
-========================================================= -->
+     ========================================================= -->
 
 <footer class="site-footer">
 
     <div class="footer-container">
+
 
         <div class="footer-brand">
 
@@ -1118,11 +1373,11 @@
         <div class="footer-location">
 
             <span>
-                CULTURA · MEMORIA · TERRITORIO
+                SAN PATRICIO DEL CHAÑAR
             </span>
 
             <span>
-                SAN PATRICIO DEL CHAÑAR · NEUQUÉN
+                NEUQUÉN · ARGENTINA
             </span>
 
         </div>
@@ -1131,10 +1386,18 @@
         <div class="footer-copy">
 
             ©
-            <span data-current-year></span>
-            Ocarina Producciones
+            <span data-current-year>
+                2026
+            </span>
+
+            Ocarina Producciones.
+
+            <br>
+
+            Territorio · Memoria · Cultura.
 
         </div>
+
 
     </div>
 
@@ -1142,8 +1405,8 @@
 
 
 <!-- =========================================================
-     SCRIPTS
-========================================================= -->
+     JAVASCRIPT
+     ========================================================= -->
 
 <script src="script.js"></script>
 
