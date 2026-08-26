@@ -1,33 +1,25 @@
 /* =========================================================
    OCARINA PRODUCCIONES
-   STYLE V5
+   STYLE V6
    CINEMATIC · CULTURA · HISTORIA · TURISMO · RADIO
-   ========================================================= */
-
-
-/* =========================================================
-   01 · VARIABLES
-   ========================================================= */
+========================================================= */
 
 :root {
 
     --black: #11110f;
     --black-soft: #181815;
-    --black-deep: #0b0b0a;
 
     --cream: #e9e3d5;
-    --cream-light: #f1ece2;
+    --cream-light: #f0ebe0;
     --cream-dark: #d5cdbd;
 
-    --white: #f4f1e9;
+    --white: #f5f2eb;
 
-    --gray: #9d9a92;
-    --gray-dark: #6e6b64;
+    --gray: #8f8b82;
+    --gray-dark: #66635c;
 
-    --line: rgba(255,255,255,.14);
-    --line-dark: rgba(17,17,15,.15);
-
-    --accent: #9d7958;
+    --line: rgba(255,255,255,.13);
+    --line-dark: rgba(17,17,15,.14);
 
     --max: 1180px;
 
@@ -38,8 +30,8 @@
 
 
 /* =========================================================
-   02 · RESET
-   ========================================================= */
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -48,7 +40,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
 }
 
 
@@ -56,11 +47,9 @@ body {
 
     margin: 0;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
-    color:
-        var(--black);
+    color: var(--black);
 
     font-family:
         Arial,
@@ -68,8 +57,6 @@ body {
         sans-serif;
 
     line-height: 1.6;
-
-    overflow-x: hidden;
 
 }
 
@@ -80,55 +67,20 @@ body.no-scroll {
 
 
 img {
-
     display: block;
-
     width: 100%;
-
-    max-width: 100%;
-
-}
-
-
-iframe {
-
-    max-width: 100%;
-
 }
 
 
 a {
-
     color: inherit;
-
     text-decoration: none;
-
 }
 
 
 button,
 input {
-
     font: inherit;
-
-}
-
-
-button {
-
-    cursor: pointer;
-
-}
-
-
-::selection {
-
-    background:
-        var(--black);
-
-    color:
-        var(--cream);
-
 }
 
 
@@ -140,35 +92,18 @@ button {
             var(--max)
         );
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
 }
 
 
 /* =========================================================
-   03 · ACCESSIBILITY
-   ========================================================= */
-
-:focus-visible {
-
-    outline:
-        2px solid var(--accent);
-
-    outline-offset:
-        4px;
-
-}
-
-
-/* =========================================================
-   04 · HEADER
-   ========================================================= */
+   HEADER
+========================================================= */
 
 .site-header {
 
-    position:
-        fixed;
+    position: fixed;
 
     top: 0;
     left: 0;
@@ -177,13 +112,11 @@ button {
 
     z-index: 1000;
 
-    color:
-        white;
+    color: white;
 
     transition:
         background var(--transition),
-        backdrop-filter var(--transition),
-        transform var(--transition);
+        backdrop-filter var(--transition);
 
 }
 
@@ -196,73 +129,53 @@ button {
     backdrop-filter:
         blur(16px);
 
-    -webkit-backdrop-filter:
-        blur(16px);
-
 }
 
 
 .nav {
 
-    min-height:
-        76px;
+    min-height: 76px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
 }
 
 
 .brand {
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    letter-spacing:
-        .18em;
+    letter-spacing: .2em;
 
 }
 
 
 .nav-links {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        25px;
+    gap: 24px;
 
 }
 
 
 .nav-links a {
 
-    position:
-        relative;
+    font-size: .66rem;
 
-    font-size:
-        .68rem;
+    letter-spacing: .12em;
 
-    letter-spacing:
-        .12em;
+    text-transform: uppercase;
 
-    text-transform:
-        uppercase;
-
-    opacity:
-        .76;
+    opacity: .78;
 
     transition:
         opacity var(--transition);
@@ -270,136 +183,75 @@ button {
 }
 
 
-.nav-links a::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    left:
-        0;
-
-    bottom:
-        -7px;
-
-    width:
-        0;
-
-    height:
-        1px;
-
-    background:
-        white;
-
-    transition:
-        width var(--transition);
-
-}
-
-
 .nav-links a:hover {
-
-    opacity:
-        1;
-
-}
-
-
-.nav-links a:hover::after {
-
-    width:
-        100%;
-
+    opacity: 1;
 }
 
 
 .menu-toggle {
 
-    display:
-        none;
+    display: none;
 
-    border:
-        0;
+    border: 0;
 
-    background:
-        transparent;
+    background: transparent;
 
-    padding:
-        8px;
+    padding: 8px;
+
+    cursor: pointer;
 
 }
 
 
 .menu-toggle span {
 
-    display:
-        block;
+    display: block;
 
-    width:
-        25px;
+    width: 25px;
 
-    height:
-        1px;
+    height: 1px;
 
-    background:
-        white;
+    background: white;
 
-    margin:
-        6px;
-
-    transition:
-        transform var(--transition);
+    margin: 6px;
 
 }
 
 
 /* =========================================================
-   05 · HERO CINEMATIC
-   ========================================================= */
+   HERO
+========================================================= */
 
-.ocarina-intro {
+.hero {
 
-    position:
-        relative;
+    position: relative;
 
-    min-height:
-        100vh;
+    min-height: 100vh;
+    min-height: 100svh;
 
-    min-height:
-        100svh;
+    background: var(--black);
 
-    background:
-        var(--black);
+    color: white;
 
-    color:
-        white;
-
-    overflow:
-        hidden;
+    overflow: hidden;
 
 }
 
 
-.intro-background {
+.hero-background {
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
 }
 
 
-.intro-background img {
+.hero-background img {
 
-    height:
-        100%;
+    height: 100%;
 
-    object-fit:
-        cover;
+    object-fit: cover;
 
     animation:
         heroZoom 18s ease-out forwards;
@@ -420,150 +272,67 @@ button {
 }
 
 
-.intro-overlay {
+.hero-overlay {
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
     background:
         linear-gradient(
             180deg,
-            rgba(0,0,0,.50),
-            rgba(0,0,0,.20) 40%,
+            rgba(0,0,0,.48),
+            rgba(0,0,0,.24) 42%,
             rgba(0,0,0,.84)
         );
 
 }
 
 
-.intro-content {
+.hero-content {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        2;
+    z-index: 2;
 
-    min-height:
-        100vh;
+    min-height: 100vh;
+    min-height: 100svh;
 
-    min-height:
-        100svh;
+    display: flex;
 
-    display:
-        flex;
+    flex-direction: column;
 
-    flex-direction:
-        column;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
+    padding-top: 120px;
 
-    padding-top:
-        120px;
-
-    padding-bottom:
-        45px;
+    padding-bottom: 45px;
 
 }
 
 
-.intro-top,
-.intro-bottom {
+.hero-top,
+.hero-bottom {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    align-items: center;
 
-}
-
-
-.intro-top span,
-.intro-bottom > span {
-
-    font-size:
-        .65rem;
-
-    letter-spacing:
-        .17em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        rgba(255,255,255,.75);
+    gap: 30px;
 
 }
 
 
-.intro-center {
+.hero-top span,
+.hero-bottom span {
 
-    max-width:
-        820px;
+    font-size: .62rem;
 
-}
+    letter-spacing: .16em;
 
-
-.intro-mark {
-
-    font-size:
-        clamp(3.8rem,10vw,9rem);
-
-    line-height:
-        .8;
-
-    letter-spacing:
-        -.07em;
-
-    font-weight:
-        700;
-
-}
-
-
-.intro-center h1 {
-
-    margin:
-        20px 0;
-
-    font-size:
-        clamp(1.4rem,3vw,2.8rem);
-
-    font-weight:
-        400;
-
-}
-
-
-.intro-center h1 span {
-
-    display:
-        block;
-
-    font-style:
-        italic;
-
-    color:
-        var(--cream-dark);
-
-}
-
-
-.intro-center p {
-
-    margin:
-        0;
-
-    font-size:
-        1.05rem;
+    text-transform: uppercase;
 
     color:
         rgba(255,255,255,.72);
@@ -571,760 +340,37 @@ button {
 }
 
 
-.intro-scroll {
+.hero-center {
 
-    display:
-        flex;
+    max-width: 820px;
 
-    gap:
-        15px;
+}
 
-    align-items:
-        center;
+
+.hero-logo {
 
     font-size:
-        .68rem;
+        clamp(4rem, 11vw, 9rem);
 
-    letter-spacing:
-        .15em;
+    line-height: .78;
 
-    text-transform:
-        uppercase;
+    font-weight: 700;
 
-}
-
-
-.intro-scroll:hover {
-
-    opacity:
-        .7;
+    letter-spacing: -.07em;
 
 }
 
 
-/* =========================================================
-   06 · TERRITORIO
-   ========================================================= */
-
-.territorio {
-
-    position:
-        relative;
-
-    min-height:
-        90vh;
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-    overflow:
-        hidden;
-
-}
-
-
-.territorio-image {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-}
-
-
-.territorio-image img {
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-}
-
-
-.territorio-overlay {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.84),
-            rgba(0,0,0,.32),
-            rgba(0,0,0,.70)
-        );
-
-}
-
-
-.territorio-content {
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    min-height:
-        90vh;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-}
-
-
-.eyebrow-light {
-
-    font-size:
-        .68rem;
-
-    letter-spacing:
-        .16em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        rgba(255,255,255,.60);
-
-}
-
-
-.territorio-text {
-
-    max-width:
-        700px;
-
-    margin-top:
-        40px;
-
-}
-
-
-.territorio-text h2 {
+.hero-founder {
 
     margin:
-        0;
+        22px 0 12px;
 
-    font-size:
-        clamp(3rem,7vw,7rem);
+    font-size: .7rem;
 
-    line-height:
-        .95;
+    letter-spacing: .15em;
 
-    font-weight:
-        400;
-
-}
-
-
-.territorio-text h2 em {
-
-    display:
-        block;
-
-    color:
-        var(--cream-dark);
-
-}
-
-
-.territorio-line {
-
-    width:
-        90px;
-
-    height:
-        1px;
-
-    background:
-        rgba(255,255,255,.5);
-
-    margin:
-        40px 0;
-
-}
-
-
-.territorio-text p {
-
-    max-width:
-        540px;
-
-    color:
-        rgba(255,255,255,.78);
-
-}
-
-
-.territorio-final {
-
-    margin-top:
-        50px;
-
-    font-size:
-        1.2rem;
-
-    font-style:
-        italic;
-
-}
-
-
-/* =========================================================
-   07 · GENERAL SECTIONS
-   ========================================================= */
-
-.section {
-
-    padding:
-        120px 0;
-
-}
-
-
-.section-heading {
-
-    max-width:
-        760px;
-
-    margin-bottom:
-        70px;
-
-}
-
-
-.eyebrow {
-
-    margin:
-        0 0 18px;
-
-    font-size:
-        .68rem;
-
-    letter-spacing:
-        .17em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        #77746c;
-
-}
-
-
-.section-heading h2 {
-
-    margin:
-        0 0 25px;
-
-    font-size:
-        clamp(2.6rem,6vw,5.8rem);
-
-    line-height:
-        .98;
-
-    font-weight:
-        400;
-
-    letter-spacing:
-        -.04em;
-
-}
-
-
-.section-heading p:last-child {
-
-    max-width:
-        650px;
-
-    color:
-        #6e6b64;
-
-}
-
-
-/* =========================================================
-   08 · UNIVERSO OCARINA
-   ========================================================= */
-
-.universe {
-
-    background:
-        var(--cream);
-
-}
-
-
-.universe-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:
-        1px;
-
-    background:
-        var(--line-dark);
-
-}
-
-
-.universe-card {
-
-    position:
-        relative;
-
-    min-height:
-        310px;
-
-    padding:
-        38px;
-
-    background:
-        var(--cream);
-
-    border:
-        1px solid transparent;
-
-    overflow:
-        hidden;
-
-    transition:
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
-
-}
-
-
-.universe-card::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.16),
-            transparent 45%
-        );
-
-    opacity:
-        0;
-
-    transition:
-        opacity var(--transition);
-
-}
-
-
-.universe-card:hover {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
-
-.universe-card:hover::before {
-
-    opacity:
-        1;
-
-}
-
-
-.universe-card > * {
-
-    position:
-        relative;
-
-    z-index:
-        1;
-
-}
-
-
-.universe-card span {
-
-    display:
-        block;
-
-    margin-bottom:
-        65px;
-
-    font-size:
-        .68rem;
-
-    letter-spacing:
-        .15em;
-
-    opacity:
-        .5;
-
-}
-
-
-.universe-card h3 {
-
-    margin:
-        0 0 12px;
-
-    font-size:
-        2rem;
-
-    font-weight:
-        400;
-
-}
-
-
-.universe-card p {
-
-    max-width:
-        380px;
-
-    color:
-        #737068;
-
-}
-
-
-.universe-card:hover p {
-
-    color:
-        #aaa69c;
-
-}
-
-
-.universe-card strong {
-
-    display:
-        inline-block;
-
-    margin-top:
-        25px;
-
-    font-size:
-        .65rem;
-
-    letter-spacing:
-        .15em;
-
-}
-
-
-.universe-featured {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
-
-.universe-featured p {
-
-    color:
-        #aaa69c;
-
-}
-
-
-/* =========================================================
-   09 · PRODUCCIONES
-   ========================================================= */
-
-.productions {
-
-    background:
-        #f0ebe0;
-
-}
-
-
-.production {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1.35fr 1fr;
-
-    gap:
-        70px;
-
-    align-items:
-        center;
-
-    padding:
-        70px 0;
-
-    border-top:
-        1px solid var(--line-dark);
-
-}
-
-
-.production-reverse {
-
-    grid-template-columns:
-        1fr 1.35fr;
-
-}
-
-
-.production-reverse .video-wrapper {
-
-    order:
-        2;
-
-}
-
-
-.production-reverse .production-info {
-
-    order:
-        1;
-
-}
-
-
-.video-wrapper {
-
-    position:
-        relative;
-
-    aspect-ratio:
-        16 / 9;
-
-    overflow:
-        hidden;
-
-    background:
-        #111;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.10);
-
-}
-
-
-.video-wrapper iframe {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    border:
-        0;
-
-}
-
-
-.production-number {
-
-    font-size:
-        .65rem;
-
-    letter-spacing:
-        .15em;
-
-    color:
-        #88847a;
-
-}
-
-
-.production-info h3 {
-
-    margin:
-        18px 0;
-
-    font-size:
-        clamp(2rem,4vw,4rem);
-
-    font-weight:
-        400;
-
-    line-height:
-        1;
-
-}
-
-
-.production-info p {
-
-    color:
-        #6d6961;
-
-}
-
-
-.tags {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        8px;
-
-    margin-top:
-        30px;
-
-}
-
-
-.tags span {
-
-    padding:
-        7px 11px;
-
-    border:
-        1px solid rgba(0,0,0,.14);
-
-    font-size:
-        .62rem;
-
-    letter-spacing:
-        .08em;
-
-    text-transform:
-        uppercase;
-
-}
-
-
-/* =========================================================
-   10 · PROJECT DARK
-   ========================================================= */
-
-.project-section {
-
-    padding:
-        130px 0;
-
-}
-
-
-.project-dark {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
-
-.project-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        100px;
-
-    align-items:
-        center;
-
-}
-
-
-.project-grid h2 {
-
-    margin:
-        0;
-
-    font-size:
-        clamp(3rem,7vw,7rem);
-
-    line-height:
-        .9;
-
-    font-weight:
-        400;
-
-}
-
-
-.project-grid h2 em {
-
-    display:
-        block;
-
-    color:
-        var(--cream-dark);
-
-}
-
-
-.project-copy {
-
-    max-width:
-        560px;
-
-}
-
-
-.project-lead {
-
-    font-size:
-        1.5rem;
-
-}
-
-
-.project-copy p {
+    text-transform: uppercase;
 
     color:
         rgba(255,255,255,.68);
@@ -1332,274 +378,733 @@ button {
 }
 
 
-.project-actions {
+.hero-center h1 {
 
-    margin-top:
-        35px;
+    margin: 18px 0;
+
+    font-size:
+        clamp(2rem, 5vw, 4.5rem);
+
+    line-height: .95;
+
+    font-weight: 400;
+
+}
+
+
+.hero-center h1 em {
+
+    display: block;
+
+    color: var(--cream-dark);
+
+}
+
+
+.hero-description {
+
+    max-width: 560px;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.7);
+
+}
+
+
+.hero-enter {
+
+    font-size: .65rem;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
 
 }
 
 
 /* =========================================================
-   11 · BUTTONS
-   ========================================================= */
+   SECTIONS
+========================================================= */
 
-.button {
+.section {
 
-    display:
-        inline-flex;
+    padding: 120px 0;
 
-    align-items:
-        center;
+}
 
-    justify-content:
-        center;
 
-    min-height:
-        48px;
+.section-dark {
 
-    padding:
-        0 22px;
+    padding: 130px 0;
 
-    border:
-        1px solid transparent;
+    background: var(--black);
+
+    color: white;
+
+}
+
+
+.section-heading {
+
+    max-width: 780px;
+
+    margin-bottom: 70px;
+
+}
+
+
+.eyebrow,
+.eyebrow-light {
+
+    margin: 0 0 18px;
+
+    font-size: .65rem;
+
+    letter-spacing: .17em;
+
+    text-transform: uppercase;
+
+}
+
+
+.eyebrow {
+    color: #77736b;
+}
+
+
+.eyebrow-light {
+    color: rgba(255,255,255,.55);
+}
+
+
+.section-heading h2 {
+
+    margin: 0 0 25px;
 
     font-size:
-        .67rem;
+        clamp(2.8rem, 6vw, 5.8rem);
 
-    letter-spacing:
-        .13em;
+    line-height: .95;
 
-    text-transform:
-        uppercase;
+    font-weight: 400;
+
+    letter-spacing: -.045em;
+
+}
+
+
+.section-heading p:last-child {
+
+    max-width: 650px;
+
+    color: var(--gray-dark);
+
+}
+
+
+/* =========================================================
+   UNIVERSE
+========================================================= */
+
+.universe {
+
+    background: var(--cream);
+
+}
+
+
+.universe-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1px;
+
+    background: var(--line-dark);
+
+}
+
+
+.universe-card {
+
+    min-height: 310px;
+
+    padding: 38px;
+
+    background: var(--cream);
 
     transition:
         background var(--transition),
         color var(--transition),
-        border-color var(--transition),
         transform var(--transition);
 
 }
 
 
-.button:hover {
+.universe-card:hover {
 
-    transform:
-        translateY(-2px);
+    background: var(--black);
 
-}
-
-
-.button-primary {
-
-    background:
-        var(--black);
-
-    color:
-        white;
+    color: white;
 
 }
 
 
-.button-primary:hover {
+.universe-card.featured {
 
-    background:
-        #34332e;
+    background: var(--black);
 
-}
-
-
-.button-outline-dark {
-
-    border-color:
-        rgba(0,0,0,.30);
+    color: white;
 
 }
 
 
-.button-outline-dark:hover {
+.universe-card > span {
 
-    background:
-        var(--black);
+    display: block;
 
-    color:
-        white;
+    margin-bottom: 65px;
 
-}
+    font-size: .65rem;
 
+    letter-spacing: .15em;
 
-.button-light {
-
-    border-color:
-        rgba(255,255,255,.40);
-
-    color:
-        white;
+    opacity: .5;
 
 }
 
 
-.button-light:hover {
+.universe-card h3 {
 
-    background:
-        white;
+    margin: 0 0 12px;
 
-    color:
-        var(--black);
+    font-size: 2rem;
+
+    font-weight: 400;
+
+}
+
+
+.universe-card p {
+
+    max-width: 400px;
+
+    color: #737068;
+
+}
+
+
+.universe-card.featured p {
+    color: #aaa69c;
+}
+
+
+.universe-card:hover p {
+    color: #aaa69c;
+}
+
+
+.universe-card strong {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    font-size: .62rem;
+
+    letter-spacing: .14em;
 
 }
 
 
 /* =========================================================
-   12 · RADIO
-   ========================================================= */
+   TERRITORY
+========================================================= */
 
-.radio-section {
+.territory {
 
-    position:
-        relative;
+    position: relative;
+
+    min-height: 90vh;
+
+    background: var(--black);
+
+    color: white;
+
+    overflow: hidden;
+
+}
+
+
+.territory-background {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.territory-background img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.territory-overlay {
+
+    position: absolute;
+
+    inset: 0;
 
     background:
-        #171714;
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.84),
+            rgba(0,0,0,.30),
+            rgba(0,0,0,.68)
+        );
+
+}
+
+
+.territory-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.territory-content h2 {
+
+    max-width: 800px;
+
+    margin: 25px 0;
+
+    font-size:
+        clamp(3rem, 7vw, 7rem);
+
+    line-height: .9;
+
+    font-weight: 400;
+
+}
+
+
+.territory-content h2 em {
+
+    display: block;
+
+    color: var(--cream-dark);
+
+}
+
+
+.territory-line {
+
+    width: 90px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.5);
+
+    margin: 25px 0 35px;
+
+}
+
+
+.territory-content p {
+
+    max-width: 600px;
 
     color:
-        white;
-
-    overflow:
-        hidden;
+        rgba(255,255,255,.72);
 
 }
 
 
-.radio-section::before {
+.territory-final {
 
-    content:
-        "";
+    margin-top: 45px;
 
-    position:
-        absolute;
+    font-style: italic;
 
-    width:
-        500px;
+}
 
-    height:
-        500px;
 
-    right:
-        -200px;
+/* =========================================================
+   PRODUCTIONS
+========================================================= */
 
-    top:
-        -200px;
+.productions {
 
-    border-radius:
-        50%;
+    background: var(--cream-light);
+
+}
+
+
+.production {
+
+    display: grid;
+
+    grid-template-columns:
+        1.35fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding: 70px 0;
+
+    border-top:
+        1px solid var(--line-dark);
+
+}
+
+
+.production.reverse {
+
+    grid-template-columns:
+        1fr 1.35fr;
+
+}
+
+
+.production.reverse .video-wrapper {
+    order: 2;
+}
+
+
+.production.reverse .production-info {
+    order: 1;
+}
+
+
+.video-wrapper {
+
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #111;
+
+}
+
+
+.video-wrapper iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+}
+
+
+.production-number {
+
+    font-size: .63rem;
+
+    letter-spacing: .15em;
+
+    color: #88847a;
+
+}
+
+
+.production-info h3 {
+
+    margin: 18px 0;
+
+    font-size:
+        clamp(2rem, 4vw, 4rem);
+
+    line-height: 1;
+
+    font-weight: 400;
+
+}
+
+
+.production-info p {
+
+    color: #6d6961;
+
+}
+
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+}
+
+
+.tags span {
+
+    padding: 7px 11px;
 
     border:
-        1px solid rgba(255,255,255,.05);
+        1px solid rgba(0,0,0,.14);
+
+    font-size: .6rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
 
 }
 
+
+/* =========================================================
+   REMEMBER
+========================================================= */
+
+.remember-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.remember-grid h2 {
+
+    margin: 0;
+
+    font-size:
+        clamp(3rem, 7vw, 7rem);
+
+    line-height: .9;
+
+    font-weight: 400;
+
+}
+
+
+.remember-grid h2 em {
+
+    display: block;
+
+    color: var(--cream-dark);
+
+}
+
+
+.remember-copy {
+
+    max-width: 560px;
+
+}
+
+
+.remember-copy p {
+
+    color:
+        rgba(255,255,255,.68);
+
+}
+
+
+.remember-copy .lead {
+
+    font-size: 1.5rem;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    margin-top: 22px;
+
+    border: 1px solid transparent;
+
+    font-size: .63rem;
+
+    letter-spacing: .13em;
+
+    text-transform: uppercase;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+
+}
+
+
+.button.light {
+
+    border-color:
+        rgba(255,255,255,.35);
+
+    color: white;
+
+}
+
+
+.button.light:hover {
+
+    background: white;
+
+    color: var(--black);
+
+}
+
+
+.button.primary {
+
+    background: var(--black);
+
+    color: white;
+
+}
+
+
+.button.primary:hover {
+    background: #33322d;
+}
+
+
+.button.outline {
+
+    border-color:
+        rgba(0,0,0,.28);
+
+}
+
+
+.button.outline:hover {
+
+    background: var(--black);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
 
 .radio-layout {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap:
-        100px;
+    gap: 100px;
 
-    align-items:
-        center;
+    align-items: center;
 
 }
 
 
 .radio-intro h2 {
 
-    margin:
-        0 0 25px;
+    margin: 0 0 25px;
 
     font-size:
-        clamp(3rem,7vw,7rem);
+        clamp(3rem, 7vw, 7rem);
 
-    line-height:
-        .9;
+    line-height: .9;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
 
 .radio-intro h2 em {
 
-    display:
-        block;
+    display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
 
-.radio-intro > p {
+.radio-intro p {
 
     color:
-        rgba(255,255,255,.70);
-
-}
-
-
-.radio-description {
-
-    max-width:
-        500px;
-
-    margin-top:
-        35px;
+        rgba(255,255,255,.7);
 
 }
 
 
 .radio-player-card {
 
-    position:
-        relative;
+    padding: 35px;
 
-    padding:
-        35px;
-
-    background:
-        #24231f;
+    background: #24231f;
 
     border:
-        1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.25);
+        1px solid rgba(255,255,255,.1);
 
 }
 
 
 .radio-player-top {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    font-size:
-        .65rem;
+    font-size: .62rem;
 
-    letter-spacing:
-        .13em;
+    letter-spacing: .13em;
 
 }
 
@@ -1607,40 +1112,28 @@ button {
 .live-dot,
 .mini-live {
 
-    width:
-        8px;
+    width: 8px;
 
-    height:
-        8px;
+    height: 8px;
 
-    display:
-        inline-block;
+    display: inline-block;
 
-    flex:
-        0 0 auto;
+    border-radius: 50%;
 
-    border-radius:
-        50%;
-
-    background:
-        #a34b42;
+    background: #a34b42;
 
 }
 
 
 .radio-disc {
 
-    width:
-        180px;
+    width: 180px;
 
-    height:
-        180px;
+    height: 180px;
 
-    margin:
-        45px auto;
+    margin: 45px auto;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         repeating-radial-gradient(
@@ -1651,14 +1144,9 @@ button {
             #111 5px
         );
 
-    display:
-        grid;
+    display: grid;
 
-    place-items:
-        center;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
+    place-items: center;
 
 }
 
@@ -1682,215 +1170,157 @@ button {
 
 .disc-inner {
 
-    width:
-        48px;
+    width: 48px;
 
-    height:
-        48px;
+    height: 48px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    display:
-        grid;
+    display: grid;
 
-    place-items:
-        center;
+    place-items: center;
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
-    color:
-        var(--black);
+    color: var(--black);
 
-    font-weight:
-        700;
+    font-weight: 700;
 
 }
 
 
 .radio-track {
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    gap:
-        5px;
+    gap: 5px;
 
 }
 
 
 .radio-track strong {
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 
-    letter-spacing:
-        .08em;
+    letter-spacing: .08em;
 
 }
 
 
 .radio-track span {
 
-    color:
-        #9d9a92;
+    color: #9d9a92;
 
-    font-size:
-        .8rem;
+    font-size: .8rem;
 
 }
 
 
 .radio-controls {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        25px;
+    gap: 25px;
 
-    margin-top:
-        30px;
+    margin-top: 30px;
 
 }
 
 
 .radio-play {
 
-    width:
-        55px;
+    width: 55px;
 
-    height:
-        55px;
+    height: 55px;
 
-    flex:
-        0 0 auto;
+    flex: 0 0 55px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
-        1px solid rgba(255,255,255,.30);
+        1px solid rgba(255,255,255,.3);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        white;
+    color: white;
 
-    cursor:
-        pointer;
-
-    transition:
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
+    cursor: pointer;
 
 }
 
 
 .radio-play:hover {
 
-    background:
-        white;
+    background: white;
 
-    color:
-        var(--black);
-
-    transform:
-        scale(1.04);
+    color: var(--black);
 
 }
 
 
 .radio-volume {
 
-    flex:
-        1;
+    flex: 1;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        15px;
+    gap: 15px;
 
 }
 
 
 .radio-volume label {
 
-    font-size:
-        .6rem;
+    font-size: .6rem;
 
-    letter-spacing:
-        .12em;
+    letter-spacing: .12em;
 
 }
 
 
 .radio-volume input {
-
-    width:
-        100%;
-
-    accent-color:
-        var(--cream);
-
+    width: 100%;
 }
 
 
 /* =========================================================
-   13 · ARCHIVO
-   ========================================================= */
+   ARCHIVE
+========================================================= */
 
 .archive {
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
 }
 
 
 .archive-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
-    gap:
-        1px;
+    gap: 1px;
 
-    background:
-        var(--line-dark);
+    background: var(--line-dark);
 
 }
 
 
 .archive-card {
 
-    position:
-        relative;
+    min-height: 330px;
 
-    min-height:
-        330px;
+    padding: 30px;
 
-    padding:
-        30px;
-
-    background:
-        var(--cream);
+    background: var(--cream);
 
     border:
         1px solid var(--line-dark);
@@ -1904,220 +1334,206 @@ button {
 
 .archive-card:hover {
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
 }
 
 
-.archive-card > span:first-child {
+.archive-card > span {
 
-    font-size:
-        .65rem;
+    font-size: .63rem;
 
-    letter-spacing:
-        .14em;
+    letter-spacing: .14em;
 
-    opacity:
-        .5;
+    opacity: .5;
 
 }
 
 
 .archive-card h3 {
 
-    margin-top:
-        70px;
+    margin-top: 70px;
 
-    font-size:
-        1.7rem;
+    font-size: 1.7rem;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
 
 .archive-card p {
 
-    color:
-        #706d65;
+    color: #706d65;
 
 }
 
 
 .archive-card:hover p {
+    color: #aaa69c;
+}
 
-    color:
-        #aaa69c;
+
+.archive-link {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    font-size: .6rem;
+
+    letter-spacing: .13em;
 
 }
 
 
-.archive-status {
+.archive-note {
 
-    display:
-        inline-block;
+    margin-top: 50px;
 
-    margin-top:
-        20px;
+    padding-top: 25px;
 
-    font-size:
-        .58rem !important;
+    border-top:
+        1px solid var(--line-dark);
 
-    letter-spacing:
-        .12em;
+}
+
+
+.archive-note strong {
+
+    font-size: .65rem;
+
+    letter-spacing: .14em;
+
+}
+
+
+.archive-note p {
+
+    color: var(--gray-dark);
 
 }
 
 
 /* =========================================================
-   14 · CULTURA
-   ========================================================= */
+   CULTURE
+========================================================= */
 
-.culture-section {
+.culture {
 
-    background:
-        #ded7c9;
+    background: #ded7c9;
 
 }
 
 
 .culture-grid {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap:
-        100px;
+    gap: 100px;
 
 }
 
 
 .culture-grid h2 {
 
-    margin:
-        0;
+    margin: 0;
 
     font-size:
-        clamp(2.8rem,6vw,5.5rem);
+        clamp(2.8rem, 6vw, 5.5rem);
 
-    line-height:
-        .95;
+    line-height: .95;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
 
 .culture-grid p {
 
-    color:
-        #66635c;
+    color: #66635c;
 
 }
 
 
-.culture-links {
+.culture-tags {
 
-    display:
-        flex;
+    display: flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    margin-top:
-        70px;
+    margin-top: 70px;
 
 }
 
 
-.culture-links span {
+.culture-tags span {
 
-    padding:
-        11px 15px;
+    padding: 11px 15px;
 
     border:
         1px solid rgba(0,0,0,.25);
 
-    font-size:
-        .62rem;
+    font-size: .6rem;
 
-    letter-spacing:
-        .13em;
+    letter-spacing: .13em;
 
 }
 
 
 /* =========================================================
-   15 · DESCUBRE
-   ========================================================= */
+   DISCOVER
+========================================================= */
 
-.discover-section {
+.discover {
 
-    position:
-        relative;
+    position: relative;
 
-    min-height:
-        85vh;
+    min-height: 85vh;
 
-    background:
-        var(--black);
+    background: var(--black);
 
-    color:
-        white;
+    color: white;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
 }
 
 
-.discover-image {
+.discover-background {
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
 }
 
 
-.discover-image img {
+.discover-background img {
 
-    height:
-        100%;
+    height: 100%;
 
-    object-fit:
-        cover;
+    object-fit: cover;
 
 }
 
 
 .discover-overlay {
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
     background:
         linear-gradient(
             90deg,
             rgba(0,0,0,.82),
-            rgba(0,0,0,.30),
+            rgba(0,0,0,.3),
             rgba(0,0,0,.72)
         );
 
@@ -2126,244 +1542,108 @@ button {
 
 .discover-content {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        2;
+    z-index: 2;
 
-    min-height:
-        85vh;
+    min-height: 85vh;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    justify-content:
-        center;
+    justify-content: center;
 
 }
 
 
 .discover-content h2 {
 
-    margin:
-        25px 0;
+    max-width: 850px;
+
+    margin: 25px 0;
 
     font-size:
-        clamp(3rem,8vw,8rem);
+        clamp(3rem, 8vw, 8rem);
 
-    line-height:
-        .85;
+    line-height: .86;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
 
 .discover-content h2 em {
 
-    display:
-        block;
+    display: block;
 
-    color:
-        var(--cream-dark);
+    color: var(--cream-dark);
 
 }
 
 
 .discover-content > p {
 
-    max-width:
-        600px;
+    max-width: 600px;
 
     color:
-        rgba(255,255,255,.75);
+        rgba(255,255,255,.72);
 
 }
 
 
 .discover-tags {
 
-    display:
-        flex;
+    display: flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    margin-top:
-        40px;
+    margin-top: 40px;
 
 }
 
 
 .discover-tags span {
 
+    padding: 9px 13px;
+
     border:
         1px solid rgba(255,255,255,.25);
 
-    padding:
-        9px 13px;
+    font-size: .58rem;
 
-    font-size:
-        .6rem;
-
-    letter-spacing:
-        .12em;
+    letter-spacing: .12em;
 
 }
 
 
 /* =========================================================
-   16 · SERVICES
-   ========================================================= */
-
-.services {
-
-    background:
-        #ece6da;
-
-}
-
-
-.services-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:
-        1px;
-
-    background:
-        var(--line-dark);
-
-}
-
-
-.service-card {
-
-    min-height:
-        300px;
-
-    padding:
-        30px;
-
-    background:
-        #ece6da;
-
-    transition:
-        background var(--transition),
-        color var(--transition);
-
-}
-
-
-.service-card:hover {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
-
-.service-card > span {
-
-    font-size:
-        .65rem;
-
-    letter-spacing:
-        .15em;
-
-    color:
-        #77736a;
-
-}
-
-
-.service-card h3 {
-
-    margin:
-        70px 0 15px;
-
-    font-size:
-        1.5rem;
-
-    font-weight:
-        400;
-
-}
-
-
-.service-card p {
-
-    color:
-        #6e6a62;
-
-}
-
-
-.service-card:hover p {
-
-    color:
-        #aaa69c;
-
-}
-
-
-/* =========================================================
-   17 · TRAYECTORIA
-   ========================================================= */
-
-.trajectory {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
+   TRAJECTORY
+========================================================= */
 
 .trajectory-grid {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap:
-        100px;
+    gap: 100px;
 
 }
 
 
-.trajectory h2 {
+.trajectory-grid h2 {
 
-    margin:
-        0;
+    margin: 0;
 
     font-size:
-        clamp(2.8rem,6vw,5.5rem);
+        clamp(2.8rem, 6vw, 5.5rem);
 
-    line-height:
-        .95;
+    line-height: .95;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
@@ -2378,14 +1658,11 @@ button {
 
 .institution-list {
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    margin-top:
-        35px;
+    margin-top: 35px;
 
     border-top:
         1px solid rgba(255,255,255,.15);
@@ -2395,198 +1672,159 @@ button {
 
 .institution-list span {
 
-    padding:
-        16px 0;
+    padding: 16px 0;
 
     border-bottom:
         1px solid rgba(255,255,255,.15);
 
-    font-size:
-        .7rem;
+    font-size: .67rem;
 
-    letter-spacing:
-        .1em;
+    letter-spacing: .1em;
 
 }
 
 
 .small-note {
 
-    margin-top:
-        35px;
+    margin-top: 35px;
 
-    font-size:
-        .75rem;
+    font-size: .74rem;
 
-    opacity:
-        .55;
+    opacity: .55;
 
 }
 
 
 /* =========================================================
-   18 · CONTACTO
-   ========================================================= */
+   CONTACT
+========================================================= */
 
 .contact {
 
-    background:
-        var(--cream);
+    background: var(--cream);
 
 }
 
 
 .contact-content {
 
-    text-align:
-        center;
+    text-align: center;
 
 }
 
 
 .contact-content h2 {
 
-    margin:
-        0;
+    margin: 0;
 
     font-size:
-        clamp(3rem,7vw,7rem);
+        clamp(3rem, 7vw, 7rem);
 
-    line-height:
-        .9;
+    line-height: .9;
 
-    font-weight:
-        400;
+    font-weight: 400;
 
 }
 
 
 .contact-content > p:not(.eyebrow) {
 
-    color:
-        #77736b;
+    color: #77736b;
 
 }
 
 
 .contact-buttons {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    margin-top:
-        35px;
+    margin-top: 20px;
 
 }
 
 
 /* =========================================================
-   19 · FOOTER
-   ========================================================= */
+   FOOTER
+========================================================= */
 
 .footer {
 
-    background:
-        #0d0d0b;
+    background: #0d0d0b;
 
-    color:
-        white;
+    color: white;
 
-    padding:
-        55px 0;
+    padding: 50px 0;
 
 }
 
 
-.footer-content {
+.footer-grid {
 
-    display:
-        flex;
+    display: grid;
 
-    justify-content:
-        space-between;
+    grid-template-columns:
+        1fr 1fr 1fr;
 
-    gap:
-        40px;
+    gap: 40px;
 
 }
 
 
 .footer strong {
 
-    letter-spacing:
-        .15em;
+    letter-spacing: .16em;
 
 }
 
 
 .footer p {
 
-    color:
-        #77746d;
+    color: #77746d;
 
-    font-size:
-        .75rem;
+    font-size: .72rem;
 
 }
 
 
 /* =========================================================
-   20 · MINI RADIO PLAYER
-   ========================================================= */
+   MINI PLAYER
+========================================================= */
 
 .mini-player {
 
-    position:
-        fixed;
+    position: fixed;
 
-    left:
-        20px;
+    left: 20px;
+    right: 20px;
 
-    right:
-        20px;
+    bottom: 20px;
 
-    bottom:
-        20px;
+    z-index: 1200;
 
-    z-index:
-        1200;
+    max-width: 520px;
 
-    max-width:
-        520px;
+    margin: auto;
 
-    margin:
-        auto;
+    padding: 10px 12px;
 
-    padding:
-        10px 12px;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
+    gap: 20px;
 
     background:
-        rgba(18,18,16,.94);
+        rgba(18,18,16,.95);
 
-    color:
-        white;
+    color: white;
 
     border:
         1px solid rgba(255,255,255,.12);
@@ -2597,353 +1835,104 @@ button {
     backdrop-filter:
         blur(15px);
 
-    -webkit-backdrop-filter:
-        blur(15px);
-
 }
 
 
 .mini-player-info {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        10px;
-
-    min-width:
-        0;
-
-}
-
-
-.mini-player-info > div {
-
-    min-width:
-        0;
+    gap: 10px;
 
 }
 
 
 .mini-player-info strong {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        .65rem;
+    font-size: .62rem;
 
-    letter-spacing:
-        .1em;
+    letter-spacing: .1em;
 
 }
 
 
 .mini-player-info small {
 
-    display:
-        block;
+    display: block;
 
-    color:
-        #8d8a82;
+    color: #8d8a82;
 
-    font-size:
-        .58rem;
+    font-size: .56rem;
 
-    letter-spacing:
-        .08em;
+    letter-spacing: .08em;
 
 }
 
 
 .mini-player button {
 
-    width:
-        38px;
+    width: 38px;
 
-    height:
-        38px;
+    height: 38px;
 
-    flex:
-        0 0 auto;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid rgba(255,255,255,.25);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        white;
+    color: white;
 
-    cursor:
-        pointer;
-
-    transition:
-        background var(--transition),
-        color var(--transition);
-
-}
-
-
-.mini-player button:hover {
-
-    background:
-        white;
-
-    color:
-        var(--black);
+    cursor: pointer;
 
 }
 
 
 /* =========================================================
-   21 · FUTURO UNIVERSO / COMPONENTES
-   Preparación visual para próximas etapas
-   ========================================================= */
-
-.info-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:
-        1px;
-
-    background:
-        var(--line-dark);
-
-}
-
-
-.info-card {
-
-    padding:
-        30px;
-
-    min-height:
-        240px;
-
-    background:
-        var(--cream);
-
-}
-
-
-.info-card h3 {
-
-    margin:
-        50px 0 15px;
-
-    font-size:
-        1.5rem;
-
-    font-weight:
-        400;
-
-}
-
-
-.info-card p {
-
-    color:
-        var(--gray-dark);
-
-}
-
-
-.map-container {
-
-    width:
-        100%;
-
-    min-height:
-        450px;
-
-    background:
-        #d8d0c1;
-
-    overflow:
-        hidden;
-
-}
-
-
-.map-container iframe {
-
-    width:
-        100%;
-
-    height:
-        450px;
-
-    border:
-        0;
-
-}
-
-
-.download-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:
-        15px;
-
-}
-
-
-.download-card {
-
-    padding:
-        25px;
-
-    border:
-        1px solid var(--line-dark);
-
-    background:
-        var(--cream-light);
-
-    transition:
-        background var(--transition),
-        transform var(--transition);
-
-}
-
-
-.download-card:hover {
-
-    background:
-        white;
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-.download-card strong {
-
-    display:
-        block;
-
-    margin-bottom:
-        10px;
-
-}
-
-
-.download-card span {
-
-    font-size:
-        .7rem;
-
-    color:
-        var(--gray-dark);
-
-}
-
-
-/* =========================================================
-   22 · RESPONSIVE TABLET
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .nav-links {
-
-        gap:
-            17px;
-
-    }
-
-
-    .radio-layout {
-
-        gap:
-            60px;
-
-    }
-
-
-    .project-grid,
-    .culture-grid,
-    .trajectory-grid {
-
-        gap:
-            60px;
-
-    }
-
-}
-
-
-/* =========================================================
-   23 · RESPONSIVE 900
-   ========================================================= */
+   MOBILE
+========================================================= */
 
 @media (max-width: 900px) {
 
     .nav-links {
 
-        position:
-            fixed;
+        position: fixed;
 
         inset:
             76px 0 auto 0;
 
-        display:
-            none;
+        display: none;
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            flex-start;
+        align-items: flex-start;
 
-        gap:
-            0;
+        gap: 0;
 
         background:
-            rgba(17,17,15,.97);
+            rgba(17,17,15,.98);
 
         backdrop-filter:
-            blur(15px);
-
-        -webkit-backdrop-filter:
             blur(15px);
 
     }
 
 
     .nav-links.active {
-
-        display:
-            flex;
-
+        display: flex;
     }
 
 
     .nav-links a {
 
-        width:
-            100%;
+        width: 100%;
 
-        padding:
-            18px 24px;
+        padding: 18px 24px;
 
         border-bottom:
             1px solid rgba(255,255,255,.08);
@@ -2951,86 +1940,50 @@ button {
     }
 
 
-    .nav-links a::after {
-
-        display:
-            none;
-
-    }
-
-
     .menu-toggle {
-
-        display:
-            block;
-
+        display: block;
     }
 
 
     .universe-grid,
-    .archive-grid,
-    .services-grid {
+    .archive-grid {
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
 
     }
 
 
     .production,
-    .production-reverse,
-    .project-grid,
+    .production.reverse,
+    .remember-grid,
     .radio-layout,
     .culture-grid,
     .trajectory-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        gap:
-            45px;
+        gap: 45px;
 
     }
 
 
-    .production-reverse .video-wrapper,
-    .production-reverse .production-info {
+    .production.reverse .video-wrapper,
+    .production.reverse .production-info {
 
-        order:
-            initial;
-
-    }
-
-
-    .production-info {
-
-        max-width:
-            700px;
+        order: initial;
 
     }
 
 
-    .info-grid {
+    .footer-grid {
 
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-
-    .download-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: 1fr 1fr;
 
     }
 
 }
 
-
-/* =========================================================
-   24 · RESPONSIVE MOBILE
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -3046,190 +1999,99 @@ button {
 
 
     .section {
+        padding: 85px 0;
+    }
 
-        padding:
-            85px 0;
+
+    .section-dark {
+        padding: 90px 0;
+    }
+
+
+    .hero-content {
+
+        padding-top: 105px;
+
+        padding-bottom: 30px;
 
     }
 
 
-    .project-section {
+    .hero-top,
+    .hero-bottom {
 
-        padding:
-            90px 0;
-
-    }
-
-
-    .intro-content {
-
-        padding-bottom:
-            30px;
+        align-items: flex-end;
 
     }
 
 
-    .intro-top span,
-    .intro-bottom > span {
+    .hero-top span,
+    .hero-bottom span {
 
-        font-size:
-            .55rem;
-
-    }
-
-
-    .intro-bottom {
-
-        align-items:
-            flex-end;
-
-        gap:
-            20px;
+        font-size: .52rem;
 
     }
 
 
-    .intro-bottom > span {
+    .hero-description {
 
-        max-width:
-            160px;
-
-    }
-
-
-    .intro-scroll {
-
-        white-space:
-            nowrap;
-
-    }
-
-
-    .territorio-content {
-
-        min-height:
-            75vh;
-
-    }
-
-
-    .territorio {
-
-        min-height:
-            75vh;
+        font-size: .92rem;
 
     }
 
 
     .universe-grid,
-    .archive-grid,
-    .services-grid,
-    .info-grid,
-    .download-grid {
+    .archive-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 
 
     .universe-card {
 
-        min-height:
-            280px;
-
-    }
-
-
-    .universe-card span {
-
-        margin-bottom:
-            50px;
+        min-height: 280px;
 
     }
 
 
     .production {
 
-        padding:
-            45px 0;
-
-    }
-
-
-    .video-wrapper {
-
-        box-shadow:
-            none;
+        padding: 45px 0;
 
     }
 
 
     .radio-player-card {
 
-        padding:
-            25px;
+        padding: 25px;
 
     }
 
 
     .radio-disc {
 
-        width:
-            145px;
+        width: 145px;
 
-        height:
-            145px;
+        height: 145px;
 
     }
 
 
-    .radio-controls {
+    .footer-grid {
 
-        gap:
-            15px;
-
-    }
-
-
-    .footer-content {
-
-        flex-direction:
-            column;
+        grid-template-columns: 1fr;
 
     }
 
 
     .mini-player {
 
-        left:
-            10px;
+        left: 10px;
 
-        right:
-            10px;
+        right: 10px;
 
-        bottom:
-            10px;
-
-    }
-
-
-    .mini-player-info strong {
-
-        font-size:
-            .58rem;
-
-    }
-
-
-    .map-container,
-    .map-container iframe {
-
-        min-height:
-            350px;
-
-        height:
-            350px;
+        bottom: 10px;
 
     }
 
@@ -3237,32 +2099,21 @@ button {
 
 
 /* =========================================================
-   25 · REDUCED MOTION
-   ========================================================= */
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
     html {
-
-        scroll-behavior:
-            auto;
-
+        scroll-behavior: auto;
     }
-
 
     *,
     *::before,
     *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            .01ms !important;
-
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
 
 }
