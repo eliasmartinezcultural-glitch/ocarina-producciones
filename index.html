@@ -1,1591 +1,537 @@
-<!DOCTYPE html>
-<html lang="es">
+/* =====================================================
+   OCARINA PRODUCCIONES
+   V4 · SISTEMA INTERACTIVO
+===================================================== */
 
-<head>
+document.addEventListener("DOMContentLoaded", () => {
 
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    /* =================================================
+       ELEMENTOS
+    ================================================= */
 
-    <title>
-        Ocarina Producciones | Cultura, Historia, Territorio y Turismo
-    </title>
+    const siteHeader =
+        document.getElementById("siteHeader");
 
-    <meta
-        name="description"
-        content="Ocarina Producciones, fundada por Elías Martínez. Producción audiovisual, cultura, historia, memoria, territorio y turismo desde San Patricio del Chañar, Neuquén."
-    >
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-    <meta
-        name="author"
-        content="Elías Martínez · Ocarina Producciones"
-    >
+    const navLinks =
+        document.getElementById("navLinks");
 
-    <meta
-        name="theme-color"
-        content="#11110f"
-    >
 
-    <meta
-        property="og:title"
-        content="Ocarina Producciones"
-    >
+    const radioAudio =
+        document.getElementById("radioAudio");
 
-    <meta
-        property="og:description"
-        content="Cultura · Historia · Territorio · Turismo"
-    >
+    const radioPlay =
+        document.getElementById("radioPlay");
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+    const miniPlay =
+        document.getElementById("miniPlay");
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    const radioVolume =
+        document.getElementById("radioVolume");
 
-</head>
+    const radioDisc =
+        document.getElementById("radioDisc");
 
+    const radioPlayerCard =
+        document.getElementById("radioPlayerCard");
 
-<body>
+    const radioStatus =
+        document.getElementById("radioStatus");
 
+    const radioMessage =
+        document.getElementById("radioMessage");
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+    const miniPlayer =
+        document.getElementById("miniPlayer");
 
-<header
-    class="site-header"
-    id="siteHeader"
->
+    const miniStatus =
+        document.getElementById("miniStatus");
 
-    <nav class="nav container">
 
-        <a
-            href="#inicio"
-            class="brand"
-            aria-label="Ocarina - Inicio"
-        >
-            OCARINA
-        </a>
+    /* =================================================
+       RADIO
+    ================================================= */
 
+    const RADIO_STREAM =
+        "https://stream.zeno.fm/amfjjcz4tlgtv";
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-            aria-controls="navLinks"
-        >
 
-            <span></span>
-            <span></span>
+    let radioInitialized = false;
 
-        </button>
 
+    function initializeRadio() {
 
-        <div
-            class="nav-links"
-            id="navLinks"
-        >
+        if (radioInitialized) {
+            return;
+        }
 
-            <a href="#producciones">
-                Producciones
-            </a>
+        radioAudio.src = RADIO_STREAM;
 
-            <a href="#recuerda">
-                Recuerda
-            </a>
+        radioAudio.preload = "none";
 
-            <a href="#radio">
-                Radio
-            </a>
+        radioInitialized = true;
 
-            <a href="#archivo">
-                Archivo
-            </a>
+    }
 
-            <a href="#cultura">
-                Cultura
-            </a>
 
-            <a href="#descubre">
-                Descubre
-            </a>
+    function setRadioPlayingState(isPlaying) {
 
-            <a href="#contacto">
-                Contacto
-            </a>
+        if (isPlaying) {
 
-        </div>
+            radioDisc.classList.add("playing");
 
-    </nav>
+            radioPlayerCard.classList.add("is-playing");
 
-</header>
+            miniPlayer.classList.add("is-playing");
 
+            radioPlay.textContent = "❚❚";
 
+            miniPlay.textContent = "❚❚";
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+            radioStatus.textContent =
+                "RADIO OCARINA · EN VIVO";
 
-<section
-    class="ocarina-intro"
-    id="inicio"
->
+            radioMessage.textContent =
+                "Reproduciendo transmisión.";
 
-    <div class="intro-background">
+            miniStatus.textContent =
+                "EN VIVO";
 
-        <img
-            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85"
-            alt="Paisaje natural"
-            fetchpriority="high"
-        >
+        } else {
 
-        <div class="intro-overlay"></div>
+            radioDisc.classList.remove("playing");
 
-    </div>
+            radioPlayerCard.classList.remove("is-playing");
 
+            miniPlayer.classList.remove("is-playing");
 
-    <div class="intro-content container">
+            radioPlay.textContent = "▶";
 
-        <div class="intro-top">
+            miniPlay.textContent = "▶";
 
-            <span>
-                SAN PATRICIO DEL CHAÑAR
-                · NEUQUÉN · PATAGONIA
-            </span>
+            radioStatus.textContent =
+                "RADIO OCARINA · PAUSADA";
 
-        </div>
+            radioMessage.textContent =
+                "La transmisión está detenida.";
 
+            miniStatus.textContent =
+                "PAUSADA";
 
-        <div class="intro-center">
+        }
 
-            <div class="intro-mark">
-                OCARINA
-            </div>
+    }
 
-            <p class="founder-line">
-                FUNDADA POR ELÍAS MARTÍNEZ
-            </p>
 
-            <h1>
+    function setRadioLoadingState() {
 
-                Producciones
+        radioStatus.textContent =
+            "RADIO OCARINA · CONECTANDO";
 
-                <span>
-                    audiovisuales
-                </span>
+        radioMessage.textContent =
+            "Conectando con la transmisión...";
 
-            </h1>
+        miniStatus.textContent =
+            "CONECTANDO";
 
+    }
 
-            <p>
-                Historias, personas y territorio.
-            </p>
 
-        </div>
+    function setRadioErrorState() {
 
+        radioDisc.classList.remove("playing");
 
-        <div class="intro-bottom">
+        radioPlayerCard.classList.remove("is-playing");
 
-            <span>
-                CULTURA · HISTORIA · TERRITORIO · TURISMO
-            </span>
+        miniPlayer.classList.remove("is-playing");
 
+        radioPlay.textContent = "▶";
 
-            <a
-                href="#universo"
-                class="intro-scroll"
-            >
+        miniPlay.textContent = "▶";
 
-                <span>
-                    ENTRAR AL UNIVERSO
-                </span>
+        radioStatus.textContent =
+            "RADIO OCARINA · SIN CONEXIÓN";
 
-                <span>
-                    ↓
-                </span>
+        radioMessage.textContent =
+            "No fue posible conectar con la transmisión.";
 
-            </a>
+        miniStatus.textContent =
+            "SIN CONEXIÓN";
 
-        </div>
+    }
 
-    </div>
 
-</section>
+    async function toggleRadio() {
 
+        initializeRadio();
 
 
-<!-- =====================================================
-     TERRITORIO
-===================================================== -->
+        if (!radioAudio.paused) {
 
-<section
-    class="territorio"
-    id="territorio"
->
+            radioAudio.pause();
 
-    <div class="territorio-image">
+            return;
 
-        <img
-            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85"
-            alt="Paisaje del territorio"
-            loading="lazy"
-        >
+        }
 
-        <div class="territorio-overlay"></div>
 
-    </div>
+        setRadioLoadingState();
 
 
-    <div class="territorio-content container">
+        try {
 
-        <span class="eyebrow-light">
-            01 · DESDE EL TERRITORIO
-        </span>
+            await radioAudio.play();
 
+        } catch (error) {
 
-        <div class="territorio-text">
+            console.error(
+                "Error al reproducir Radio Ocarina:",
+                error
+            );
 
-            <h2>
+            setRadioErrorState();
 
-                Historias que
+        }
 
-                <em>
-                    nacen acá.
-                </em>
+    }
 
-            </h2>
 
+    radioPlay.addEventListener(
+        "click",
+        toggleRadio
+    );
 
-            <div class="territorio-line"></div>
 
+    miniPlay.addEventListener(
+        "click",
+        toggleRadio
+    );
 
-            <p>
-                No llegamos solamente con una cámara.
-            </p>
 
+    radioAudio.addEventListener(
+        "play",
+        () => {
 
-            <p>
-                Conocemos el lugar.<br>
-                Conocemos sus historias.<br>
-                Conocemos a su gente.
-            </p>
+            setRadioPlayingState(true);
 
+        }
+    );
 
-            <p class="territorio-final">
-                Eso es Ocarina.
-            </p>
 
-        </div>
+    radioAudio.addEventListener(
+        "pause",
+        () => {
 
-    </div>
+            setRadioPlayingState(false);
 
-</section>
+        }
+    );
 
 
+    radioAudio.addEventListener(
+        "waiting",
+        () => {
 
-<main>
+            radioStatus.textContent =
+                "RADIO OCARINA · CARGANDO";
 
+            miniStatus.textContent =
+                "CARGANDO";
 
-<!-- =====================================================
-     UNIVERSO OCARINA
-===================================================== -->
+        }
+    );
 
-<section
-    class="universe section"
-    id="universo"
->
 
-    <div class="container">
+    radioAudio.addEventListener(
+        "playing",
+        () => {
 
-        <div class="section-heading">
+            setRadioPlayingState(true);
 
-            <p class="eyebrow">
-                EL UNIVERSO OCARINA
-            </p>
+        }
+    );
 
-            <h2>
-                Una mirada sobre
-                el territorio.
-            </h2>
 
-            <p>
-                Producción audiovisual, memoria, cultura,
-                música, archivo y turismo reunidos
-                en un mismo universo.
-            </p>
+    radioAudio.addEventListener(
+        "error",
+        () => {
 
-        </div>
+            setRadioErrorState();
 
+        }
+    );
 
-        <div class="universe-grid">
 
+    /* =================================================
+       VOLUMEN
+    ================================================= */
 
-            <a
-                href="#producciones"
-                class="universe-card universe-featured"
-            >
+    const savedVolume =
+        localStorage.getItem(
+            "ocarinaRadioVolume"
+        );
 
-                <span>
-                    01
-                </span>
 
-                <h3>
-                    Ocarina Producciones
-                </h3>
+    if (savedVolume !== null) {
 
-                <p>
-                    Audiovisual, fotografía, documental
-                    y contenidos.
-                </p>
+        const parsedVolume =
+            parseFloat(savedVolume);
 
-                <strong>
-                    ENTRAR →
-                </strong>
+        if (
+            !Number.isNaN(parsedVolume) &&
+            parsedVolume >= 0 &&
+            parsedVolume <= 1
+        ) {
 
-            </a>
+            radioVolume.value =
+                parsedVolume;
 
+        }
 
+    }
 
-            <a
-                href="#recuerda"
-                class="universe-card"
-            >
 
-                <span>
-                    02
-                </span>
+    radioAudio.volume =
+        parseFloat(radioVolume.value);
 
-                <h3>
-                    Ocarina Recuerda
-                </h3>
 
-                <p>
-                    Historia y memoria de
-                    San Patricio del Chañar.
-                </p>
+    radioVolume.addEventListener(
+        "input",
+        () => {
 
-                <strong>
-                    CONOCER →
-                </strong>
+            const volume =
+                parseFloat(radioVolume.value);
 
-            </a>
+            radioAudio.volume =
+                volume;
 
+            localStorage.setItem(
+                "ocarinaRadioVolume",
+                volume.toString()
+            );
 
+        }
+    );
 
-            <a
-                href="#radio"
-                class="universe-card"
-            >
 
-                <span>
-                    03
-                </span>
+    /* =================================================
+       HEADER AL HACER SCROLL
+    ================================================= */
 
-                <h3>
-                    Ocarina Radio
-                </h3>
+    function updateHeader() {
 
-                <p>
-                    Música, voces, entrevistas,
-                    cultura y territorio.
-                </p>
+        if (
+            window.scrollY > 40
+        ) {
 
-                <strong>
-                    ESCUCHAR →
-                </strong>
+            siteHeader.classList.add(
+                "scrolled"
+            );
 
-            </a>
+        } else {
 
+            siteHeader.classList.remove(
+                "scrolled"
+            );
 
+        }
 
-            <a
-                href="#archivo"
-                class="universe-card"
-            >
+    }
 
-                <span>
-                    04
-                </span>
 
-                <h3>
-                    Archivo Ocarina
-                </h3>
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
 
-                <p>
-                    Documentos, fotografías,
-                    audios e investigaciones.
-                </p>
 
-                <strong>
-                    CONSULTAR →
-                </strong>
+    updateHeader();
 
-            </a>
 
+    /* =================================================
+       MENÚ MOBILE
+    ================================================= */
 
+    function closeMenu() {
 
-            <a
-                href="#cultura"
-                class="universe-card"
-            >
+        navLinks.classList.remove(
+            "active"
+        );
 
-                <span>
-                    05
-                </span>
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-                <h3>
-                    Ocarina Cultura
-                </h3>
+        document.body.classList.remove(
+            "no-scroll"
+        );
 
-                <p>
-                    Artistas, música, literatura,
-                    artesanías y actividades.
-                </p>
+    }
 
-                <strong>
-                    CONOCER →
-                </strong>
 
-            </a>
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
+            const isOpen =
+                navLinks.classList.toggle(
+                    "active"
+                );
 
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
 
-            <a
-                href="#descubre"
-                class="universe-card"
-            >
+            document.body.classList.toggle(
+                "no-scroll",
+                isOpen
+            );
 
-                <span>
-                    06
-                </span>
+        }
+    );
 
-                <h3>
-                    Ocarina Descubre
-                </h3>
 
-                <p>
-                    Lugares, experiencias,
-                    paisaje y turismo.
-                </p>
+    navLinks
+        .querySelectorAll("a")
+        .forEach(link => {
 
-                <strong>
-                    CONOCER →
-                </strong>
+            link.addEventListener(
+                "click",
+                closeMenu
+            );
 
-            </a>
+        });
 
-        </div>
 
-    </div>
+    /* =================================================
+       ESC PARA CERRAR MENÚ
+    ================================================= */
 
-</section>
+    document.addEventListener(
+        "keydown",
+        event => {
 
+            if (
+                event.key === "Escape"
+            ) {
 
+                closeMenu();
 
-<!-- =====================================================
-     PRODUCCIONES
-===================================================== -->
+            }
 
-<section
-    id="producciones"
-    class="productions section"
->
+        }
+    );
 
-    <div class="container">
 
-        <div class="section-heading">
+    /* =================================================
+       EVITAR ERRORES DE SCROLL EN NAVEGADORES
+    ================================================= */
 
-            <p class="eyebrow">
-                OCARINA PRODUCCIONES · 01
-            </p>
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(anchor => {
 
-            <h2>
-                Historias contadas
-                en imágenes.
-            </h2>
+            anchor.addEventListener(
+                "click",
+                event => {
 
-            <p>
-                Producción audiovisual desde
-                San Patricio del Chañar.
-            </p>
+                    const targetId =
+                        anchor
+                            .getAttribute("href");
 
-        </div>
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
 
 
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
 
-        <!-- PRODUCCIÓN 01 -->
 
-        <article class="production">
+                    if (!target) {
+                        return;
+                    }
 
-            <div class="video-wrapper">
 
-                <iframe
-                    src="https://www.youtube.com/embed/ruDP0Ur2wZ0"
-                    title="Resumen 2024 de Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                    event.preventDefault();
 
-            </div>
 
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
-            <div class="production-info">
+                }
+            );
 
-                <span class="production-number">
-                    01
-                </span>
+        });
 
-                <h3>
-                    Resumen 2024
-                </h3>
 
-                <p>
-                    Un recorrido por las producciones y experiencias
-                    desarrolladas por Ocarina durante 2024.
-                </p>
+    /* =================================================
+       VISIBILIDAD DEL MINI PLAYER
+    ================================================= */
 
-                <div class="tags">
+    function updateMiniPlayer() {
 
-                    <span>
-                        Registro
-                    </span>
+        const radioSection =
+            document.getElementById(
+                "radio"
+            );
 
-                    <span>
-                        Entrevistas
-                    </span>
 
-                    <span>
-                        Comunidad
-                    </span>
+        if (!radioSection) {
+            return;
+        }
 
-                </div>
 
-            </div>
+        const rect =
+            radioSection.getBoundingClientRect();
 
-        </article>
 
+        const radioVisible =
+            rect.top < window.innerHeight &&
+            rect.bottom > 0;
 
 
-        <!-- PRODUCCIÓN 02 -->
+        if (
+            radioVisible ||
+            !radioAudio.paused
+        ) {
 
-        <article class="production production-reverse">
+            miniPlayer.style.display =
+                "flex";
 
-            <div class="video-wrapper">
+        } else {
 
-                <iframe
-                    src="https://www.youtube.com/embed/G8rbbeZMMVk"
-                    title="Seiichi Matsui - Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+            miniPlayer.style.display =
+                "flex";
 
-            </div>
+        }
 
+    }
 
-            <div class="production-info">
 
-                <span class="production-number">
-                    02
-                </span>
+    window.addEventListener(
+        "scroll",
+        updateMiniPlayer,
+        { passive: true }
+    );
 
-                <h3>
-                    Seiichi Matsui
-                </h3>
 
-                <p>
-                    Memoria, historia local y entrevista
-                    documental.
-                </p>
+    updateMiniPlayer();
 
-                <div class="tags">
 
-                    <span>
-                        Memoria
-                    </span>
-
-                    <span>
-                        Historia
-                    </span>
-
-                    <span>
-                        Documental
-                    </span>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PRODUCCIÓN 03 -->
-
-        <article class="production">
-
-            <div class="video-wrapper">
-
-                <iframe
-                    src="https://www.youtube.com/embed/xY9ppN2HM-s"
-                    title="50 años Escuela Primaria 273"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
-
-
-            <div class="production-info">
-
-                <span class="production-number">
-                    03
-                </span>
-
-                <h3>
-                    50 años — Escuela 273
-                </h3>
-
-                <p>
-                    Memoria institucional de una escuela
-                    que forma parte de la comunidad.
-                </p>
-
-                <div class="tags">
-
-                    <span>
-                        Educación
-                    </span>
-
-                    <span>
-                        Comunidad
-                    </span>
-
-                    <span>
-                        Memoria
-                    </span>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PRODUCCIÓN 04 -->
-
-        <article class="production production-reverse">
-
-            <div class="video-wrapper">
-
-                <iframe
-                    src="https://www.youtube.com/embed/hnZ0HWZPlOw"
-                    title="Cosechas Chañarenses"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
-
-
-            <div class="production-info">
-
-                <span class="production-number">
-                    04
-                </span>
-
-                <h3>
-                    Cosechas Chañarenses
-                </h3>
-
-                <p>
-                    Trabajo rural, producción y territorio.
-                </p>
-
-                <div class="tags">
-
-                    <span>
-                        Trabajo rural
-                    </span>
-
-                    <span>
-                        Producción
-                    </span>
-
-                    <span>
-                        Territorio
-                    </span>
-
-                </div>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     OCARINA RECUERDA
-===================================================== -->
-
-<section
-    id="recuerda"
-    class="project-section project-dark"
->
-
-    <div class="container project-grid">
-
-        <div>
-
-            <p class="eyebrow-light">
-                PROYECTO PROPIO · 02
-            </p>
-
-            <h2>
-
-                Ocarina
-
-                <em>
-                    Recuerda.
-                </em>
-
-            </h2>
-
-        </div>
-
-
-        <div class="project-copy">
-
-            <p class="project-lead">
-                Hay historias que no deberían perderse.
-            </p>
-
-            <p>
-                Ocarina Recuerda nace para recuperar,
-                investigar y revalorizar la historia de
-                San Patricio del Chañar.
-            </p>
-
-            <p>
-                Fotografías, documentos, personas,
-                lugares, testimonios y memoria comunitaria.
-            </p>
-
-
-            <div class="project-actions">
-
-                <a
-                    href="https://www.facebook.com/share/g/18ABDoyf4w/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-light"
-                >
-                    ENTRAR A LA COMUNIDAD
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     RADIO
-===================================================== -->
-
-<section
-    id="radio"
-    class="radio-section section"
->
-
-    <div class="container">
-
-        <div class="radio-layout">
-
-
-            <div class="radio-intro">
-
-                <p class="eyebrow-light">
-                    PROYECTO SONORO · 03
-                </p>
-
-                <h2>
-
-                    Ocarina
-
-                    <em>
-                        Radio.
-                    </em>
-
-                </h2>
-
-                <p>
-                    Historias que también se escuchan.
-                </p>
-
-                <p class="radio-description">
-                    Una radio online integrada al universo
-                    Ocarina. Música, voces, entrevistas,
-                    cultura y territorio.
-                </p>
-
-            </div>
-
-
-
-            <div
-                class="radio-player-card"
-                id="radioPlayerCard"
-            >
-
-                <div class="radio-player-top">
-
-                    <span
-                        class="live-dot"
-                        id="radioLiveDot"
-                    ></span>
-
-                    <span id="radioStatus">
-                        RADIO OCARINA · LISTO
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="radio-disc"
-                    id="radioDisc"
-                >
-
-                    <div class="disc-inner">
-                        O
-                    </div>
-
-                </div>
-
-
-                <div class="radio-track">
-
-                    <strong>
-                        OCARINA RADIO
-                    </strong>
-
-                    <span id="radioMessage">
-                        Presioná reproducir para escuchar.
-                    </span>
-
-                </div>
-
-
-                <audio
-                    id="radioAudio"
-                    preload="none"
-                ></audio>
-
-
-                <div class="radio-controls">
-
-                    <button
-                        id="radioPlay"
-                        class="radio-play"
-                        type="button"
-                        aria-label="Reproducir Radio Ocarina"
-                    >
-                        ▶
-                    </button>
-
-
-                    <div class="radio-volume">
-
-                        <label for="radioVolume">
-                            VOL
-                        </label>
-
-                        <input
-                            id="radioVolume"
-                            type="range"
-                            min="0"
-                            max="1"
-                            step="0.01"
-                            value="0.8"
-                            aria-label="Volumen de Radio Ocarina"
-                        >
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ARCHIVO
-===================================================== -->
-
-<section
-    id="archivo"
-    class="archive section"
->
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="eyebrow">
-                ARCHIVO OCARINA · 04
-            </p>
-
-            <h2>
-                Un lugar para
-                conservar.
-            </h2>
-
-            <p>
-                Un archivo abierto de documentos,
-                fotografías, audios e investigaciones
-                vinculadas al territorio.
-            </p>
-
-        </div>
-
-
-        <div class="archive-grid">
-
-
-            <article class="archive-card">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    Documentos
-                </h3>
-
-                <p>
-                    Material histórico y documental
-                    disponible para consulta y descarga.
-                </p>
-
-                <span class="archive-status">
-                    PRÓXIMAMENTE
-                </span>
-
-            </article>
-
-
-
-            <article class="archive-card">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Fotografías
-                </h3>
-
-                <p>
-                    Archivo visual del territorio,
-                    sus personas y su memoria.
-                </p>
-
-                <span class="archive-status">
-                    PRÓXIMAMENTE
-                </span>
-
-            </article>
-
-
-
-            <article class="archive-card">
-
-                <span>
-                    03
-                </span>
-
-                <h3>
-                    Audios
-                </h3>
-
-                <p>
-                    Voces, entrevistas, música y
-                    registros sonoros.
-                </p>
-
-                <span class="archive-status">
-                    PRÓXIMAMENTE
-                </span>
-
-            </article>
-
-
-
-            <article class="archive-card">
-
-                <span>
-                    04
-                </span>
-
-                <h3>
-                    Investigaciones
-                </h3>
-
-                <p>
-                    Investigaciones y materiales
-                    sobre historia y territorio.
-                </p>
-
-                <span class="archive-status">
-                    PRÓXIMAMENTE
-                </span>
-
-            </article>
-
-        </div>
-
-
-        <div class="archive-note">
-
-            <p>
-                El Archivo Ocarina será construido progresivamente
-                con materiales propios, fuentes históricas,
-                testimonios y aportes de la comunidad.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CULTURA
-===================================================== -->
-
-<section
-    id="cultura"
-    class="culture-section section"
->
-
-    <div class="container">
-
-        <div class="culture-grid">
-
-            <div>
-
-                <p class="eyebrow">
-                    CULTURA · 05
-                </p>
-
-                <h2>
-                    Las personas también
-                    construyen territorio.
-                </h2>
-
-            </div>
-
-
-            <div>
-
-                <p>
-                    Ocarina Cultura será un espacio para
-                    visibilizar artistas, músicos, escritores,
-                    fotógrafos, artesanos y propuestas culturales
-                    de San Patricio del Chañar.
-                </p>
-
-                <p>
-                    Un directorio cultural vivo y una fuente
-                    permanente de historias.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="culture-links">
-
-            <span>
-                MÚSICA
-            </span>
-
-            <span>
-                ARTES
-            </span>
-
-            <span>
-                LITERATURA
-            </span>
-
-            <span>
-                FOTOGRAFÍA
-            </span>
-
-            <span>
-                ARTESANÍAS
-            </span>
-
-            <span>
-                EVENTOS
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DESCUBRE
-===================================================== -->
-
-<section
-    id="descubre"
-    class="discover-section"
->
-
-    <div class="discover-image">
-
-        <img
-            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85"
-            alt="Paisaje patagónico"
-            loading="lazy"
-        >
-
-        <div class="discover-overlay"></div>
-
-    </div>
-
-
-    <div class="container discover-content">
-
-        <p class="eyebrow-light">
-            TERRITORIO · 06
-        </p>
-
-        <h2>
-
-            Ocarina
-
-            <em>
-                Descubre.
-            </em>
-
-        </h2>
-
-        <p>
-            Lugares, experiencias, paisaje, gastronomía,
-            producción y cultura para conocer San Patricio
-            del Chañar desde una mirada local.
-        </p>
-
-
-        <div class="discover-tags">
-
-            <span>
-                HISTORIA
-            </span>
-
-            <span>
-                PAISAJE
-            </span>
-
-            <span>
-                GASTRONOMÍA
-            </span>
-
-            <span>
-                PRODUCCIÓN
-            </span>
-
-            <span>
-                CULTURA
-            </span>
-
-            <span>
-                TURISMO
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SERVICIOS
-===================================================== -->
-
-<section
-    id="servicios"
-    class="services section"
->
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="eyebrow">
-                SERVICIOS
-            </p>
-
-            <h2>
-                Producción audiovisual para contar,
-                comunicar y documentar.
-            </h2>
-
-        </div>
-
-
-        <div class="services-grid">
-
-
-            <article class="service-card">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    Producción audiovisual
-                </h3>
-
-                <p>
-                    Videos institucionales, entrevistas,
-                    coberturas y contenidos.
-                </p>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Fotografía
-                </h3>
-
-                <p>
-                    Personas, instituciones, productos,
-                    eventos y territorio.
-                </p>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <span>
-                    03
-                </span>
-
-                <h3>
-                    Documental
-                </h3>
-
-                <p>
-                    Historias, memoria, cultura,
-                    comunidad y territorio.
-                </p>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <span>
-                    04
-                </span>
-
-                <h3>
-                    Contenido digital
-                </h3>
-
-                <p>
-                    Reels, entrevistas, piezas verticales
-                    y contenidos para redes.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TRAYECTORIA
-===================================================== -->
-
-<section
-    class="trajectory section"
->
-
-    <div class="container trajectory-grid">
-
-        <div>
-
-            <p class="eyebrow-light">
-                TRAYECTORIA
-            </p>
-
-            <h2>
-                El trabajo también
-                deja registro.
-            </h2>
-
-        </div>
-
-
-        <div>
-
-            <p>
-                Ocarina Producciones es un proyecto
-                independiente fundado por
-                <strong>Elías Martínez</strong> en
-                San Patricio del Chañar.
-            </p>
-
-            <p>
-                A lo largo de su desarrollo ha participado
-                en proyectos audiovisuales y colaboraciones
-                con instituciones y organizaciones del territorio.
-            </p>
-
-
-            <div class="institution-list">
-
-                <span>
-                    IPEHCS · CONICET · UNCo
-                </span>
-
-                <span>
-                    INSTITUCIONES EDUCATIVAS
-                </span>
-
-                <span>
-                    ORGANIZACIONES LOCALES
-                </span>
-
-                <span>
-                    PROYECTOS COMUNITARIOS
-                </span>
-
-            </div>
-
-
-            <p class="small-note">
-                Las certificaciones institucionales serán
-                incorporadas próximamente al sitio.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACTO
-===================================================== -->
-
-<section
-    id="contacto"
-    class="contact section"
->
-
-    <div class="container contact-content">
-
-        <p class="eyebrow">
-            OCARINA PRODUCCIONES
-        </p>
-
-        <h2>
-            ¿Tenés una historia
-            que contar?
-        </h2>
-
-        <p>
-            Hablemos sobre tu proyecto.
-        </p>
-
-
-        <div class="contact-buttons">
-
-            <a
-                href="https://wa.me/5492996728355?text=Hola%20Ocarina%20Producciones.%20Vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20consultar%20por%20una%20producci%C3%B3n%20audiovisual."
-                class="button button-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                WhatsApp
-            </a>
-
-
-            <a
-                href="https://www.instagram.com/ocarina_producciones.spch/"
-                class="button button-outline-dark"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Instagram
-            </a>
-
-
-            <a
-                href="mailto:eliasmartinezcultural@gmail.com?subject=Consulta%20Ocarina"
-                class="button button-outline-dark"
-            >
-                Email
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="footer">
-
-    <div class="container footer-content">
-
-        <div>
-
-            <strong>
-                OCARINA PRODUCCIONES
-            </strong>
-
-            <p>
-                Cultura · Historia · Territorio · Turismo
-            </p>
-
-            <p>
-                Fundada por Elías Martínez
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <p>
-                San Patricio del Chañar · Neuquén · Patagonia
-            </p>
-
-            <p>
-                © 2026 Ocarina Producciones
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     MINI PLAYER PERSISTENTE
-===================================================== -->
-
-<div
-    class="mini-player"
-    id="miniPlayer"
->
-
-    <div class="mini-player-info">
-
-        <span
-            class="mini-live"
-            id="miniLive"
-        ></span>
-
-
-        <div>
-
-            <strong>
-                OCARINA RADIO
-            </strong>
-
-            <small id="miniStatus">
-                LISTO
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <button
-        id="miniPlay"
-        type="button"
-        aria-label="Reproducir radio"
-    >
-        ▶
-    </button>
-
-</div>
-
-
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+});
