@@ -1,20 +1,46 @@
 ```javascript
 /* =========================================================
    OCARINA PRODUCCIONES
-   SCRIPT V7
-
-   RADIO · MENÚ · SCROLL · ANIMACIONES
+   SCRIPT V7.1
+   SIMPLE · ESTABLE · RESPONSIVE
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       ELEMENTOS
+       HEADER
     ===================================================== */
 
-    const siteHeader =
+    const header =
         document.getElementById("siteHeader");
+
+
+    function updateHeader() {
+
+        if (!header) return;
+
+        header.classList.toggle(
+            "scrolled",
+            window.scrollY > 30
+        );
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+
+    updateHeader();
+
+
+    /* =====================================================
+       MENÚ MOBILE
+    ===================================================== */
 
     const menuToggle =
         document.getElementById("menuToggle");
@@ -22,285 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks =
         document.getElementById("navLinks");
 
-    const radioAudio =
-        document.getElementById("radioAudio");
-
-    const radioPlay =
-        document.getElementById("radioPlay");
-
-    const radioVolume =
-        document.getElementById("radioVolume");
-
-    const radioDisc =
-        document.getElementById("radioDisc");
-
-    const radioStatus =
-        document.getElementById("radioStatus");
-
-    const radioMessage =
-        document.getElementById("radioMessage");
-
-    const yearElement =
-        document.querySelector("[data-year]");
-
-
-    /* =====================================================
-       RADIO
-    ===================================================== */
-
-    const RADIO_STREAM =
-        "https://stream.zeno.fm/amfjjcz4tlgtv";
-
-    let radioInitialized = false;
-
-    let radioPlaying = false;
-
-
-    function initializeRadio() {
-
-        if (radioInitialized) {
-            return;
-        }
-
-        if (!radioAudio) {
-            return;
-        }
-
-        radioAudio.src =
-            RADIO_STREAM;
-
-        radioAudio.preload =
-            "none";
-
-        radioAudio.volume =
-            radioVolume
-                ? Number(radioVolume.value)
-                : 0.8;
-
-        radioInitialized = true;
-
-    }
-
-
-    function updateRadioInterface(
-        isPlaying
-    ) {
-
-        radioPlaying =
-            isPlaying;
-
-
-        if (radioPlay) {
-
-            radioPlay.textContent =
-                isPlaying
-                    ? "❚❚"
-                    : "▶";
-
-            radioPlay.setAttribute(
-                "aria-label",
-                isPlaying
-                    ? "Pausar radio"
-                    : "Reproducir radio"
-            );
-
-        }
-
-
-        if (radioStatus) {
-
-            radioStatus.textContent =
-                isPlaying
-                    ? "EN VIVO"
-                    : "EN ESPERA";
-
-        }
-
-
-        if (radioDisc) {
-
-            radioDisc.classList.toggle(
-                "playing",
-                isPlaying
-            );
-
-        }
-
-    }
-
-
-    async function playRadio() {
-
-        if (!radioAudio) {
-            return;
-        }
-
-        initializeRadio();
-
-
-        if (radioMessage) {
-
-            radioMessage.textContent =
-                "Conectando con Radio Cadena Oasis...";
-
-        }
-
-
-        try {
-
-            await radioAudio.play();
-
-            updateRadioInterface(
-                true
-            );
-
-
-            if (radioMessage) {
-
-                radioMessage.textContent =
-                    "Radio Cadena Oasis · FM 92.5 · En vivo";
-
-            }
-
-        } catch (error) {
-
-            updateRadioInterface(
-                false
-            );
-
-
-            if (radioMessage) {
-
-                radioMessage.textContent =
-                    "No se pudo conectar. Intentá nuevamente.";
-
-            }
-
-            console.warn(
-                "Radio Ocarina:",
-                error
-            );
-
-        }
-
-    }
-
-
-    function pauseRadio() {
-
-        if (!radioAudio) {
-            return;
-        }
-
-        radioAudio.pause();
-
-        updateRadioInterface(
-            false
-        );
-
-
-        if (radioMessage) {
-
-            radioMessage.textContent =
-                "Radio pausada.";
-
-        }
-
-    }
-
-
-    if (radioPlay) {
-
-        radioPlay.addEventListener(
-            "click",
-            () => {
-
-                if (radioPlaying) {
-
-                    pauseRadio();
-
-                } else {
-
-                    playRadio();
-
-                }
-
-            }
-        );
-
-    }
-
-
-    if (radioVolume) {
-
-        radioVolume.addEventListener(
-            "input",
-            () => {
-
-                if (!radioAudio) {
-                    return;
-                }
-
-                radioAudio.volume =
-                    Number(
-                        radioVolume.value
-                    );
-
-            }
-        );
-
-    }
-
-
-    if (radioAudio) {
-
-        radioAudio.addEventListener(
-            "ended",
-            () => {
-
-                updateRadioInterface(
-                    false
-                );
-
-            }
-        );
-
-
-        radioAudio.addEventListener(
-            "error",
-            () => {
-
-                updateRadioInterface(
-                    false
-                );
-
-                if (radioMessage) {
-
-                    radioMessage.textContent =
-                        "Error de conexión con la transmisión.";
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       MENÚ
-    ===================================================== */
 
     function closeMenu() {
 
-        if (!navLinks) {
-            return;
-        }
+        if (!navLinks) return;
 
         navLinks.classList.remove(
-            "open"
+            "active"
         );
-
 
         if (menuToggle) {
 
@@ -310,6 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         }
+
+        document.body.classList.remove(
+            "no-scroll"
+        );
 
     }
 
@@ -325,12 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const isOpen =
                     navLinks.classList.toggle(
-                        "open"
+                        "active"
                     );
 
                 menuToggle.setAttribute(
                     "aria-expanded",
                     String(isOpen)
+                );
+
+                document.body.classList.toggle(
+                    "no-scroll",
+                    isOpen
                 );
 
             }
@@ -339,130 +103,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navLinks
             .querySelectorAll("a")
-            .forEach(
-                link => {
+            .forEach(link => {
 
-                    link.addEventListener(
-                        "click",
-                        closeMenu
-                    );
-
-                }
-            );
-
-    }
-
-
-    /* =====================================================
-       HEADER SCROLL
-    ===================================================== */
-
-    function updateHeader() {
-
-        if (!siteHeader) {
-            return;
-        }
-
-        siteHeader.classList.toggle(
-            "scrolled",
-            window.scrollY > 40
-        );
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        {
-            passive: true
-        }
-    );
-
-
-    updateHeader();
-
-
-    /* =====================================================
-       REVEAL
-    ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".section-heading, " +
-            ".universe-card, " +
-            ".production-card, " +
-            ".radio-player, " +
-            ".intro-grid, " +
-            ".contact-grid"
-        );
-
-
-    revealElements.forEach(
-        element => {
-
-            element.classList.add(
-                "reveal"
-            );
-
-        }
-    );
-
-
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-
-        revealElements.forEach(
-            element => {
-
-                observer.observe(
-                    element
+                link.addEventListener(
+                    "click",
+                    closeMenu
                 );
 
-            }
-        );
+            });
 
-    } else {
 
-        revealElements.forEach(
-            element => {
+        window.addEventListener(
+            "resize",
+            () => {
 
-                element.classList.add(
-                    "visible"
-                );
+                if (
+                    window.innerWidth > 720
+                ) {
+
+                    closeMenu();
+
+                }
 
             }
         );
@@ -471,20 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       AÑO
-    ===================================================== */
-
-    if (yearElement) {
-
-        yearElement.textContent =
-            new Date()
-                .getFullYear();
-
-    }
-
-
-    /* =====================================================
-       ESC
+       ESC PARA CERRAR MENÚ
     ===================================================== */
 
     document.addEventListener(
@@ -504,16 +152,404 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
+       RADIO
+    ===================================================== */
+
+    const radioAudio =
+        document.getElementById(
+            "radioAudio"
+        );
+
+    const radioPlay =
+        document.getElementById(
+            "radioPlay"
+        );
+
+    const radioVolume =
+        document.getElementById(
+            "radioVolume"
+        );
+
+    const radioDisc =
+        document.getElementById(
+            "radioDisc"
+        );
+
+    const radioStatus =
+        document.getElementById(
+            "radioStatus"
+        );
+
+    const radioMessage =
+        document.getElementById(
+            "radioMessage"
+        );
+
+
+    const RADIO_STREAM =
+        "https://stream.zeno.fm/amfjjcz4tlgtv";
+
+
+    let radioLoaded = false;
+
+
+    function loadRadio() {
+
+        if (
+            !radioAudio ||
+            radioLoaded
+        ) {
+            return;
+        }
+
+
+        radioAudio.src =
+            RADIO_STREAM;
+
+        radioAudio.preload =
+            "none";
+
+        radioLoaded = true;
+
+    }
+
+
+    function setRadioState(
+        playing
+    ) {
+
+        if (radioPlay) {
+
+            radioPlay.textContent =
+                playing
+                    ? "❚❚"
+                    : "▶";
+
+            radioPlay.setAttribute(
+                "aria-label",
+                playing
+                    ? "Pausar radio"
+                    : "Reproducir radio"
+            );
+
+        }
+
+
+        if (radioDisc) {
+
+            radioDisc.classList.toggle(
+                "playing",
+                playing
+            );
+
+        }
+
+
+        if (radioStatus) {
+
+            radioStatus.textContent =
+                playing
+                    ? "RADIO OCARINA · EN VIVO"
+                    : "RADIO OCARINA · LISTO";
+
+        }
+
+
+        if (radioMessage) {
+
+            radioMessage.textContent =
+                playing
+                    ? "Transmitiendo desde Radio Cadena Oasis."
+                    : "Presioná reproducir para escuchar.";
+
+        }
+
+    }
+
+
+    async function toggleRadio() {
+
+        if (!radioAudio) {
+            return;
+        }
+
+
+        loadRadio();
+
+
+        if (
+            radioAudio.paused
+        ) {
+
+            if (radioMessage) {
+
+                radioMessage.textContent =
+                    "Conectando con la transmisión...";
+
+            }
+
+
+            try {
+
+                await radioAudio.play();
+
+                setRadioState(
+                    true
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Radio:",
+                    error
+                );
+
+
+                if (radioStatus) {
+
+                    radioStatus.textContent =
+                        "RADIO OCARINA · SIN SEÑAL";
+
+                }
+
+
+                if (radioMessage) {
+
+                    radioMessage.textContent =
+                        "No se pudo iniciar la transmisión. Intentá nuevamente.";
+
+                }
+
+
+                if (radioDisc) {
+
+                    radioDisc.classList.remove(
+                        "playing"
+                    );
+
+                }
+
+            }
+
+        } else {
+
+            radioAudio.pause();
+
+            setRadioState(
+                false
+            );
+
+        }
+
+    }
+
+
+    if (radioPlay) {
+
+        radioPlay.addEventListener(
+            "click",
+            toggleRadio
+        );
+
+    }
+
+
+    if (
+        radioVolume &&
+        radioAudio
+    ) {
+
+        radioAudio.volume =
+            Number(
+                radioVolume.value
+            );
+
+
+        radioVolume.addEventListener(
+            "input",
+            () => {
+
+                radioAudio.volume =
+                    Number(
+                        radioVolume.value
+                    );
+
+            }
+        );
+
+    }
+
+
+    if (radioAudio) {
+
+        radioAudio.addEventListener(
+            "play",
+            () => {
+
+                setRadioState(
+                    true
+                );
+
+            }
+        );
+
+
+        radioAudio.addEventListener(
+            "pause",
+            () => {
+
+                setRadioState(
+                    false
+                );
+
+            }
+        );
+
+
+        radioAudio.addEventListener(
+            "error",
+            () => {
+
+                if (radioStatus) {
+
+                    radioStatus.textContent =
+                        "RADIO OCARINA · SIN SEÑAL";
+
+                }
+
+                if (radioMessage) {
+
+                    radioMessage.textContent =
+                        "La transmisión no está disponible en este momento.";
+
+                }
+
+                if (radioDisc) {
+
+                    radioDisc.classList.remove(
+                        "playing"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       LINKS INTERNOS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "start"
+                    });
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       AÑO
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            "[data-current-year]"
+        )
+        .forEach(
+            element => {
+
+                element.textContent =
+                    new Date()
+                        .getFullYear();
+
+            }
+        );
+
+
+    /* =====================================================
+       IMÁGENES
+       Evita que una imagen rota rompa el diseño
+    ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(
+            image => {
+
+                image.addEventListener(
+                    "error",
+                    () => {
+
+                        image.classList.add(
+                            "image-error"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
        INICIO
     ===================================================== */
 
-    updateRadioInterface(
+    setRadioState(
         false
     );
 
 
     console.log(
-        "Ocarina Producciones V7 iniciada correctamente."
+        "Ocarina Producciones V7.1 · OK"
     );
 
 });
