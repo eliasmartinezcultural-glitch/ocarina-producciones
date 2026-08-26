@@ -1,6 +1,6 @@
 /* =====================================================
    OCARINA PRODUCCIONES
-   V4 · UNIVERSO MULTIMEDIA
+   V4 · CINEMATIC MULTIMEDIA
 ===================================================== */
 
 :root {
@@ -14,7 +14,6 @@
     --white: #f4f1e9;
 
     --gray: #77746c;
-    --gray-light: #9d9a92;
 
     --line: rgba(255,255,255,.14);
     --line-dark: rgba(17,17,15,.15);
@@ -34,7 +33,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
 }
 
 
@@ -42,16 +40,19 @@ body {
 
     margin: 0;
 
-    background: var(--cream);
+    background:
+        var(--cream);
 
-    color: var(--black);
+    color:
+        var(--black);
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 
 }
 
@@ -136,7 +137,7 @@ button {
         rgba(17,17,15,.90);
 
     backdrop-filter:
-        blur(16px);
+        blur(14px);
 
 }
 
@@ -171,16 +172,16 @@ button {
 
     align-items: center;
 
-    gap: 21px;
+    gap: 22px;
 
 }
 
 
 .nav-links a {
 
-    font-size: .63rem;
+    font-size: .65rem;
 
-    letter-spacing: .11em;
+    letter-spacing: .12em;
 
     text-transform: uppercase;
 
@@ -229,23 +230,26 @@ button {
    HERO
 ===================================================== */
 
-.ocarina-intro {
+.hero {
 
     position: relative;
 
     min-height: 100vh;
+
     min-height: 100svh;
 
-    background: var(--black);
-
-    color: white;
-
     overflow: hidden;
+
+    background:
+        var(--black);
+
+    color:
+        white;
 
 }
 
 
-.intro-background {
+.hero-background {
 
     position: absolute;
 
@@ -254,8 +258,9 @@ button {
 }
 
 
-.intro-background img {
+.hero-background img {
 
+    width: 100%;
     height: 100%;
 
     object-fit: cover;
@@ -279,7 +284,7 @@ button {
 }
 
 
-.intro-overlay {
+.hero-overlay {
 
     position: absolute;
 
@@ -289,20 +294,21 @@ button {
         linear-gradient(
             180deg,
             rgba(0,0,0,.48),
-            rgba(0,0,0,.20) 40%,
+            rgba(0,0,0,.18) 40%,
             rgba(0,0,0,.82)
         );
 
 }
 
 
-.intro-content {
+.hero-content {
 
     position: relative;
 
     z-index: 2;
 
     min-height: 100vh;
+
     min-height: 100svh;
 
     display: flex;
@@ -318,8 +324,8 @@ button {
 }
 
 
-.intro-top,
-.intro-bottom {
+.hero-top,
+.hero-bottom {
 
     display: flex;
 
@@ -327,75 +333,19 @@ button {
 
     align-items: center;
 
+    gap: 30px;
+
 }
 
 
-.intro-top span,
-.intro-bottom > span {
+.hero-top span,
+.hero-bottom > span {
 
     font-size: .63rem;
 
-    letter-spacing: .16em;
+    letter-spacing: .17em;
 
     text-transform: uppercase;
-
-    color:
-        rgba(255,255,255,.75);
-
-}
-
-
-.intro-center {
-
-    max-width: 850px;
-
-}
-
-
-.intro-mark {
-
-    font-size:
-        clamp(3.8rem, 10vw, 9rem);
-
-    line-height: .8;
-
-    letter-spacing: -.07em;
-
-    font-weight: 700;
-
-}
-
-
-.intro-center h1 {
-
-    margin:
-        22px 0;
-
-    font-size:
-        clamp(1.4rem, 3vw, 2.8rem);
-
-    font-weight: 400;
-
-}
-
-
-.intro-center h1 span {
-
-    display: block;
-
-    font-style: italic;
-
-    color:
-        var(--cream-dark);
-
-}
-
-
-.intro-center p {
-
-    margin: 0;
-
-    font-size: 1.05rem;
 
     color:
         rgba(255,255,255,.72);
@@ -403,31 +353,100 @@ button {
 }
 
 
-.founder-line {
+.hero-center {
 
-    margin-top: 35px;
-
-    font-size: .62rem;
-
-    letter-spacing: .16em;
-
-    color:
-        rgba(255,255,255,.52);
+    max-width: 820px;
 
 }
 
 
-.intro-scroll {
+.hero-kicker {
+
+    margin: 0 0 20px;
+
+    font-size: .7rem;
+
+    letter-spacing: .18em;
+
+}
+
+
+.hero-center h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(4rem, 10vw, 9rem);
+
+    line-height: .82;
+
+    font-weight: 400;
+
+    letter-spacing: -.06em;
+
+}
+
+
+.hero-center h1 span {
+
+    display: block;
+
+    color:
+        var(--cream-dark);
+
+    font-style: italic;
+
+}
+
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin:
+        35px 0 12px;
+
+    font-size:
+        clamp(1rem, 2vw, 1.25rem);
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+
+.founder {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.6);
+
+    font-size: .72rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+.founder strong {
+    color: white;
+}
+
+
+.hero-scroll {
 
     display: flex;
 
-    gap: 15px;
-
     align-items: center;
+
+    gap: 15px;
 
     font-size: .65rem;
 
-    letter-spacing: .14em;
+    letter-spacing: .15em;
 
     text-transform: uppercase;
 
@@ -444,7 +463,8 @@ button {
 
     min-height: 90vh;
 
-    background: var(--black);
+    background:
+        var(--black);
 
     color: white;
 
@@ -481,8 +501,8 @@ button {
         linear-gradient(
             90deg,
             rgba(0,0,0,.84),
-            rgba(0,0,0,.30),
-            rgba(0,0,0,.65)
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.7)
         );
 
 }
@@ -507,12 +527,16 @@ button {
 
 .eyebrow-light {
 
-    font-size: .66rem;
+    margin: 0;
+
+    font-size: .68rem;
 
     letter-spacing: .16em;
 
+    text-transform: uppercase;
+
     color:
-        rgba(255,255,255,.60);
+        rgba(255,255,255,.6);
 
 }
 
@@ -556,11 +580,10 @@ button {
 
     height: 1px;
 
+    margin: 40px 0;
+
     background:
         rgba(255,255,255,.5);
-
-    margin:
-        40px 0;
 
 }
 
@@ -600,19 +623,19 @@ button {
 
 .section-heading {
 
-    max-width: 780px;
+    max-width: 760px;
 
-    margin-bottom:
-        70px;
+    margin-bottom: 70px;
 
 }
 
 
 .eyebrow {
 
-    margin: 0 0 18px;
+    margin:
+        0 0 18px;
 
-    font-size: .66rem;
+    font-size: .68rem;
 
     letter-spacing: .17em;
 
@@ -626,7 +649,8 @@ button {
 
 .section-heading h2 {
 
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
 
     font-size:
         clamp(2.6rem, 6vw, 5.8rem);
@@ -642,7 +666,7 @@ button {
 
 .section-heading p:last-child {
 
-    max-width: 680px;
+    max-width: 650px;
 
     color:
         #6e6b64;
@@ -651,7 +675,7 @@ button {
 
 
 /* =====================================================
-   UNIVERSE
+   UNIVERSO
 ===================================================== */
 
 .universe {
@@ -679,7 +703,7 @@ button {
 
 .universe-card {
 
-    min-height: 300px;
+    min-height: 310px;
 
     padding: 38px;
 
@@ -699,7 +723,8 @@ button {
     background:
         var(--black);
 
-    color: white;
+    color:
+        white;
 
 }
 
@@ -708,9 +733,9 @@ button {
 
     display: block;
 
-    margin-bottom: 55px;
+    margin-bottom: 65px;
 
-    font-size: .65rem;
+    font-size: .68rem;
 
     letter-spacing: .15em;
 
@@ -721,7 +746,8 @@ button {
 
 .universe-card h3 {
 
-    margin: 0 0 12px;
+    margin:
+        0 0 12px;
 
     font-size: 2rem;
 
@@ -734,7 +760,8 @@ button {
 
     max-width: 380px;
 
-    color: #737068;
+    color:
+        #737068;
 
 }
 
@@ -750,7 +777,7 @@ button {
 
     margin-top: 25px;
 
-    font-size: .62rem;
+    font-size: .65rem;
 
     letter-spacing: .15em;
 
@@ -762,7 +789,8 @@ button {
     background:
         var(--black);
 
-    color: white;
+    color:
+        white;
 
 }
 
@@ -898,9 +926,7 @@ button {
 }
 
 
-.tags span,
-.map-categories span,
-.discover-tags span {
+.tags span {
 
     padding:
         7px 11px;
@@ -908,7 +934,7 @@ button {
     border:
         1px solid rgba(0,0,0,.14);
 
-    font-size: .60rem;
+    font-size: .62rem;
 
     letter-spacing: .08em;
 
@@ -918,7 +944,7 @@ button {
 
 
 /* =====================================================
-   PROJECT DARK
+   PROJECTS
 ===================================================== */
 
 .project-section {
@@ -1024,10 +1050,9 @@ button {
     padding:
         0 22px;
 
-    border:
-        1px solid transparent;
+    border: 1px solid transparent;
 
-    font-size: .65rem;
+    font-size: .67rem;
 
     letter-spacing: .13em;
 
@@ -1035,8 +1060,7 @@ button {
 
     transition:
         background var(--transition),
-        color var(--transition),
-        border-color var(--transition);
+        color var(--transition);
 
 }
 
@@ -1132,7 +1156,8 @@ button {
 
 .radio-intro h2 {
 
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
 
     font-size:
         clamp(3rem, 7vw, 7rem);
@@ -1195,7 +1220,7 @@ button {
 
     gap: 10px;
 
-    font-size: .63rem;
+    font-size: .65rem;
 
     letter-spacing: .13em;
 
@@ -1210,24 +1235,36 @@ button {
 
     display: inline-block;
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
 
     border-radius: 50%;
 
     background:
-        #77746c;
+        #777;
 
 }
 
 
-.live-dot.active,
-.mini-live.active {
+.radio-player-card.playing .live-dot,
+.mini-player.playing .mini-live {
 
     background:
         #a34b42;
 
     box-shadow:
-        0 0 0 5px rgba(163,75,66,.10);
+        0 0 0 5px rgba(163,75,66,.12);
+
+    animation:
+        pulse 1.8s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    50% {
+        opacity: .45;
+    }
 
 }
 
@@ -1348,8 +1385,6 @@ button {
     width: 55px;
     height: 55px;
 
-    flex-shrink: 0;
-
     border-radius: 50%;
 
     border:
@@ -1409,130 +1444,101 @@ button {
 
 
 /* =====================================================
-   MAP
+   ARCHIVE
 ===================================================== */
 
-.map-section {
+.archive {
 
     background:
-        #e7e0d3;
+        var(--cream);
 
 }
 
 
-.map-layout {
+.archive-grid {
 
     display: grid;
 
     grid-template-columns:
-        1.4fr 1fr;
+        repeat(4, 1fr);
 
-    min-height: 500px;
+    gap: 1px;
 
     background:
-        #d8d1c4;
+        var(--line-dark);
 
 }
 
 
-.map-frame {
+.archive-card {
 
-    min-height: 500px;
+    min-height: 330px;
 
-}
+    padding: 30px;
 
+    background:
+        var(--cream);
 
-.map-frame iframe {
+    border:
+        1px solid var(--line-dark);
 
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 500px;
-
-    border: 0;
-
-    filter:
-        grayscale(100%);
-}
-
-
-.map-copy {
-
-    padding: 55px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
+    transition:
+        transform var(--transition),
+        background var(--transition);
 
 }
 
 
-.map-number {
+.archive-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        #eee8dc;
+
+}
+
+
+.archive-card > span:first-child {
 
     font-size: .65rem;
 
-    letter-spacing: .15em;
+    letter-spacing: .14em;
 
     opacity: .5;
 
 }
 
 
-.map-copy h3 {
+.archive-card h3 {
 
-    margin:
-        25px 0;
+    margin-top: 70px;
 
-    font-size:
-        clamp(2.5rem, 5vw, 4.5rem);
-
-    line-height: .95;
+    font-size: 1.7rem;
 
     font-weight: 400;
 
 }
 
 
-.map-copy p {
+.archive-card p {
 
     color:
-        #66635c;
+        #706d65;
 
 }
 
 
-.map-categories {
+.archive-status {
 
-    display: flex;
+    display: inline-block;
 
-    flex-wrap: wrap;
+    margin-top: 20px;
 
-    gap: 8px;
+    font-size: .58rem !important;
 
-    margin-top: 25px;
-
-}
-
-
-.map-categories span {
-
-    border-color:
-        rgba(0,0,0,.20);
-
-}
-
-
-.small-note {
-
-    margin-top: 30px;
-
-    font-size: .72rem;
-
-    opacity: .65;
+    letter-spacing: .12em;
 
 }
 
@@ -1612,163 +1618,6 @@ button {
 
 
 /* =====================================================
-   ARCHIVE
-===================================================== */
-
-.archive {
-
-    background:
-        var(--cream);
-
-}
-
-
-.archive-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 1px;
-
-    background:
-        var(--line-dark);
-
-}
-
-
-.archive-card {
-
-    min-height: 330px;
-
-    padding: 30px;
-
-    background:
-        var(--cream);
-
-    border:
-        1px solid var(--line-dark);
-
-    transition:
-        background var(--transition),
-        color var(--transition);
-
-}
-
-
-.archive-card:hover {
-
-    background:
-        var(--black);
-
-    color:
-        white;
-
-}
-
-
-.archive-card > span:first-child {
-
-    font-size: .65rem;
-
-    letter-spacing: .14em;
-
-    opacity: .5;
-
-}
-
-
-.archive-card h3 {
-
-    margin-top: 70px;
-
-    font-size: 1.7rem;
-
-    font-weight: 400;
-
-}
-
-
-.archive-card p {
-
-    color:
-        #706d65;
-
-}
-
-
-.archive-card:hover p {
-
-    color:
-        #aaa69c;
-
-}
-
-
-.archive-link {
-
-    display: inline-block;
-
-    margin-top: 25px;
-
-    font-size: .62rem;
-
-    letter-spacing: .12em;
-
-}
-
-
-.download-zone {
-
-    margin-top: 1px;
-
-    padding: 50px;
-
-    background:
-        #171714;
-
-    color:
-        white;
-
-}
-
-
-.download-label {
-
-    font-size: .62rem;
-
-    letter-spacing: .16em;
-
-    opacity: .55;
-
-}
-
-
-.download-zone h3 {
-
-    margin:
-        18px 0;
-
-    font-size:
-        clamp(2rem, 4vw, 3.5rem);
-
-    font-weight: 400;
-
-}
-
-
-.download-zone p {
-
-    max-width: 600px;
-
-    color:
-        rgba(255,255,255,.65);
-
-}
-
-
-/* =====================================================
    DESCUBRE
 ===================================================== */
 
@@ -1817,8 +1666,8 @@ button {
         linear-gradient(
             90deg,
             rgba(0,0,0,.82),
-            rgba(0,0,0,.30),
-            rgba(0,0,0,.72)
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.7)
         );
 
 }
@@ -1843,7 +1692,8 @@ button {
 
 .discover-content h2 {
 
-    margin: 25px 0;
+    margin:
+        25px 0;
 
     font-size:
         clamp(3rem, 8vw, 8rem);
@@ -1893,20 +1743,24 @@ button {
     border:
         1px solid rgba(255,255,255,.25);
 
-    color:
-        white;
+    padding:
+        9px 13px;
+
+    font-size: .6rem;
+
+    letter-spacing: .12em;
 
 }
 
 
 /* =====================================================
-   USEFUL
+   INFORMATION
 ===================================================== */
 
 .useful {
 
     background:
-        #ece6da;
+        #eee8dc;
 
 }
 
@@ -1928,12 +1782,12 @@ button {
 
 .useful-card {
 
-    min-height: 280px;
+    min-height: 270px;
 
     padding: 30px;
 
     background:
-        #ece6da;
+        #eee8dc;
 
 }
 
@@ -1944,8 +1798,7 @@ button {
 
     letter-spacing: .15em;
 
-    color:
-        #77736a;
+    opacity: .5;
 
 }
 
@@ -1971,49 +1824,73 @@ button {
 
 
 /* =====================================================
-   SERVICES
+   MAP
 ===================================================== */
 
-.services {
+.map-section {
 
     background:
-        #e6dfd2;
+        var(--cream);
 
 }
 
 
-.services-grid {
+.map-placeholder {
+
+    min-height: 430px;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    place-items: center;
 
-    gap: 1px;
+    border:
+        1px solid rgba(0,0,0,.14);
 
     background:
-        var(--line-dark);
+        linear-gradient(
+            135deg,
+            #ded8ca,
+            #eee9df
+        );
 
 }
 
 
-.service-card {
+.map-placeholder-inner {
 
-    min-height: 300px;
+    text-align: center;
 
-    padding: 30px;
-
-    background:
-        #e6dfd2;
+    padding: 40px;
 
 }
 
 
-.service-card > span {
+.map-placeholder-inner span {
+
+    display: block;
+
+    margin-bottom: 15px;
 
     font-size: .65rem;
 
-    letter-spacing: .15em;
+    letter-spacing: .17em;
+
+}
+
+
+.map-placeholder-inner strong {
+
+    display: block;
+
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    font-weight: 400;
+
+}
+
+
+.map-placeholder-inner p {
 
     color:
         #77736a;
@@ -2021,28 +1898,8 @@ button {
 }
 
 
-.service-card h3 {
-
-    margin:
-        70px 0 15px;
-
-    font-size: 1.5rem;
-
-    font-weight: 400;
-
-}
-
-
-.service-card p {
-
-    color:
-        #6e6a62;
-
-}
-
-
 /* =====================================================
-   TRAJECTORY
+   TRAYECTORIA
 ===================================================== */
 
 .trajectory {
@@ -2119,68 +1976,13 @@ button {
 }
 
 
-/* =====================================================
-   IDENTITY
-===================================================== */
+.small-note {
 
-.identity {
+    margin-top: 35px;
 
-    background:
-        #d8d0c1;
+    font-size: .75rem;
 
-}
-
-
-.identity-content {
-
-    max-width: 850px;
-
-}
-
-
-.identity-content h2 {
-
-    margin: 0;
-
-    font-size:
-        clamp(3rem, 7vw, 7rem);
-
-    line-height: .9;
-
-    font-weight: 400;
-
-}
-
-
-.identity-founder {
-
-    margin-top: 30px;
-
-    font-size: 1.2rem;
-
-}
-
-
-.identity-line {
-
-    width: 100px;
-
-    height: 1px;
-
-    margin: 35px 0;
-
-    background:
-        rgba(0,0,0,.35);
-
-}
-
-
-.identity-content > p:last-child {
-
-    max-width: 650px;
-
-    color:
-        #66635c;
+    opacity: .55;
 
 }
 
@@ -2199,7 +2001,8 @@ button {
 
 .contact-content {
 
-    text-align: center;
+    text-align:
+        center;
 
 }
 
@@ -2293,12 +2096,10 @@ button {
 
 .mini-player {
 
-    position:
-        fixed;
+    position: fixed;
 
     left: 20px;
     right: 20px;
-
     bottom: 20px;
 
     z-index: 1200;
@@ -2319,7 +2120,7 @@ button {
     gap: 20px;
 
     background:
-        rgba(18,18,16,.94);
+        rgba(18,18,16,.95);
 
     color:
         white;
@@ -2388,7 +2189,19 @@ button {
     color:
         white;
 
-    cursor: pointer;
+    transition:
+        background var(--transition);
+
+}
+
+
+.mini-player button:hover {
+
+    background:
+        white;
+
+    color:
+        var(--black);
 
 }
 
@@ -2397,16 +2210,8 @@ button {
    MOBILE
 ===================================================== */
 
-@media (max-width: 1100px) {
-
-    .nav-links {
-        gap: 13px;
-    }
-
-}
-
-
 @media (max-width: 900px) {
+
 
     .nav-links {
 
@@ -2424,7 +2229,7 @@ button {
         gap: 0;
 
         background:
-            rgba(17,17,15,.98);
+            rgba(17,17,15,.97);
 
         backdrop-filter:
             blur(15px);
@@ -2477,8 +2282,7 @@ button {
     .project-grid,
     .radio-layout,
     .culture-grid,
-    .trajectory-grid,
-    .map-layout {
+    .trajectory-grid {
 
         grid-template-columns:
             1fr;
@@ -2491,23 +2295,8 @@ button {
     .production-reverse .video-wrapper,
     .production-reverse .production-info {
 
-        order: initial;
-
-    }
-
-
-    .map-frame,
-    .map-frame iframe {
-
-        min-height: 420px;
-
-    }
-
-
-    .map-copy {
-
-        padding:
-            45px;
+        order:
+            initial;
 
     }
 
@@ -2515,6 +2304,7 @@ button {
 
 
 @media (max-width: 600px) {
+
 
     .container {
 
@@ -2535,7 +2325,7 @@ button {
     }
 
 
-    .intro-content {
+    .hero-content {
 
         padding-bottom:
             30px;
@@ -2543,41 +2333,27 @@ button {
     }
 
 
-    .intro-top span,
-    .intro-bottom > span {
+    .hero-top span,
+    .hero-bottom > span {
 
         font-size:
-            .52rem;
+            .55rem;
 
     }
 
 
-    .intro-bottom {
+    .hero-bottom {
 
         align-items:
             flex-end;
 
-        gap:
-            20px;
-
     }
 
 
-    .intro-bottom > span {
+    .hero-bottom > span {
 
         max-width:
-            160px;
-
-    }
-
-
-    .founder-line {
-
-        max-width:
-            300px;
-
-        line-height:
-            1.6;
+            170px;
 
     }
 
@@ -2592,7 +2368,6 @@ button {
 
     .universe-grid,
     .archive-grid,
-    .services-grid,
     .useful-grid {
 
         grid-template-columns:
@@ -2627,36 +2402,8 @@ button {
 
     .radio-disc {
 
-        width:
-            145px;
-
-        height:
-            145px;
-
-    }
-
-
-    .map-copy {
-
-        padding:
-            30px;
-
-    }
-
-
-    .map-frame,
-    .map-frame iframe {
-
-        min-height:
-            350px;
-
-    }
-
-
-    .download-zone {
-
-        padding:
-            30px;
+        width: 145px;
+        height: 145px;
 
     }
 
@@ -2671,14 +2418,17 @@ button {
 
     .mini-player {
 
-        left:
-            10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
 
-        right:
-            10px;
+    }
 
-        bottom:
-            10px;
+
+    .map-placeholder {
+
+        min-height:
+            330px;
 
     }
 
