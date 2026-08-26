@@ -21,12 +21,17 @@
 
     <meta
         name="keywords"
-        content="Ocarina Producciones, producción audiovisual, San Patricio del Chañar, fotografía, documental, video, redes sociales, Neuquén"
+        content="Ocarina Producciones, producción audiovisual, San Patricio del Chañar, fotografía, documental, video, Neuquén"
     >
 
     <meta
         name="author"
         content="Ocarina Producciones"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
     >
 
     <meta
@@ -45,14 +50,40 @@
     >
 
     <meta
+        property="og:locale"
+        content="es_AR"
+    >
+
+    <meta
         name="theme-color"
         content="#11110f"
+    >
+
+    <!-- Rendimiento -->
+    <link
+        rel="preconnect"
+        href="https://images.unsplash.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://www.youtube.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://i.ytimg.com"
     >
 
     <link
         rel="stylesheet"
         href="style.css"
     >
+
+    <script
+        src="script.js"
+        defer
+    ></script>
 
 </head>
 
@@ -61,7 +92,79 @@
 
 
 <!-- =====================================================
-     01 · PORTADA CINEMATOGRÁFICA
+     NAVEGACIÓN
+===================================================== -->
+
+<header class="site-header">
+
+    <nav
+        class="nav container"
+        aria-label="Navegación principal"
+    >
+
+        <a
+            href="#inicio"
+            class="brand"
+            aria-label="Ocarina Producciones - Inicio"
+        >
+            OCARINA
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="mainNavigation"
+        >
+
+            <a href="#producciones">
+                Producciones
+            </a>
+
+            <a href="#radio">
+                Radio
+            </a>
+
+            <a href="#servicios">
+                Servicios
+            </a>
+
+            <a href="#historias">
+                Historias
+            </a>
+
+            <a href="#ocarina">
+                Ocarina
+            </a>
+
+            <a href="#contacto">
+                Contacto
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     01 · PORTADA
 ===================================================== -->
 
 <section
@@ -74,6 +177,7 @@
         <img
             src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85"
             alt="Paisaje natural"
+            fetchpriority="high"
         >
 
         <div class="intro-overlay"></div>
@@ -124,7 +228,6 @@
             <a
                 href="#territorio"
                 class="intro-scroll"
-                aria-label="Explorar Ocarina"
             >
 
                 <span>
@@ -146,7 +249,7 @@
 
 
 <!-- =====================================================
-     02 · DESDE EL TERRITORIO
+     02 · TERRITORIO
 ===================================================== -->
 
 <section
@@ -160,6 +263,7 @@
             src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85"
             alt="Paisaje del territorio"
             loading="lazy"
+            decoding="async"
         >
 
         <div class="territorio-overlay"></div>
@@ -210,7 +314,7 @@
                 CONTINUAR
             </span>
 
-            <span class="territorio-arrow">
+            <span>
                 ↓
             </span>
 
@@ -219,56 +323,6 @@
     </div>
 
 </section>
-
-
-
-<!-- =====================================================
-     NAVEGACIÓN
-===================================================== -->
-
-<header class="site-header">
-
-    <nav class="nav container">
-
-        <a
-            href="#inicio"
-            class="brand"
-        >
-            OCARINA
-        </a>
-
-
-        <div class="nav-links">
-
-            <a href="#producciones">
-                Producciones
-            </a>
-
-            <a href="#radio">
-                Radio
-            </a>
-
-            <a href="#servicios">
-                Servicios
-            </a>
-
-            <a href="#historias">
-                Historias
-            </a>
-
-            <a href="#ocarina">
-                Ocarina
-            </a>
-
-            <a href="#contacto">
-                Contacto
-            </a>
-
-        </div>
-
-    </nav>
-
-</header>
 
 
 
@@ -281,7 +335,7 @@
 
 <section
     class="intro section"
-    id="historias"
+    id="presentacion"
 >
 
     <div class="container intro-grid">
@@ -363,7 +417,7 @@
             <div class="radio-info">
 
                 <span class="radio-label">
-                    UN PROYECTO SONORO
+                    PROYECTO SONORO
                 </span>
 
 
@@ -373,8 +427,8 @@
 
 
                 <p class="radio-description">
-                    Sonido, música y compañía desde el universo
-                    creativo de Ocarina.
+                    Un espacio sonoro integrado al universo creativo
+                    de Ocarina.
                 </p>
 
             </div>
@@ -441,10 +495,10 @@
     </div>
 
 
-
     <audio
         id="radioAudio"
         preload="none"
+        playsinline
     >
 
         <source
@@ -490,19 +544,36 @@
 
 
 
-        <!-- VIDEO 1 -->
+        <!-- PRODUCCIÓN 01 -->
 
         <article class="production">
 
-            <div class="video-wrapper">
+            <div
+                class="video-wrapper video-lazy"
+                data-video-id="ruDP0Ur2wZ0"
+                data-video-title="Resumen 2024 de Ocarina Producciones"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/ruDP0Ur2wZ0"
-                    title="Resumen 2024 de Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <button
+                    class="video-load"
+                    type="button"
+                    aria-label="Reproducir Resumen 2024"
+                >
+
+                    <img
+                        src="https://i.ytimg.com/vi/ruDP0Ur2wZ0/hqdefault.jpg"
+                        alt="Resumen 2024 de Ocarina Producciones"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="video-overlay"></span>
+
+                    <span class="video-play">
+                        ▶
+                    </span>
+
+                </button>
 
             </div>
 
@@ -548,19 +619,36 @@
 
 
 
-        <!-- VIDEO 2 -->
+        <!-- PRODUCCIÓN 02 -->
 
         <article class="production production-reverse">
 
-            <div class="video-wrapper">
+            <div
+                class="video-wrapper video-lazy"
+                data-video-id="G8rbbeZMMVk"
+                data-video-title="Seiichi Matsui - Ocarina Producciones"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/G8rbbeZMMVk"
-                    title="Seiichi Matsui - Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <button
+                    class="video-load"
+                    type="button"
+                    aria-label="Reproducir Seiichi Matsui"
+                >
+
+                    <img
+                        src="https://i.ytimg.com/vi/G8rbbeZMMVk/hqdefault.jpg"
+                        alt="Seiichi Matsui - Ocarina Producciones"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="video-overlay"></span>
+
+                    <span class="video-play">
+                        ▶
+                    </span>
+
+                </button>
 
             </div>
 
@@ -604,19 +692,36 @@
 
 
 
-        <!-- VIDEO 3 -->
+        <!-- PRODUCCIÓN 03 -->
 
         <article class="production">
 
-            <div class="video-wrapper">
+            <div
+                class="video-wrapper video-lazy"
+                data-video-id="xY9ppN2HM-s"
+                data-video-title="50 años Escuela Primaria 273 - Ocarina Producciones"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/xY9ppN2HM-s"
-                    title="50 años Escuela Primaria 273 - Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <button
+                    class="video-load"
+                    type="button"
+                    aria-label="Reproducir 50 años Escuela 273"
+                >
+
+                    <img
+                        src="https://i.ytimg.com/vi/xY9ppN2HM-s/hqdefault.jpg"
+                        alt="50 años Escuela Primaria 273"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="video-overlay"></span>
+
+                    <span class="video-play">
+                        ▶
+                    </span>
+
+                </button>
 
             </div>
 
@@ -661,19 +766,36 @@
 
 
 
-        <!-- VIDEO 4 -->
+        <!-- PRODUCCIÓN 04 -->
 
         <article class="production production-reverse">
 
-            <div class="video-wrapper">
+            <div
+                class="video-wrapper video-lazy"
+                data-video-id="hnZ0HWZPlOw"
+                data-video-title="Cosechas Chañarenses - Ocarina Producciones"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/hnZ0HWZPlOw"
-                    title="Cosechas Chañarenses - Ocarina Producciones"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <button
+                    class="video-load"
+                    type="button"
+                    aria-label="Reproducir Cosechas Chañarenses"
+                >
+
+                    <img
+                        src="https://i.ytimg.com/vi/hnZ0HWZPlOw/hqdefault.jpg"
+                        alt="Cosechas Chañarenses"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <span class="video-overlay"></span>
+
+                    <span class="video-play">
+                        ▶
+                    </span>
+
+                </button>
 
             </div>
 
@@ -840,7 +962,7 @@
 ===================================================== -->
 
 <section
-    id="historias-reales"
+    id="historias"
     class="stories section"
 >
 
@@ -1014,6 +1136,43 @@
 
 
 <!-- =====================================================
+     10 · RADIO FLOATING PLAYER
+===================================================== -->
+
+<div
+    class="floating-radio"
+    id="floatingRadio"
+    aria-hidden="true"
+>
+
+    <div class="floating-radio-info">
+
+        <span class="floating-live">
+            <span class="floating-dot"></span>
+            EN VIVO
+        </span>
+
+        <strong>
+            RADIO ONLINE
+        </strong>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="floating-radio-button"
+        id="floatingRadioButton"
+        aria-label="Pausar radio"
+    >
+        ❚❚
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
      FOOTER
 ===================================================== -->
 
@@ -1051,114 +1210,6 @@
     </div>
 
 </footer>
-
-
-
-<!-- =====================================================
-     RADIO · JAVASCRIPT
-===================================================== -->
-
-<script>
-
-const radioAudio = document.getElementById("radioAudio");
-const radioPlay = document.getElementById("radioPlay");
-const radioWave = document.getElementById("radioWave");
-const radioStatus = document.getElementById("radioStatus");
-
-
-radioPlay.addEventListener("click", function () {
-
-
-    if (radioAudio.paused) {
-
-
-        radioStatus.textContent = "CONECTANDO...";
-
-
-        radioAudio.play()
-
-            .then(() => {
-
-                radioPlay.querySelector(".play-icon").textContent = "❚❚";
-
-                radioPlay.setAttribute("aria-pressed", "true");
-
-                radioWave.classList.add("active");
-
-                radioStatus.textContent = "REPRODUCIENDO EN VIVO";
-
-            })
-
-
-            .catch(() => {
-
-                radioStatus.textContent =
-                    "NO SE PUDO INICIAR EL STREAM";
-
-            });
-
-
-    } else {
-
-
-        radioAudio.pause();
-
-        radioPlay.querySelector(".play-icon").textContent = "▶";
-
-        radioPlay.setAttribute("aria-pressed", "false");
-
-        radioWave.classList.remove("active");
-
-        radioStatus.textContent = "PAUSADO";
-
-    }
-
-});
-
-
-
-radioAudio.addEventListener("waiting", function () {
-
-    radioStatus.textContent = "CONECTANDO...";
-
-});
-
-
-
-radioAudio.addEventListener("playing", function () {
-
-    radioStatus.textContent = "REPRODUCIENDO EN VIVO";
-
-});
-
-
-
-radioAudio.addEventListener("pause", function () {
-
-    if (!radioAudio.ended) {
-
-        radioStatus.textContent = "PAUSADO";
-
-    }
-
-});
-
-
-
-radioAudio.addEventListener("error", function () {
-
-    radioStatus.textContent =
-        "STREAM NO DISPONIBLE";
-
-    radioWave.classList.remove("active");
-
-    radioPlay.querySelector(".play-icon").textContent = "▶";
-
-    radioPlay.setAttribute("aria-pressed", "false");
-
-});
-
-</script>
 
 
 </body>
