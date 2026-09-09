@@ -35,5 +35,6 @@ const service=new URLSearchParams(location.search).get('servicio');
 const map={"Producción audiovisual":"audiovisual","Fotografía":"fotografia","Comunicación":"comunicacion","Historias & memoria":"historias","Territorio & turismo":"territorio","Contenidos digitales":"digital"};
 if(service&&map[service]){const el=document.getElementById(map[service]);el.classList.add('is-selected');setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'center'}),120)}
 </script>
+<script src="../radio-widget.js" defer></script>
 </body>
 </html>
