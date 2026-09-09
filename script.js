@@ -30,6 +30,49 @@ contact.querySelector('.contact-actions')?.insertAdjacentElement('afterend',form
 form.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(form),v=k=>String(data.get(k)||'').trim();const text=[`Hola Ocarina. Soy ${v('name')}.`,``,`Necesito: ${v('service')}.`,`Objetivo: ${v('objective')}.`,v('timing')?`Cuándo: ${v('timing')}.`:null,`Mi contacto: ${v('contact')}.`].filter(Boolean).join('\n');window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`,'_blank','noopener,noreferrer')});
 }
 
+/* Capa funcional + dirección de arte: navegación, lectura y microinteracciones sin depender de librerías externas. */
+const visualStyle=document.createElement('style');
+visualStyle.textContent=`
+:root{--oca-gold:#d6b56b;--oca-blue:#4b9ccf;--oca-ink:#0b1013}
+html{scroll-behavior:auto}
+#ocarina-progress{position:fixed;left:0;top:0;width:0;height:2px;background:linear-gradient(90deg,var(--oca-gold),var(--oca-blue));z-index:10001;box-shadow:0 0 12px rgba(214,181,107,.55);pointer-events:none}
+#ocarina-grain{position:fixed;inset:-60%;z-index:9998;pointer-events:none;opacity:.035;background-image:radial-gradient(rgba(255,255,255,.7) .6px,transparent .7px);background-size:4px 4px;transform:rotate(5deg)}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 78% 28%,rgba(75,156,207,.13),transparent 27%),radial-gradient(circle at 20% 70%,rgba(214,181,107,.09),transparent 30%);pointer-events:none}
+.oca-orbit{position:absolute;width:min(34vw,430px);aspect-ratio:1;border:1px solid rgba(214,181,107,.15);border-radius:50%;right:-8vw;top:12%;pointer-events:none;opacity:.75}
+.oca-orbit:before{content:"";position:absolute;inset:12%;border:1px dashed rgba(75,156,207,.17);border-radius:50%}
+.oca-orbit:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--oca-gold);box-shadow:0 0 18px rgba(214,181,107,.65);left:11%;top:48%}
+.oca-territory-mark{position:absolute;left:28px;bottom:42px;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.38);writing-mode:vertical-rl;pointer-events:none}
+.oca-corner-label{position:fixed;right:22px;bottom:18px;z-index:9997;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.34);pointer-events:none;mix-blend-mode:screen}
+.service-card,.work-card,.universe-card{position:relative;overflow:hidden;transition:transform .4s ease,border-color .4s ease,box-shadow .4s ease}
+.service-card:after,.work-card:after,.universe-card:after{content:"";position:absolute;inset:-35%;background:radial-gradient(circle at var(--card-x,50%) var(--card-y,50%),rgba(214,181,107,.13),transparent 23%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.service-card:hover,.work-card:hover,.universe-card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(0,0,0,.18)}
+.service-card:hover:after,.work-card:hover:after,.universe-card:hover:after{opacity:1}
+.button{transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,border-color .25s ease}.button:hover{transform:translateY(-2px)}
+section[id]{scroll-margin-top:90px;position:relative}
+.oca-section-index{position:absolute;right:clamp(18px,4vw,60px);top:28px;font-size:.5rem;letter-spacing:.22em;color:rgba(255,255,255,.24);pointer-events:none}
+@media(max-width:700px){.oca-orbit{width:270px;right:-130px;top:18%}.oca-territory-mark{left:14px;bottom:20px}.oca-corner-label{display:none}.oca-section-index{top:18px;right:18px}}
+@media(prefers-reduced-motion:reduce){#ocarina-grain{display:none}.service-card,.work-card,.universe-card,.button{transition:none}.service-card:hover,.work-card:hover,.universe-card:hover,.button:hover{transform:none}}
+`;
+document.head.appendChild(visualStyle);
+
+const progress=document.createElement('div');progress.id='ocarina-progress';progress.setAttribute('aria-hidden','true');body.appendChild(progress);
+const updateProgress=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=`${max>0?Math.min(100,window.scrollY/max*100):0}%`};
+updateProgress();window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress,{passive:true});
+
+const grain=document.createElement('div');grain.id='ocarina-grain';grain.setAttribute('aria-hidden','true');body.appendChild(grain);
+const hero=document.querySelector('.hero');
+if(hero){
+ const orbit=document.createElement('div');orbit.className='oca-orbit';orbit.setAttribute('aria-hidden','true');hero.appendChild(orbit);
+ const mark=document.createElement('div');mark.className='oca-territory-mark';mark.textContent='San Patricio del Chañar · Patagonia';mark.setAttribute('aria-hidden','true');hero.appendChild(mark);
+ if(!reduced&&window.matchMedia('(pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--hero-x',`${((e.clientX-r.left)/r.width)*100}%`);hero.style.setProperty('--hero-y',`${((e.clientY-r.top)/r.height)*100}%`);orbit.style.transform=`translate(${((e.clientX-r.left)/r.width-.5)*12}px,${((e.clientY-r.top)/r.height-.5)*12}px)`})}
+}
+const corner=document.createElement('div');corner.className='oca-corner-label';corner.textContent='Historias · personas · territorio';corner.setAttribute('aria-hidden','true');body.appendChild(corner);
+
+document.querySelectorAll('.service-card,.work-card,.universe-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--card-x',`${((e.clientX-r.left)/r.width)*100}%`);card.style.setProperty('--card-y',`${((e.clientY-r.top)/r.height)*100}%`)})});
+
+document.querySelectorAll('section[id]').forEach((section,i)=>{if(section.querySelector(':scope > .oca-section-index'))return;const marker=document.createElement('span');marker.className='oca-section-index';marker.textContent=String(i+1).padStart(2,'0');marker.setAttribute('aria-hidden','true');section.appendChild(marker)});
+
 if(!document.querySelector('script[data-ocarina-schema]')){const schema=document.createElement('script');schema.type='application/ld+json';schema.dataset.ocarinaSchema='true';schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Organization','name':'Ocarina Producciones','url':'https://eliasmartinezcultural-glitch.github.io/ocarina-producciones/','description':'Producción audiovisual, fotografía y comunicación con mirada territorial desde San Patricio del Chañar, Neuquén.','email':'eliasmartinezcultural@gmail.com','telephone':'+54 299 672 8355','areaServed':['San Patricio del Chañar','Neuquén','Patagonia'],'founder':{'@type':'Person','name':'Elías Martínez'}});document.head.appendChild(schema)}
 const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 });
