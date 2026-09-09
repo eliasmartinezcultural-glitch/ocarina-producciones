@@ -1,0 +1,11 @@
+{
+  "name": "Ocarina Producciones",
+  "short_name": "Ocarina",
+  "description": "Historias, personas y territorio.",
+  "lang": "es-AR",
+  "start_url": "/ocarina-producciones/",
+  "scope": "/ocarina-producciones/",
+  "display": "standalone",
+  "background_color": "#0b1013",
+  "theme_color": "#0b1013"
+}
