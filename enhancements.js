@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded',()=>{
 'use strict';
+const style=document.createElement('style');
+style.textContent=`.video-lazy{position:relative;width:100%;height:100%;min-height:220px;padding:0;border:0;background:#0b1013;color:#fff;cursor:pointer;overflow:hidden;display:block}.video-lazy-image{position:absolute;inset:0;background-position:center;background-size:cover;transition:transform .5s,filter .5s;filter:brightness(.7)}.video-lazy:hover .video-lazy-image{transform:scale(1.03);filter:brightness(.82)}.video-lazy-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;font-size:1rem;box-shadow:0 15px 35px rgba(0,0,0,.25)}.video-lazy-label{position:absolute;left:20px;bottom:18px;font-size:.6rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}.nav-links a.current{opacity:1;color:var(--accent)}@media(max-width:640px){.video-lazy{min-height:190px}.video-lazy-play{width:60px;height:60px}}@media(prefers-reduced-motion:reduce){.video-lazy-image{transition:none}}`;
+document.head.appendChild(style);
 
 // Portfolio: evita cargar cuatro iframes de YouTube al mismo tiempo.
 document.querySelectorAll('.work-card .video iframe').forEach((frame)=>{
@@ -25,7 +28,6 @@ document.querySelectorAll('.work-card .video iframe').forEach((frame)=>{
   },{once:true});
 });
 
-// Navegación: marca la sección visible sin alterar el menú móvil.
 const links=[...document.querySelectorAll('.nav-links a[href^="#"]')];
 const targets=links.map(a=>({a,id:a.getAttribute('href').slice(1)})).filter(x=>document.getElementById(x.id));
 if('IntersectionObserver' in window && targets.length){
@@ -40,11 +42,6 @@ if('IntersectionObserver' in window && targets.length){
   targets.forEach(({id})=>observer.observe(document.getElementById(id)));
 }
 
-// Año automático para cualquier elemento preparado.
 document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
-
-// Seguridad y consistencia para enlaces externos.
-document.querySelectorAll('a[target="_blank"]').forEach(a=>{
-  a.rel='noopener noreferrer';
-});
+document.querySelectorAll('a[target="_blank"]').forEach(a=>a.rel='noopener noreferrer');
 });
