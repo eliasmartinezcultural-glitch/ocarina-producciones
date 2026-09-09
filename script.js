@@ -1,72 +1,13 @@
 document.addEventListener('DOMContentLoaded',()=>{
-  'use strict';
-  const body=document.body;
-  const header=document.getElementById('siteHeader');
-  const menu=document.getElementById('menuToggle');
-  const nav=document.getElementById('navLinks');
-  const audio=document.getElementById('radioAudio');
-  const play=document.getElementById('radioPlay');
-  const status=document.getElementById('radioStatus');
-  const message=document.getElementById('radioMessage');
-  const volume=document.getElementById('radioVolume');
-  const stream='https://stream.zeno.fm/amfjjcz4tlgtv';
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const updateHeader=()=>header?.classList.toggle('scrolled',window.scrollY>35);
-  updateHeader();
-  window.addEventListener('scroll',updateHeader,{passive:true});
-
-  const closeMenu=()=>{
-    nav?.classList.remove('active'); menu?.classList.remove('active');
-    menu?.setAttribute('aria-expanded','false'); body.classList.remove('no-scroll');
-  };
-  menu?.addEventListener('click',()=>{
-    const open=nav?.classList.toggle('active');
-    menu.classList.toggle('active',open);
-    menu.setAttribute('aria-expanded',String(!!open));
-    body.classList.toggle('no-scroll',!!open);
-  });
-  nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href'); if(!id||id==='#')return;
-    const target=document.querySelector(id); if(!target)return;
-    e.preventDefault();
-    const top=target.getBoundingClientRect().top+window.scrollY-(header?.offsetHeight||0)-10;
-    window.scrollTo({top:Math.max(0,top),behavior:reduced?'auto':'smooth'});
-  }));
-
-  const reveal=document.querySelectorAll('.statement-grid,.section-head,.service-card,.universe-card,.work-card,.territory-inner,.archive-grid,.radio-grid,.club-grid,.contact-inner');
-  reveal.forEach(el=>el.classList.add('reveal'));
-  if(!reduced&&'IntersectionObserver' in window){
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
-    }),{threshold:.08,rootMargin:'0px 0px -35px 0px'});
-    reveal.forEach(el=>observer.observe(el));
-  }else reveal.forEach(el=>el.classList.add('visible'));
-
-  const setRadio=(state)=>{
-    const states={
-      ready:['OCARINA RADIO · LISTO','Presioná reproducir para escuchar.','▶'],
-      connecting:['OCARINA RADIO · CONECTANDO','Conectando con la transmisión…','■'],
-      playing:['OCARINA RADIO · EN VIVO','Transmisión en directo.','❚❚'],
-      paused:['OCARINA RADIO · PAUSADA','La transmisión está pausada.','▶'],
-      error:['OCARINA RADIO · SIN SEÑAL','No fue posible conectar con la transmisión.','▶']
-    };
-    const s=states[state]||states.ready;
-    if(status)status.textContent=s[0]; if(message)message.textContent=s[1];
-    if(play){play.textContent=s[2];play.setAttribute('aria-label',state==='playing'?'Pausar Ocarina Radio':'Reproducir Ocarina Radio')}
-  };
-  let initialized=false;
-  const initRadio=()=>{if(initialized||!audio)return;audio.src=stream;audio.preload='none';audio.volume=Number(volume?.value)||.8;initialized=true};
-  const start=async()=>{if(!audio)return;initRadio();setRadio('connecting');try{await audio.play()}catch(err){console.warn('Ocarina Radio:',err);setRadio('error')}};
-  play?.addEventListener('click',()=>audio?.paused?start():audio.pause());
-  volume?.addEventListener('input',()=>{if(audio)audio.volume=Number(volume.value)});
-  audio?.addEventListener('playing',()=>setRadio('playing'));
-  audio?.addEventListener('waiting',()=>setRadio('connecting'));
-  audio?.addEventListener('pause',()=>setRadio('paused'));
-  audio?.addEventListener('error',()=>setRadio('error'));
-  setRadio('ready');
-  const year=document.getElementById('year'); if(year)year.textContent=new Date().getFullYear();
+'use strict';
+const body=document.body,header=document.getElementById('siteHeader'),menu=document.getElementById('menuToggle'),nav=document.getElementById('navLinks'),audio=document.getElementById('radioAudio'),play=document.getElementById('radioPlay'),status=document.getElementById('radioStatus'),message=document.getElementById('radioMessage'),volume=document.getElementById('radioVolume');
+const stream='https://stream.zeno.fm/amfjjcz4tlgtv',reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=document.createElement('style');css.textContent='.audiences{background:#fff}.audiences:before,.services:before,.productions:before{content:"";display:block;width:48px;height:2px;background:var(--accent);margin-bottom:24px}.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}.audience-grid article{background:#f7f4ed;min-height:190px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.audience-grid article:hover{background:#fff;transform:translateY(-3px)}.audience-grid b{font-size:.62rem;color:var(--accent);letter-spacing:.14em}.audience-grid h3{margin:20px 0 0;font-size:1.35rem;line-height:1}.audience-grid p{margin:8px 0 0;color:var(--muted);font-size:.9rem;line-height:1.55}.process{position:relative}.process .section-head{margin-bottom:50px}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12)}.process-grid article{min-height:250px;padding:28px;background:var(--dark-2);display:flex;flex-direction:column;justify-content:space-between}.process-grid span{font-size:.65rem;color:var(--accent);letter-spacing:.14em}.process-grid h3{font-size:1.8rem;margin:25px 0 0}.process-grid p{color:rgba(255,255,255,.56);line-height:1.65;margin:8px 0 0}.mid-cta{margin-top:70px;padding:28px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:25px}.mid-cta span{font-size:.8rem;color:var(--muted)}.service-card,.audience-grid article,.process-grid article,.universe-card,.work-card{min-width:0}.work-card{overflow:hidden}.mid-cta .button{white-space:nowrap}@media(max-width:950px){.audience-grid,.process-grid{grid-template-columns:1fr 1fr}.mid-cta{margin-top:55px}}@media(max-width:620px){.audience-grid,.process-grid{grid-template-columns:1fr}.audience-grid article{min-height:170px}.process-grid article{min-height:220px}.mid-cta{align-items:flex-start;flex-direction:column}.mid-cta .button{width:100%;white-space:normal}}';document.head.appendChild(css);
+const updateHeader=()=>header?.classList.toggle('scrolled',window.scrollY>35);updateHeader();window.addEventListener('scroll',updateHeader,{passive:true});
+const closeMenu=()=>{nav?.classList.remove('active');menu?.classList.remove('active');menu?.setAttribute('aria-expanded','false');body.classList.remove('no-scroll')};
+menu?.addEventListener('click',()=>{const open=nav?.classList.toggle('active');menu.classList.toggle('active',open);menu.setAttribute('aria-expanded',String(!!open));body.classList.toggle('no-scroll',!!open)});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href'),target=id&&document.querySelector(id);if(!target)return;e.preventDefault();window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.scrollY-(header?.offsetHeight||0)-10),behavior:reduced?'auto':'smooth'})}));
+const reveal=document.querySelectorAll('.statement-grid,.section-head,.service-card,.audience-grid article,.process-grid article,.universe-card,.work-card,.territory-inner,.archive-grid,.radio-grid,.club-grid,.contact-inner,.mid-cta');reveal.forEach(el=>el.classList.add('reveal'));if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});reveal.forEach(el=>observer.observe(el))}else reveal.forEach(el=>el.classList.add('visible'));
+const setRadio=state=>{const s={ready:['OCARINA RADIO · LISTO','Presioná reproducir para escuchar.','▶'],connecting:['OCARINA RADIO · CONECTANDO','Conectando con la transmisión…','■'],playing:['OCARINA RADIO · EN VIVO','Transmisión en directo.','❚❚'],paused:['OCARINA RADIO · PAUSADA','La transmisión está pausada.','▶'],error:['OCARINA RADIO · SIN SEÑAL','No fue posible conectar con la transmisión.','▶']}[state]||[];if(status)status.textContent=s[0];if(message)message.textContent=s[1];if(play){play.textContent=s[2];play.setAttribute('aria-label',state==='playing'?'Pausar Ocarina Radio':'Reproducir Ocarina Radio')}};
+let initialized=false;const initRadio=()=>{if(initialized||!audio)return;audio.src=stream;audio.preload='none';audio.volume=Number(volume?.value)||.8;initialized=true};const start=async()=>{if(!audio)return;initRadio();setRadio('connecting');try{await audio.play()}catch(err){console.warn('Ocarina Radio:',err);setRadio('error')}};play?.addEventListener('click',()=>audio?.paused?start():audio.pause());volume?.addEventListener('input',()=>{if(audio)audio.volume=Number(volume.value)});audio?.addEventListener('playing',()=>setRadio('playing'));audio?.addEventListener('waiting',()=>setRadio('connecting'));audio?.addEventListener('pause',()=>setRadio('paused'));audio?.addEventListener('error',()=>setRadio('error'));setRadio('ready');const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 });
