@@ -2,27 +2,28 @@ document.addEventListener('DOMContentLoaded',()=>{
 'use strict';
 const manifest=document.createElement('link');manifest.rel='manifest';manifest.href='site.webmanifest';document.head.appendChild(manifest);
 const style=document.createElement('style');
-style.textContent=`.video-lazy{position:relative;width:100%;height:100%;min-height:220px;padding:0;border:0;background:#0b1013;color:#fff;cursor:pointer;overflow:hidden;display:block}.video-lazy-image{position:absolute;inset:0;background-position:center;background-size:cover;transition:transform .5s,filter .5s;filter:brightness(.7)}.video-lazy:hover .video-lazy-image{transform:scale(1.03);filter:brightness(.82)}.video-lazy-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;font-size:1rem;box-shadow:0 15px 35px rgba(0,0,0,.25)}.video-lazy-label{position:absolute;left:20px;bottom:18px;font-size:.6rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}.nav-links a.current{opacity:1;color:var(--accent)}@media(max-width:640px){.video-lazy{min-height:190px}.video-lazy-play{width:60px;height:60px}}@media(prefers-reduced-motion:reduce){.video-lazy-image{transition:none}}`;
+style.textContent=`.video-lazy{position:relative;width:100%;height:100%;min-height:220px;padding:0;border:0;background:#0b1013;color:#fff;cursor:pointer;overflow:hidden;display:block}.video-lazy-image{position:absolute;inset:0;background-position:center;background-size:cover;transition:transform .5s,filter .5s;filter:brightness(.7)}.video-lazy:hover .video-lazy-image{transform:scale(1.03);filter:brightness(.82)}.video-lazy-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;font-size:1rem;box-shadow:0 15px 35px rgba(0,0,0,.25)}.video-lazy-label{position:absolute;left:20px;bottom:18px;font-size:.6rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}.nav-links a.current{opacity:1;color:var(--accent)}.service-card{cursor:pointer}.service-card:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}@media(max-width:640px){.video-lazy{min-height:190px}.video-lazy-play{width:60px;height:60px}}@media(prefers-reduced-motion:reduce){.video-lazy-image{transition:none}}`;
 document.head.appendChild(style);
 
 document.querySelectorAll('.work-card .video iframe').forEach((frame)=>{
-  const src=frame.getAttribute('src');
-  if(!src)return;
-  const id=(src.match(/embed\/([^?]+)/)||[])[1];
-  if(!id)return;
-  const holder=document.createElement('button');
-  holder.type='button';holder.className='video-lazy';
+  const src=frame.getAttribute('src');if(!src)return;
+  const id=(src.match(/embed\/([^?]+)/)||[])[1];if(!id)return;
+  const holder=document.createElement('button');holder.type='button';holder.className='video-lazy';
   holder.setAttribute('aria-label',`Reproducir ${frame.title||'producción audiovisual'}`);
   holder.innerHTML=`<span class="video-lazy-image" style="background-image:url('https://i.ytimg.com/vi/${id}/hqdefault.jpg')"></span><span class="video-lazy-play" aria-hidden="true">▶</span><span class="video-lazy-label">Ver producción</span>`;
   frame.replaceWith(holder);
   holder.addEventListener('click',()=>{
-    const iframe=document.createElement('iframe');
-    iframe.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-    iframe.title=holder.getAttribute('aria-label');iframe.loading='lazy';
-    iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';
-    holder.replaceWith(iframe);
+    const iframe=document.createElement('iframe');iframe.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;iframe.title=holder.getAttribute('aria-label');iframe.loading='lazy';
+    iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';holder.replaceWith(iframe);
   },{once:true});
+});
+
+const whatsapp='https://wa.me/542996728355';
+document.querySelectorAll('.service-card').forEach(card=>{
+ const title=card.querySelector('h3')?.textContent.trim();if(!title)return;
+ card.setAttribute('role','link');card.setAttribute('tabindex','0');card.setAttribute('aria-label',`Consultar por ${title}`);
+ const go=()=>window.open(`${whatsapp}?text=${encodeURIComponent(`Hola Ocarina. Quiero consultar por ${title}.`)}`,'_blank','noopener,noreferrer');
+ card.addEventListener('click',go);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
 });
 
 const links=[...document.querySelectorAll('.nav-links a[href^="#"]')];
