@@ -1,0 +1,18 @@
+:root{--oca-coral:#e56b52;--oca-yellow:#f2c45b;--oca-cyan:#56b7c9;--oca-violet:#7467b7;--oca-green:#718f5a;--oca-sky:#78a9c8}
+body{background-image:radial-gradient(circle at 12% 14%,rgba(242,196,91,.12),transparent 23%),radial-gradient(circle at 88% 48%,rgba(86,183,201,.09),transparent 25%),linear-gradient(115deg,rgba(229,107,82,.025),transparent 38%,rgba(116,103,183,.04));background-attachment:fixed}
+body:after{content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.035;background-image:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 70% 60%,#fff 0 1px,transparent 1.5px);background-size:17px 19px,23px 21px;mix-blend-mode:screen}
+.page:before,.page:after{content:"";position:fixed;pointer-events:none;z-index:0}.page:before{inset:0;background:radial-gradient(circle at 15% 20%,rgba(242,196,91,.12),transparent 25%),radial-gradient(circle at 90% 75%,rgba(86,183,201,.09),transparent 24%)}
+.page>*{position:relative;z-index:1}.mini-nav{background:linear-gradient(90deg,rgba(11,16,19,.96),rgba(26,20,30,.96),rgba(11,16,19,.96));box-shadow:0 12px 45px rgba(0,0,0,.22)}
+.page-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 22%,rgba(86,183,201,.2),transparent 24%),radial-gradient(circle at 20% 80%,rgba(229,107,82,.14),transparent 28%)}
+.page-hero:before{content:"◒  ✦  ◌  ✦  ◒";position:absolute;right:5%;top:18%;font-size:2rem;letter-spacing:.45em;color:rgba(242,196,91,.2);transform:rotate(-10deg)}
+.page-hero:after{content:"〰〰〰〰〰";position:absolute;right:8%;bottom:12%;font-size:2rem;color:rgba(86,183,201,.18);transform:rotate(-7deg)}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));box-shadow:0 18px 55px rgba(0,0,0,.18);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}.card:before{content:"";position:absolute;width:100px;height:100px;right:-30px;top:-30px;border-radius:50%;border:1px solid rgba(242,196,91,.28);box-shadow:0 0 0 14px rgba(86,183,201,.03),0 0 0 30px rgba(229,107,82,.025);pointer-events:none}.card:nth-child(3n+2):before{border-radius:12px;transform:rotate(28deg);border-color:rgba(86,183,201,.28)}.card:hover{transform:translateY(-7px);border-color:rgba(242,196,91,.28);box-shadow:0 28px 75px rgba(0,0,0,.28)}
+.editorial{background:radial-gradient(circle at 82% 30%,rgba(116,103,183,.1),transparent 24%)}
+.real{position:relative}.real:after{content:"✦";position:absolute;right:3%;top:15%;font-size:5rem;color:rgba(229,107,82,.12);transform:rotate(18deg)}
+.footer-nav{position:relative}.footer-nav:before{content:"SAN PATRICIO DEL CHAÑAR · PATAGONIA";position:absolute;right:0;top:-22px;font-size:.5rem;letter-spacing:.25em;color:rgba(255,255,255,.22)}
+/* Reflejos de cristal */
+.page .button{box-shadow:0 10px 30px rgba(0,0,0,.14);position:relative;overflow:hidden}.page .button:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.22) 48%,transparent 60%);transform:translateX(-120%);transition:transform .7s ease}.page .button:hover:after{transform:translateX(120%)}
+/* Dibujo territorial compartido */
+.page main:after{content:"N 39° 13' · O 68° 49'   ─────   ◌   ─────   ✦";display:block;text-align:center;padding:34px 20px;color:rgba(255,255,255,.16);font-size:.52rem;letter-spacing:.2em}
+@media(max-width:700px){.page-hero:before{font-size:1.2rem;right:3%;top:13%}.page-hero:after{font-size:1.2rem}.page main:after{letter-spacing:.08em}.footer-nav:before{position:static;display:block;margin-bottom:20px}}
+@media(prefers-reduced-motion:reduce){.card,.page .button{transition:none}.page .button:after{display:none}}
