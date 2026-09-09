@@ -3,10 +3,15 @@
   if (window.__ocarinaRadioWidget) return;
   window.__ocarinaRadioWidget = true;
 
+  const base = (document.currentScript?.src || '').replace(/radio-widget\.js(?:\?.*)?$/, '');
   const visual = document.createElement('link');
   visual.rel = 'stylesheet';
-  visual.href = (document.currentScript?.src || '').replace(/radio-widget\.js(?:\?.*)?$/, 'visual.css');
+  visual.href = base + 'visual.css';
   document.head.appendChild(visual);
+  const pageVisual = document.createElement('link');
+  pageVisual.rel = 'stylesheet';
+  pageVisual.href = base + 'visual-pages.css';
+  document.head.appendChild(pageVisual);
 
   const STREAM = 'https://stream.zeno.fm/amfjjcz4tlgtv';
   const root = document.createElement('div');
