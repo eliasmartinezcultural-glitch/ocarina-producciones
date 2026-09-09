@@ -34,7 +34,6 @@
 
   const audio = document.createElement('audio');
   audio.preload = 'none';
-  audio.crossOrigin = 'anonymous';
   audio.volume = .8;
   document.body.appendChild(audio);
 
@@ -82,6 +81,4 @@
   audio.addEventListener('waiting', () => setStatus('Recibiendo transmisión…'));
   audio.addEventListener('pause', () => { if (!audio.ended) setPlaying(false); });
   audio.addEventListener('error', () => { stopTimer(); setPlaying(false); setStatus('Transmisión no disponible ahora.'); });
-
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.style.scrollBehavior = 'auto';
 })();
