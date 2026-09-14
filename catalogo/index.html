@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Catálogo digital con pedidos por WhatsApp.">
+<title>Sabores del Chañar | Catálogo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">S</span><div><strong>Sabores del Chañar</strong><small>Catálogo digital</small></div></div>
+  <a class="wa-mini" href="#pedido">Mi pedido <span id="count">0</span></a>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">SAN PATRICIO DEL CHAÑAR · NEUQUÉN</span>
+    <h1>Elegí.<br><em>Pedí.</em><br>Disfrutá.</h1>
+    <p>Productos seleccionados, precios claros y pedido directo por WhatsApp.</p>
+    <a class="hero-cta" href="#catalogo">Ver catálogo ↓</a>
+  </div>
+</section>
+<section class="toolbar" aria-label="Buscar productos">
+  <input id="search" type="search" placeholder="Buscar producto..." autocomplete="off">
+  <div class="filters" id="filters"></div>
+</section>
+<section class="catalog" id="catalogo">
+  <div class="section-title"><span>CATÁLOGO</span><h2>Elegí tus productos</h2></div>
+  <div class="products" id="products"></div>
+</section>
+<section class="order" id="pedido">
+  <div class="order-head"><div><span>PEDIDO</span><h2>Tu selección</h2></div><button id="clear" class="clear" type="button">Vaciar</button></div>
+  <div id="cart" class="cart"><p class="empty">Todavía no agregaste productos.</p></div>
+  <div class="order-total"><span>Total estimado</span><strong id="total">$0</strong></div>
+  <button id="send" class="send" type="button" disabled>Enviar pedido por WhatsApp →</button>
+  <small class="note">El pedido se confirma directamente con el comercio. Los precios pueden actualizarse.</small>
+</section>
+<section class="info">
+  <div><span>HORARIOS</span><strong>Lun a sáb · 09:00–21:00</strong></div>
+  <div><span>UBICACIÓN</span><strong>San Patricio del Chañar</strong></div>
+  <div><span>CONTACTO</span><strong>WhatsApp directo</strong></div>
+</section>
+</main>
+<footer>Catálogo digital · Ocarina Producciones</footer>
+<script src="app.js"></script>
+</body>
+</html>
